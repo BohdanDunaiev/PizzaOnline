@@ -1,0 +1,77 @@
+01.03.2020 23:20:33	This log contains information about the import schema operation into project 'PizzaOnline.DATABASE' on computer 'KING' by user 'King'.
+01.03.2020 23:20:33	Import of database schema has started.
+01.03.2020 23:21:04	Gathering database options
+01.03.2020 23:21:04	Gathering users
+01.03.2020 23:21:04	Gathering roles
+01.03.2020 23:21:04	Gathering application roles
+01.03.2020 23:21:04	Gathering role memberships
+01.03.2020 23:21:04	Gathering filegroups
+01.03.2020 23:21:04	Gathering full-text catalogs
+01.03.2020 23:21:04	Gathering assemblies
+01.03.2020 23:21:04	Gathering certificates
+01.03.2020 23:21:04	Gathering asymmetric keys
+01.03.2020 23:21:04	Gathering symmetric keys
+01.03.2020 23:21:04	Gathering encrypted symmetric keys
+01.03.2020 23:21:04	Gathering schemas
+01.03.2020 23:21:05	Gathering XML schema collections
+01.03.2020 23:21:05	Gathering user-defined data types
+01.03.2020 23:21:05	Gathering user-defined types
+01.03.2020 23:21:05	Gathering table types
+01.03.2020 23:21:05	Gathering unique keys for table types
+01.03.2020 23:21:05	Gathering primary keys for table types
+01.03.2020 23:21:05	Gathering indexes for table types
+01.03.2020 23:21:05	Gathering check constraints for table types
+01.03.2020 23:21:05	Gathering default constraints for table types
+01.03.2020 23:21:05	Gathering partition functions
+01.03.2020 23:21:05	Gathering partition schemes
+01.03.2020 23:21:05	Gathering functions
+01.03.2020 23:21:05	Gathering encrypted functions
+01.03.2020 23:21:05	Gathering aggregates
+01.03.2020 23:21:05	Gathering procedures
+01.03.2020 23:21:06	Gathering encrypted procedures
+01.03.2020 23:21:06	Gathering tables
+01.03.2020 23:21:06	Gathering primary keys
+01.03.2020 23:21:06	Gathering unique constraints
+01.03.2020 23:21:06	Gathering foreign keys
+01.03.2020 23:21:06	Gathering default constraints
+01.03.2020 23:21:06	Gathering check constraints
+01.03.2020 23:21:06	Gathering views
+01.03.2020 23:21:06	Gathering encrypted views
+01.03.2020 23:21:06	Gathering indexes
+01.03.2020 23:21:06	Gathering statistics
+01.03.2020 23:21:06	Gathering full-text index stoplists
+01.03.2020 23:21:06	Gathering search property lists
+01.03.2020 23:21:06	Gathering search properties
+01.03.2020 23:21:06	Gathering full-text indexes
+01.03.2020 23:21:06	Gathering column store indexes
+01.03.2020 23:21:06	Gathering spatial indexes
+01.03.2020 23:21:07	Gathering XML indexes
+01.03.2020 23:21:07	Gathering Selective XML indexes
+01.03.2020 23:21:07	Gathering encrypted triggers
+01.03.2020 23:21:07	Gathering triggers
+01.03.2020 23:21:07	Gathering encrypted and clr ddl triggers
+01.03.2020 23:21:07	Gathering ddl triggers
+01.03.2020 23:21:07	Gathering synonyms
+01.03.2020 23:21:07	Gathering defaults
+01.03.2020 23:21:07	Gathering data constraint uddt bindings
+01.03.2020 23:21:07	Gathering rules
+01.03.2020 23:21:07	Gathering data constraint uddt bindings
+01.03.2020 23:21:07	Gathering message types
+01.03.2020 23:21:07	Gathering queues
+01.03.2020 23:21:07	Gathering contracts
+01.03.2020 23:21:07	Gathering services
+01.03.2020 23:21:07	Gathering event notifications
+01.03.2020 23:21:07	Gathering remote service bindings
+01.03.2020 23:21:07	Gathering broker priorities
+01.03.2020 23:21:07	Gathering signatures
+01.03.2020 23:21:07	Gathering data compression options
+01.03.2020 23:21:07	Gathering sequence types
+01.03.2020 23:21:07	Gathering extended properties
+01.03.2020 23:21:08	Gathering credentials
+01.03.2020 23:21:08	Gathering logins
+01.03.2020 23:21:08	Gathering server audits
+01.03.2020 23:21:11	Scanning project for duplicate elements
+01.03.2020 23:21:11	Finished duplicate element processing
+01.03.2020 23:21:12	Finished importing database.
+01.03.2020 23:21:12	A summary of the import was saved to the following location: C:\Users\Василь\Desktop\OnlineSTO-develop\STOnline.DATABASE\Import Schema Logs\PizzaOnline.DATABASE_20200301092033.log
+01.03.2020 23:21:12	Click Finish to continue...

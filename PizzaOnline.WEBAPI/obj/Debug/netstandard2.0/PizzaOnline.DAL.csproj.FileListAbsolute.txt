@@ -1,0 +1,24 @@
+C:\Users\Василь\Desktop\OnlineSTO-develop\STOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.csprojAssemblyReference.cache
+C:\Users\Василь\Desktop\OnlineSTO-develop\STOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.AssemblyInfoInputs.cache
+C:\Users\Василь\Desktop\OnlineSTO-develop\STOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.AssemblyInfo.cs
+C:\Users\Василь\Desktop\OnlineSTO-develop\STOnline.WEBAPI\bin\Debug\netstandard2.0\PizzaOnline.DAL.deps.json
+C:\Users\Василь\Desktop\OnlineSTO-develop\STOnline.WEBAPI\bin\Debug\netstandard2.0\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\OnlineSTO-develop\STOnline.WEBAPI\bin\Debug\netstandard2.0\PizzaOnline.DAL.pdb
+C:\Users\Василь\Desktop\OnlineSTO-develop\STOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\OnlineSTO-develop\STOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.pdb
+C:\Users\Василь\Desktop\PizzaOnline\STOnline.WEBAPI\bin\Debug\netstandard2.0\PizzaOnline.DAL.deps.json
+C:\Users\Василь\Desktop\PizzaOnline\STOnline.WEBAPI\bin\Debug\netstandard2.0\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\PizzaOnline\STOnline.WEBAPI\bin\Debug\netstandard2.0\PizzaOnline.DAL.pdb
+C:\Users\Василь\Desktop\PizzaOnline\STOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.csprojAssemblyReference.cache
+C:\Users\Василь\Desktop\PizzaOnline\STOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.AssemblyInfoInputs.cache
+C:\Users\Василь\Desktop\PizzaOnline\STOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.AssemblyInfo.cs
+C:\Users\Василь\Desktop\PizzaOnline\STOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\PizzaOnline\STOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.pdb
+C:\Users\Василь\Desktop\PizzaOnline – копія\PizzaOnline.WEBAPI\bin\Debug\netstandard2.0\PizzaOnline.DAL.deps.json
+C:\Users\Василь\Desktop\PizzaOnline – копія\PizzaOnline.WEBAPI\bin\Debug\netstandard2.0\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\PizzaOnline – копія\PizzaOnline.WEBAPI\bin\Debug\netstandard2.0\PizzaOnline.DAL.pdb
+C:\Users\Василь\Desktop\PizzaOnline – копія\PizzaOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.csprojAssemblyReference.cache
+C:\Users\Василь\Desktop\PizzaOnline – копія\PizzaOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.AssemblyInfoInputs.cache
+C:\Users\Василь\Desktop\PizzaOnline – копія\PizzaOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.AssemblyInfo.cs
+C:\Users\Василь\Desktop\PizzaOnline – копія\PizzaOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\PizzaOnline – копія\PizzaOnline.WEBAPI\obj\Debug\netstandard2.0\PizzaOnline.DAL.pdb

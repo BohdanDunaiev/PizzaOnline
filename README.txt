@@ -1,0 +1,1 @@
+Its simple WEB API for PizzaOnline. For create database you need open PizzaOnline.sql and execute this sql)
