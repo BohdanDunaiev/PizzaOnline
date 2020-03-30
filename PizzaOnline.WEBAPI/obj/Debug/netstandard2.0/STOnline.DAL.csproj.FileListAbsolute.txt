@@ -1,8 +1,0 @@
-F:\Desktop\STOnline\STOnline\STOnline.WEBAPI\bin\Debug\netstandard2.0\STOnline.DAL.deps.json
-F:\Desktop\STOnline\STOnline\STOnline.WEBAPI\bin\Debug\netstandard2.0\STOnline.DAL.dll
-F:\Desktop\STOnline\STOnline\STOnline.WEBAPI\obj\Debug\netstandard2.0\STOnline.DAL.AssemblyInfoInputs.cache
-F:\Desktop\STOnline\STOnline\STOnline.WEBAPI\obj\Debug\netstandard2.0\STOnline.DAL.AssemblyInfo.cs
-F:\Desktop\STOnline\STOnline\STOnline.WEBAPI\obj\Debug\netstandard2.0\STOnline.DAL.csprojAssemblyReference.cache
-F:\Desktop\STOnline\STOnline\STOnline.WEBAPI\bin\Debug\netstandard2.0\STOnline.DAL.pdb
-F:\Desktop\STOnline\STOnline\STOnline.WEBAPI\obj\Debug\netstandard2.0\STOnline.DAL.dll
-F:\Desktop\STOnline\STOnline\STOnline.WEBAPI\obj\Debug\netstandard2.0\STOnline.DAL.pdb
