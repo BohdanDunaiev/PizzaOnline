@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PizzaOnline2.Models;
+using PizzaOnline2.Entities;
 
 namespace PizzaOnline2.Controllers
 {
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private PizzaOnlineContext db = new PizzaOnlineContext();
+        private AplicationContext db = new AplicationContext();
         [Route("api/[controller]")]
         [HttpGet]
         public IEnumerable<Order> GetAllOrder()
@@ -28,10 +27,10 @@ namespace PizzaOnline2.Controllers
                         select new Order()
                         {
                             Id = b.Id,
-                            customerId = b.customerId,
-                            pizzaId = b.pizzaId,
-                            pizzeriaId = b.pizzeriaId,
-                            deliveryId = b.deliveryId
+                            CustomerId = b.CustomerId,
+                            PizzaId = b.PizzaId,
+                            PizzeriaId = b.PizzeriaId,
+                            DeliveryId = b.DeliveryId
                         };
             if (order == null)
             {

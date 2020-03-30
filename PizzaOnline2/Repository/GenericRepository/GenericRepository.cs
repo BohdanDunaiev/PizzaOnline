@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
@@ -10,9 +9,9 @@ namespace PizzaOnline2.Repository.GenericRepository
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        protected readonly PizzaOnlineContext _context;
+        protected readonly AplicationContext _context;
         private Microsoft.EntityFrameworkCore.DbSet<TEntity> _dbSet;
-        public GenericRepository(PizzaOnlineContext context)
+        public GenericRepository(AplicationContext context)
         {
             _context = context;
             _dbSet = context.Set<TEntity>();
