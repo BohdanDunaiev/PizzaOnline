@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzaOnline2;
 
 namespace PizzaOnline2.Migrations
 {
     [DbContext(typeof(AplicationContext))]
-    partial class AplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20200401135137_Delivery")]
+    partial class Delivery
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -57,35 +59,6 @@ namespace PizzaOnline2.Migrations
                     b.ToTable("Deliveries");
                 });
 
-            modelBuilder.Entity("PizzaOnline2.Entities.Ingredients", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Cheese")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PizzaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Sausege")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Sous")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Tomate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PizzaId");
-
-                    b.ToTable("Ingredients");
-                });
-
             modelBuilder.Entity("PizzaOnline2.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -111,59 +84,7 @@ namespace PizzaOnline2.Migrations
 
                     b.HasIndex("DeliveryId");
 
-                    b.HasIndex("PizzaId");
-
-                    b.HasIndex("PizzeriaId");
-
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("PizzaOnline2.Entities.Pizza", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("NamePizza")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Size")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pizza");
-                });
-
-            modelBuilder.Entity("PizzaOnline2.Entities.Pizzeria", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NamePizzeria")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pizzeria");
-                });
-
-            modelBuilder.Entity("PizzaOnline2.Entities.Ingredients", b =>
-                {
-                    b.HasOne("PizzaOnline2.Entities.Pizza", "PizzaIngreedients")
-                        .WithMany("Ingredients")
-                        .HasForeignKey("PizzaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("PizzaOnline2.Entities.Order", b =>
@@ -177,18 +98,6 @@ namespace PizzaOnline2.Migrations
                     b.HasOne("PizzaOnline2.Entities.Delivery", "Delivery")
                         .WithMany("Orders")
                         .HasForeignKey("DeliveryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PizzaOnline2.Entities.Pizza", "Pizza")
-                        .WithMany("Orders")
-                        .HasForeignKey("PizzaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PizzaOnline2.Entities.Pizzeria", "Pizzeria")
-                        .WithMany("Orders")
-                        .HasForeignKey("PizzeriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

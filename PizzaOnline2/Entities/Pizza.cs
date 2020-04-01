@@ -8,7 +8,10 @@ namespace PizzaOnline2.Entities
     public class Pizza
     {
         public int Id { get; set; }
-        public int size { get; set; }
-        public int price { get; set; }
+        public string NamePizza { get ; set; }  
+        public int Size { get; set; }
+        public int Price { get; set; }
+        public ICollection<Order> Orders { get; set; }
+        public ICollection<Ingredients> Ingredients { get; set; }
     }
 }

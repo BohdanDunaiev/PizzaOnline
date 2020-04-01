@@ -8,10 +8,11 @@ namespace PizzaOnline2.Entities
     public class Ingredients
     {
         public int Id { get; set; }
-        public int pizzaId { get; set; }
-        public string cheese { get; set; }
-        public string tomate { get; set; }
-        public string sausege { get; set; }
-        public string sous { get; set; }
+        public int PizzaId { get; set; }
+        public string Cheese { get; set; }
+        public string Tomate { get; set; }
+        public string Sausege { get; set; }
+        public string Sous { get; set; }
+        public Pizza PizzaIngreedients { get; set; }
     }
 }

@@ -8,41 +8,40 @@ namespace PizzaOnline2
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
-        //public DbSet<Ingredients> Ingredients { get; set; }
-        //public DbSet<Pizza> Pizza { get; set; }
-        //public DbSet<Pizzeria> Pizzeria { get; set; }
-        //app conntext
-        //public AplicationContext(DbContextOptions<AplicationContext> options) : base(options)
-        //{ }
+        public DbSet<Ingredients> Ingredients { get; set; }
+        public DbSet<Pizza> Pizza { get; set; }
+        public DbSet<Pizzeria> Pizzeria { get; set; }  
         public AplicationContext()
         {
             Database.EnsureCreated();
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PizzaOnline;Trusted_Connection=True;");
+            optionsBuilder.UseSqlServer("Server=KING;Database=PizzaOnline;Trusted_Connection=True;");
+            //Server = (localdb)\\mssqllocaldb
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Product>()
-            //    .HasOne(p => p.ProductType)
-            //    .WithMany(t => t.Products)
-            //    .HasForeignKey(p => p.ProductTypeId);
-
-            //modelBuilder.Entity<Order>()
-            //    .HasOne(p => p.Product)
-            //    .WithMany(t => t.Orders)
-            //    .HasForeignKey(p => p.ProductId);
-
             modelBuilder.Entity<Order>()
                 .HasOne(p => p.Customer)
                 .WithMany(t => t.Orders)
-                .HasForeignKey(p => p.CustomerId);
-
+                .HasForeignKey(k => k.CustomerId);
+            
             modelBuilder.Entity<Order>()
                .HasOne(p => p.Delivery)
-               .WithMany(t => t.Orders)
-               .HasForeignKey(p => p.DeliveryId);
+               .WithMany(t => t.Orders);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(p => p.Pizza)
+                .WithMany(t => t.Orders);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(p => p.Pizzeria)
+                .WithMany(t => t.Orders);
+
+            modelBuilder.Entity<Ingredients>()
+                .HasOne(p => p.PizzaIngreedients)
+                .WithMany(t => t.Ingredients);
         }
     }
 }
