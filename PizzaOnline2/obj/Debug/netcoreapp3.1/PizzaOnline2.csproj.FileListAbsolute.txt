@@ -295,3 +295,7 @@ C:\Users\Василь\Desktop\PizzaOnline_2.0\PizzaOnline2\obj\Debug\netcoreapp3
 C:\Users\Василь\Desktop\PizzaOnline_2.0\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.dll
 C:\Users\Василь\Desktop\PizzaOnline_2.0\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.pdb
 C:\Users\Василь\Desktop\PizzaOnline_2.0\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Василь\Desktop\PizzaOnline_2.0\PizzaOnline2\bin\Debug\netcoreapp3.1\PizzaOnline2.DAL.exe
+C:\Users\Василь\Desktop\PizzaOnline_2.0\PizzaOnline2\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\Василь\Desktop\PizzaOnline_2.0\PizzaOnline2\bin\Debug\netcoreapp3.1\PizzaOnline2.DAL.dll
+C:\Users\Василь\Desktop\PizzaOnline_2.0\PizzaOnline2\bin\Debug\netcoreapp3.1\PizzaOnline2.DAL.pdb
