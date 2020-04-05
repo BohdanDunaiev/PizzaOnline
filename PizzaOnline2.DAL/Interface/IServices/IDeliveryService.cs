@@ -2,15 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PizzaOnline2.DAL.Interface.IServices
 {
     public interface IDeliveryService
     {
-        IEnumerable<Delivery> GetAllDelivery();
-        Delivery GetByIdDelivery(int id);
-        void InsertDelivery(Delivery obj);
-        void UpdateDelivery(Delivery obj);
-        void DeleteDelivery(Delivery id);
+        Task<IEnumerable<Delivery>> GetAllDelivery();
+        Task<Delivery> GetByIdDelivery(int id);
+        Task<Delivery> InsertDelivery(Delivery obj);
+        Task<Delivery> UpdateDelivery(Delivery obj, object key);
+        Task<int> DeleteDelivery(Delivery id);
     }
 }

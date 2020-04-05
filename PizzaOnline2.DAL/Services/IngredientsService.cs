@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using PizzaOnline2.DAL.Entities;
 using PizzaOnline2.DAL.Interface;
 using PizzaOnline2.DAL.Interface.IServices;
@@ -14,25 +15,25 @@ namespace PizzaOnline2.DAL.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public IEnumerable<Ingredients> GetAllIngredients()
+        public async Task<IEnumerable<Ingredients>> GetAllIngredients()
         {
-            return _unitOfWork.IngredientsRepository.GetAll();
+            return await _unitOfWork.IngredientsRepository.GetAllAsyn();
         }
-        public Ingredients GetByIdIngredient(int id)
+        public async Task<Ingredients> GetByIdIngredient(int id)
         {
-            return _unitOfWork.IngredientsRepository.GetById(id);
+            return await _unitOfWork.IngredientsRepository.GetByIdAsyn(id);
         }
-        public void InsertIngredient(Ingredients ingredients)
+        public async Task<Ingredients> InsertIngredient(Ingredients customer)
         {
-            _unitOfWork.IngredientsRepository.Insert(ingredients);
+            return await _unitOfWork.IngredientsRepository.InsertAsyn(customer);
         }
-        public void UpdateIngredient(Ingredients ingredients)
+        public async Task<Ingredients> UpdateIngredient(Ingredients customer, object key)
         {
-            _unitOfWork.IngredientsRepository.Update(ingredients);
+            return await _unitOfWork.IngredientsRepository.UpdateAsyn(customer, key);
         }
-        public void DeleteIngredient(Ingredients ingredients)
+        public async Task<int> DeleteIngredient(Ingredients id)
         {
-            _unitOfWork.IngredientsRepository.Delete(ingredients);
-        }
+            return await _unitOfWork.IngredientsRepository.DeleteAsyn(id);
+        } 
     }
 }

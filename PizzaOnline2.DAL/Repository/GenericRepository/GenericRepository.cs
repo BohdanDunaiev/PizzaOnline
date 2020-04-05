@@ -16,29 +16,37 @@ namespace PizzaOnline2.DAL.Repository.GenericRepository
             _context = context;
             _dbSet = context.Set<TEntity>();
         }
-        public IEnumerable<TEntity> GetAll()
+        public async Task<IEnumerable<TEntity>> GetAllAsyn()
         {
-            return _dbSet.AsEnumerable();
+            return await _context.Set<TEntity>().ToListAsync();
         }
-        public TEntity GetById(int id)
+        public async Task<TEntity> GetByIdAsyn(int id)
         {
-            return _dbSet.Find(id);
+            return await _context.Set<TEntity>().FindAsync(id);
         }
-        public void Insert(TEntity obj)
+        public  async Task<TEntity> InsertAsyn(TEntity obj)
         {
-            if (obj == null) throw new ArgumentNullException("entity");
-            _dbSet.Add(obj);
-            _context.SaveChanges();
+            _context.Set<TEntity>().Add(obj);
+            await _context.SaveChangesAsync();
+            return obj;
         }
-        public void Update(TEntity obj)
+        public async Task<TEntity> UpdateAsyn(TEntity obj, object key)
         {
-            _context.Entry(obj).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            _context.SaveChanges();
+            if (obj == null)
+                return null;
+            TEntity exist = _context.Set<TEntity>().Find(key);
+            if (exist != null)
+            {
+                _context.Entry(exist).CurrentValues.SetValues(obj);
+                await _context.SaveChangesAsync();
+            }
+            return exist;
+            
         }
-        public void Delete(TEntity obj)
-        {           
-            _dbSet.Remove(obj);
-            _context.SaveChanges();
+        public async Task<int> DeleteAsyn(TEntity obj)
+        {
+            _context.Set<TEntity>().Remove(obj);
+            return await _context.SaveChangesAsync();
         }
     }
 }

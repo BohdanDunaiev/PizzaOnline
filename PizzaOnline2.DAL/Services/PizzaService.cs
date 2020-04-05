@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using PizzaOnline2.DAL.Entities;
 using PizzaOnline2.DAL.Interface;
 using PizzaOnline2.DAL.Interface.IServices;
@@ -14,25 +15,25 @@ namespace PizzaOnline2.DAL.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public IEnumerable<Pizza> GetAllPizza()
+        public async Task<IEnumerable<Pizza>> GetAllPizza()
         {
-            return _unitOfWork.PizzaRepository.GetAll();
+            return await _unitOfWork.PizzaRepository.GetAllAsyn();
         }
-        public Pizza GetByIdPizza(int id)
+        public async Task<Pizza> GetByIdPizza(int id)
         {
-            return _unitOfWork.PizzaRepository.GetById(id);
+            return await _unitOfWork.PizzaRepository.GetByIdAsyn(id);
         }
-        public void InsertPizza(Pizza pizza)
+        public async Task<Pizza> InsertPizza(Pizza pizza)
         {
-            _unitOfWork.PizzaRepository.Insert(pizza);
+            return await _unitOfWork.PizzaRepository.InsertAsyn(pizza);
         }
-        public void UpdatePizza(Pizza pizza)
+        public async Task<Pizza> UpdatePizza(Pizza pizza, object key)
         {
-            _unitOfWork.PizzaRepository.Update(pizza);
+            return await _unitOfWork.PizzaRepository.UpdateAsyn(pizza, key);
         }
-        public void DeletePizza(Pizza id)
+        public async Task<int> DeletePizza(Pizza id)
         {
-            _unitOfWork.PizzaRepository.Delete(id);
+            return await _unitOfWork.PizzaRepository.DeleteAsyn(id);
         }
     }
 }

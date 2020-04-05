@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using PizzaOnline2.DAL.Entities;
 using PizzaOnline2.DAL.Interface;
 using PizzaOnline2.DAL.Interface.IServices;
@@ -14,25 +15,25 @@ namespace PizzaOnline2.DAL.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public IEnumerable<Delivery> GetAllDelivery()
+        public async Task<IEnumerable<Delivery>> GetAllDelivery()
         {
-            return _unitOfWork.DeliveryRepository.GetAll();
+            return await _unitOfWork.DeliveryRepository.GetAllAsyn();
         }
-        public Delivery GetByIdDelivery(int id)
+        public async Task<Delivery> GetByIdDelivery(int id)
         {
-            return _unitOfWork.DeliveryRepository.GetById(id);
+            return await _unitOfWork.DeliveryRepository.GetByIdAsyn(id);
         }
-        public void InsertDelivery(Delivery delivery)
+        public async Task<Delivery> InsertDelivery(Delivery delivery)
         {
-            _unitOfWork.DeliveryRepository.Insert(delivery);
+            return await _unitOfWork.DeliveryRepository.InsertAsyn(delivery);
         }
-        public void UpdateDelivery(Delivery delivery)
+        public async Task<Delivery> UpdateDelivery(Delivery delivery, object key)
         {
-            _unitOfWork.DeliveryRepository.Update(delivery);
+            return await _unitOfWork.DeliveryRepository.UpdateAsyn(delivery, key);
         }
-        public void DeleteDelivery(Delivery id)
+        public async Task<int> DeleteDelivery(Delivery id)
         {
-            _unitOfWork.DeliveryRepository.Delete(id);
-        }
+            return await _unitOfWork.DeliveryRepository.DeleteAsyn(id);
+        }       
     }
 }

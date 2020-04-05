@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PizzaOnline2.DAL.Entities;
 using PizzaOnline2.DAL.Interface.IServices;
+using PizzaOnline2.DAL.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace PizzaOnline2.Controllers
         #endregion
 
         #region Constructors
-        public CustomerController(ICustomerService customerService)
+        public  CustomerController(ICustomerService customerService)
         {
             _customerService = customerService;
         }
@@ -26,39 +27,40 @@ namespace PizzaOnline2.Controllers
         //Get all customer
         [Route("Customers")]
         [HttpGet]
-        public IEnumerable<Customer> Get()
+        public async Task<IEnumerable<Customer>> Get()
         {
-            return _customerService.GetAllCustomers(); 
+            IEnumerable<Customer> customer = await _customerService.GetAllCustomers();
+            return customer; 
         }
         //Get customer by id
         [Route("Customer/{Id}")]
         [HttpGet]
-        public Customer GetById(int id)
+        public async Task<Customer> GetById(int id)
         {
-            return _customerService.GetByIdCustomer(id);
+            return await _customerService.GetByIdCustomer(id);
         }
         // POST: Add new customer
         [Route("Customer")]
         [HttpPost]
-        public void Post([FromBody]Customer customer)
+        public async Task<Customer> Insert([FromBody]Customer customer)
         {
-            _customerService.InsertCustomer(customer);
+            return await _customerService.InsertCustomer(customer);
         }
 
         // PUT: Update existing customer
         [Route("Customer/{customer}")]
         [HttpPut]
-        public void Put([FromBody]Customer customer)
+        public async Task<Customer> Put([FromBody]Customer customer, object key)
         {
-            _customerService.UpdateCustomer(customer);
+            return await _customerService.UpdateCustomer(customer, key);
         }
 
         // DELETE: Delete existing customer
         [Route("Customer/{customer}")]
         [HttpDelete]
-        public void Delete([FromBody]Customer id)
+        public async Task<int> Delete([FromBody]Customer id)
         {
-            _customerService.DeleteCustomer(id);
+            return await _customerService.DeleteCustomer(id);
         }
         #endregion
     }

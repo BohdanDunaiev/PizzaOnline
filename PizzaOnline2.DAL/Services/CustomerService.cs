@@ -4,6 +4,7 @@ using PizzaOnline2.DAL.Interface.IServices;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PizzaOnline2.DAL.Services
 {
@@ -14,25 +15,25 @@ namespace PizzaOnline2.DAL.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public IEnumerable<Customer> GetAllCustomers()
+        public async Task<IEnumerable<Customer>> GetAllCustomers()
         {
-            return _unitOfWork.CustomerRepository.GetAll();
+            return await _unitOfWork.CustomerRepository.GetAllAsyn();
         }
-        public Customer GetByIdCustomer(int id)
+        public async Task<Customer> GetByIdCustomer(int id)
         {
-            return _unitOfWork.CustomerRepository.GetById(id);
+            return await _unitOfWork.CustomerRepository.GetByIdAsyn(id);
         }
-        public void InsertCustomer(Customer customer)
+        public async Task<Customer> InsertCustomer(Customer customer)
         {
-            _unitOfWork.CustomerRepository.Insert(customer);
+            return await _unitOfWork.CustomerRepository.InsertAsyn(customer);
         }
-        public void UpdateCustomer(Customer customer)
+        public async Task<Customer> UpdateCustomer(Customer customer, object key)
         {
-            _unitOfWork.CustomerRepository.Update(customer);
+            return await _unitOfWork.CustomerRepository.UpdateAsyn(customer, key);
         }
-        public void DeleteCustomer(Customer id)
+        public async Task<int> DeleteCustomer(Customer id)
         {
-            _unitOfWork.CustomerRepository.Delete(id);
+            return await _unitOfWork.CustomerRepository.DeleteAsyn(id);
         }        
     }
 }

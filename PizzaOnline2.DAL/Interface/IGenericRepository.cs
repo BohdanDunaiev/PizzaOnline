@@ -7,10 +7,10 @@ namespace PizzaOnline2.DAL.Repository.GenericRepository
 {
     public interface IGenericRepository<TEntity> where TEntity : class 
     {
-        IEnumerable<TEntity> GetAll();
-        TEntity GetById(int id);
-        void Insert(TEntity obj);
-        void Update(TEntity obj);
-        void Delete(TEntity id);       
+        Task<IEnumerable<TEntity>> GetAllAsyn();
+        Task<TEntity> GetByIdAsyn(int id);
+        Task<TEntity> InsertAsyn(TEntity obj);
+        Task<TEntity> UpdateAsyn(TEntity obj, object key);
+        Task<int> DeleteAsyn(TEntity id);       
     }
 }
