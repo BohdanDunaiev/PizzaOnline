@@ -115,7 +115,7 @@ namespace PizzaOnline2.DAL.Migrations
 
                     b.HasIndex("PizzeriaId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("PizzaOnline2.DAL.Entities.Pizza", b =>

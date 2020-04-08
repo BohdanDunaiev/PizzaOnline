@@ -10,7 +10,7 @@ namespace PizzaOnline2.DAL.Repository.GenericRepository
         Task<IEnumerable<TEntity>> GetAllAsyn();
         Task<TEntity> GetByIdAsyn(int id);
         Task<TEntity> InsertAsyn(TEntity obj);
-        Task<TEntity> UpdateAsyn(TEntity obj, object key);
+        void UpdateAsyn(TEntity obj);
         Task<int> DeleteAsyn(TEntity id);       
     }
 }

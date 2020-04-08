@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PizzaOnline2.BLL.IServices;
 using PizzaOnline2.DAL.Entities;
-using PizzaOnline2.DAL.Interface.IServices;
 using PizzaOnline2.DAL.Repository.GenericRepository;
 using System;
 using System.Collections.Generic;
@@ -48,15 +48,15 @@ namespace PizzaOnline2.Controllers
         }
 
         // PUT: Update existing customer
-        [Route("Customer/{customer}")]
+        [Route("Customer/{Id}")]
         [HttpPut]
-        public async Task<Customer> Put([FromBody]Customer customer, object key)
+        public async void Put([FromBody]Customer customer)
         {
-            return await _customerService.UpdateCustomer(customer, key);
+            _customerService.UpdateCustomer(customer);
         }
 
         // DELETE: Delete existing customer
-        [Route("Customer/{customer}")]
+        [Route("Customer/{Id}")]
         [HttpDelete]
         public async Task<int> Delete([FromBody]Customer id)
         {

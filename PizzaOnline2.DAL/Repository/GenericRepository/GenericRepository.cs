@@ -30,18 +30,10 @@ namespace PizzaOnline2.DAL.Repository.GenericRepository
             await _context.SaveChangesAsync();
             return obj;
         }
-        public async Task<TEntity> UpdateAsyn(TEntity obj, object key)
+        public async void UpdateAsyn(TEntity obj)
         {
-            if (obj == null)
-                return null;
-            TEntity exist = _context.Set<TEntity>().Find(key);
-            if (exist != null)
-            {
-                _context.Entry(exist).CurrentValues.SetValues(obj);
-                await _context.SaveChangesAsync();
-            }
-            return exist;
-            
+            _dbSet.Attach(obj);
+            _context.Entry(obj).State = EntityState.Modified;                    
         }
         public async Task<int> DeleteAsyn(TEntity obj)
         {
