@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using PizzaOnline2.DAL;
-using PizzaOnline2.DAL.Entities;
+using PizzaOnline.DAL;
+using PizzaOnline.DAL.Entities;
 
 namespace PizzaOnline2.Controllers
 {

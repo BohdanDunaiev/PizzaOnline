@@ -17,11 +17,12 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\PizzaOnline2.DAL\PizzaOnline2.DAL.csproj" />
+    <ProjectReference Include="..\PizzaOnline.DAL\PizzaOnline.DAL.csproj" />
+    <ProjectReference Include="..\PizzaOnline2.BLL\PizzaOnline2.BLL.csproj" />
   </ItemGroup>
 
 

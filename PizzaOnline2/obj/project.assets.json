@@ -2950,27 +2950,9 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "PizzaOnline.BLL/1.0.0": {
+      "PizzaOnline.DAL/1.0.0": {
         "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
-          "Microsoft.EntityFrameworkCore": "3.1.3",
-          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.3",
-          "Microsoft.EntityFrameworkCore.Sqlite": "3.1.3",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.2",
-          "PizzaOnline2.DAL": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/PizzaOnline.BLL.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/PizzaOnline.BLL.dll": {}
-        }
-      },
-      "PizzaOnline2.DAL/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
+        "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
           "Microsoft.EntityFrameworkCore": "3.1.3",
@@ -2979,10 +2961,28 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.2"
         },
         "compile": {
-          "bin/placeholder/PizzaOnline2.DAL.dll": {}
+          "bin/placeholder/PizzaOnline.DAL.dll": {}
         },
         "runtime": {
-          "bin/placeholder/PizzaOnline2.DAL.dll": {}
+          "bin/placeholder/PizzaOnline.DAL.dll": {}
+        }
+      },
+      "PizzaOnline2.BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
+          "Microsoft.EntityFrameworkCore": "3.1.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "3.1.3",
+          "Microsoft.EntityFrameworkCore.Sqlite": "3.1.3",
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.2",
+          "PizzaOnline.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PizzaOnline2.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PizzaOnline2.BLL.dll": {}
         }
       }
     }
@@ -9076,15 +9076,15 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
-    "PizzaOnline.BLL/1.0.0": {
+    "PizzaOnline.DAL/1.0.0": {
       "type": "project",
-      "path": "../PizzaOnline.BLL/PizzaOnline.BLL.csproj",
-      "msbuildProject": "../PizzaOnline.BLL/PizzaOnline.BLL.csproj"
+      "path": "../PizzaOnline.DAL/PizzaOnline.DAL.csproj",
+      "msbuildProject": "../PizzaOnline.DAL/PizzaOnline.DAL.csproj"
     },
-    "PizzaOnline2.DAL/1.0.0": {
+    "PizzaOnline2.BLL/1.0.0": {
       "type": "project",
-      "path": "../PizzaOnline2.DAL/PizzaOnline2.DAL.csproj",
-      "msbuildProject": "../PizzaOnline2.DAL/PizzaOnline2.DAL.csproj"
+      "path": "../PizzaOnline2.BLL/PizzaOnline2.BLL.csproj",
+      "msbuildProject": "../PizzaOnline2.BLL/PizzaOnline2.BLL.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9096,8 +9096,8 @@
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.3",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.3",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.2",
-      "PizzaOnline.BLL >= 1.0.0",
-      "PizzaOnline2.DAL >= 1.0.0"
+      "PizzaOnline.DAL >= 1.0.0",
+      "PizzaOnline2.BLL >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -9107,11 +9107,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Василь\\Desktop\\PizzaOnline_2.0\\PizzaOnline2\\PizzaOnline2.csproj",
+      "projectUniqueName": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline2\\PizzaOnline2.csproj",
       "projectName": "PizzaOnline2",
-      "projectPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_2.0\\PizzaOnline2\\PizzaOnline2.csproj",
+      "projectPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline2\\PizzaOnline2.csproj",
       "packagesPath": "C:\\Users\\Василь\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_2.0\\PizzaOnline2\\obj\\",
+      "outputPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -9130,11 +9130,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Василь\\Desktop\\PizzaOnline_2.0\\PizzaOnline.BLL\\PizzaOnline.BLL.csproj": {
-              "projectPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_2.0\\PizzaOnline.BLL\\PizzaOnline.BLL.csproj"
+            "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
+              "projectPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj"
             },
-            "C:\\Users\\Василь\\Desktop\\PizzaOnline_2.0\\PizzaOnline2.DAL\\PizzaOnline2.DAL.csproj": {
-              "projectPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_2.0\\PizzaOnline2.DAL\\PizzaOnline2.DAL.csproj"
+            "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj": {
+              "projectPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj"
             }
           }
         }

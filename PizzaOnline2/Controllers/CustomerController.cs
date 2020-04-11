@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PizzaOnline2.BLL.IServices;
-using PizzaOnline2.DAL.Entities;
-using PizzaOnline2.DAL.Repository.GenericRepository;
+using PizzaOnline.DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -11,12 +11,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using PizzaOnline2.DAL.Entities;
-using PizzaOnline2.DAL.Interface.IRepository;
-using PizzaOnline2.DAL.Repository.EntetiesRepository;
-using PizzaOnline2.DAL.Interface;
-using PizzaOnline2.DAL.UnitOfWork;
-using PizzaOnline2.DAL;
+using PizzaOnline.DAL.Entities;
+using PizzaOnline.DAL.Interface.IRepository;
+using PizzaOnline.DAL.Repository.EntetiesRepository;
+using PizzaOnline.DAL.Interface;
+using PizzaOnline.DAL.UnitOfWork;
+using PizzaOnline.DAL;
 using PizzaOnline2.BLL.IServices;
 using PizzaOnline2.BLL.Services;
 

@@ -1,0 +1,8 @@
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline.DAL\obj\Debug\netstandard2.0\PizzaOnline.DAL.AssemblyInfoInputs.cache
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline.DAL\obj\Debug\netstandard2.0\PizzaOnline.DAL.AssemblyInfo.cs
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline.DAL\bin\Debug\netstandard2.0\PizzaOnline.DAL.deps.json
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline.DAL\bin\Debug\netstandard2.0\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline.DAL\obj\Debug\netstandard2.0\PizzaOnline.DAL.csprojAssemblyReference.cache
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline.DAL\bin\Debug\netstandard2.0\PizzaOnline.DAL.pdb
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline.DAL\obj\Debug\netstandard2.0\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline.DAL\obj\Debug\netstandard2.0\PizzaOnline.DAL.pdb
