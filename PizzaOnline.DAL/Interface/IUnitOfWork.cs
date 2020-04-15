@@ -13,6 +13,7 @@ namespace PizzaOnline.DAL.Interface
         IOrderRepository OrderRepository { get; }
         IPizzaRepository PizzaRepository { get; }
         IPizzeriaRepository PizzeriaRepository { get; }
+        IUserRepository UserRepository { get; }
         void Complete();
     }
 }

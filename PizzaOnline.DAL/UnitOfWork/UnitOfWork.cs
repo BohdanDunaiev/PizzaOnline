@@ -14,13 +14,14 @@ namespace PizzaOnline.DAL.UnitOfWork
         private readonly IOrderRepository _orderRepository;
         private readonly IPizzaRepository _pizzaRepository;
         private readonly IPizzeriaRepository _pizzeriaRepository;
+        private readonly IUserRepository _userRepository;
 
         public UnitOfWork(ICustomerRepository customerRepository,
              IDeliveryRepository deliveryRepository,
              IIngredientsRepository ingredientsRepository,
              IOrderRepository orderRepository,
              IPizzaRepository pizzaRepository,
-             IPizzeriaRepository pizzeriaRepository)
+             IPizzeriaRepository pizzeriaRepository, IUserRepository userRepository )
         {
             _customerRepository = customerRepository;
             _deliveryRepository = deliveryRepository;
@@ -28,6 +29,7 @@ namespace PizzaOnline.DAL.UnitOfWork
             _orderRepository = orderRepository;
             _pizzaRepository = pizzaRepository;
             _pizzeriaRepository = pizzeriaRepository;
+            _userRepository = userRepository;
         }
         public ICustomerRepository CustomerRepository 
         {
@@ -69,6 +71,13 @@ namespace PizzaOnline.DAL.UnitOfWork
             get
             {
                 return _pizzeriaRepository;
+            }
+        }
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                return _userRepository;
             }
         }
         public void Complete()

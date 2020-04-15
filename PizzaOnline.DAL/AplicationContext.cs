@@ -6,6 +6,7 @@ namespace PizzaOnline.DAL
     public class AplicationContext : DbContext
     {
         //public DbSet<Order> Orders { get; set; }
+        public DbSet<User> User { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Ingredients> Ingredients { get; set; }

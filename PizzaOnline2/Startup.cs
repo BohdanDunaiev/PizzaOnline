@@ -19,14 +19,16 @@ using PizzaOnline.DAL.UnitOfWork;
 using PizzaOnline.DAL;
 using PizzaOnline2.BLL.IServices;
 using PizzaOnline2.BLL.Services;
+using Microsoft.AspNetCore.Identity;
 
 namespace PizzaOnline2
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private IConfigurationRoot _confString;
+        public Startup(IHostEnvironment hostEnvironment)
         {
-            Configuration = configuration;
+            _confString = new ConfigurationBuilder().SetBasePath(hostEnvironment.ContentRootPath).AddJsonFile("dbconnection.json").Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -34,6 +36,7 @@ namespace PizzaOnline2
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            
             string con = "Server= (localdb)\\mssqllocaldb;Database=Pizzeria;Trusted_Connection=True;";
             //(localdb)\\mssqllocaldb
             services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
@@ -45,6 +48,7 @@ namespace PizzaOnline2
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IPizzaRepository, PizzaRepository>();
             services.AddTransient<IPizzeriaRepository, PizzeriaRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
             #endregion
 
             #region SQL services
@@ -54,8 +58,19 @@ namespace PizzaOnline2
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IPizzaService, PizzaService>();
             services.AddTransient<IPizzeriaService, PizzaeriaService>();
+            services.AddTransient<IUserService, UserService>();
             #endregion
-
+            services.AddDbContext<AplicationContext>(options =>
+            {
+                options
+                    .UseSqlServer(_confString.GetConnectionString("DefaultConnection"),
+                        assembly =>
+                            assembly.MigrationsAssembly("PizzaOnline.DAL"));
+            });
+            services.AddDbContext<UserApplicationContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("Server= (localdb)\\mssqllocaldb;Database=PizzaOnline;Trusted_Connection=True;")));
+            services.AddIdentity<User, IdentityRole>()
+                .AddEntityFrameworkStores<AplicationContext>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
@@ -71,6 +86,7 @@ namespace PizzaOnline2
 
             app.UseRouting();
 
+            app.UseAuthentication();    // подключение аутентификации
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

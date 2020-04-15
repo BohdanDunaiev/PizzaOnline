@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaOnline2", "PizzaOnline2\PizzaOnline2.csproj", "{36668C24-F2B6-48A3-A5C8-90BCF65B9256}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaOnline2.BLL", "PizzaOnline2.BLL\PizzaOnline2.BLL.csproj", "{2EDDA80D-D638-4A34-90C4-2BD88B11E42B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaOnline2.BLL", "PizzaOnline2.BLL\PizzaOnline2.BLL.csproj", "{2EDDA80D-D638-4A34-90C4-2BD88B11E42B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PizzaOnline.DAL", "PizzaOnline.DAL\PizzaOnline.DAL.csproj", "{FAE8444A-B6A6-4900-B0E6-698E88D01C28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaOnline.DAL", "PizzaOnline.DAL\PizzaOnline.DAL.csproj", "{FAE8444A-B6A6-4900-B0E6-698E88D01C28}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

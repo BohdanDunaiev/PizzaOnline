@@ -447,3 +447,9 @@ C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\PizzaOnline2.BLL.pdb
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.RazorTargetAssemblyInfo.cache
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.csproj.CopyComplete
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\dbconnection.json
