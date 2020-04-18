@@ -453,3 +453,4 @@ C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\dbconnection.json
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\AutoMapper.dll

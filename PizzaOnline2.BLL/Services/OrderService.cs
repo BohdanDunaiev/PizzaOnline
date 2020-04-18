@@ -4,36 +4,49 @@ using System.Text;
 using System.Threading.Tasks;
 using PizzaOnline2.BLL.IServices;
 using PizzaOnline.DAL.Entities;
+using AutoMapper;
 using PizzaOnline.DAL.Interface;
+using PizzaOnline.BLL.DTOEntities;
 
 namespace PizzaOnline2.BLL.Services
 {
     public class OrderService : IOrderService
     {
         IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         public OrderService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IEnumerable<Order>> GetAllOrders()
+        public async Task<IEnumerable<DTOOrder>> GetAllOrders()
         {
-            return await _unitOfWork.OrderRepository.GetAllAsyn();
+            var info = await _unitOfWork.OrderRepository.GetAllAsyn();
+
+            List<DTOOrder> transferDTO = new List<DTOOrder>();
+
+            foreach (var order in info)
+                transferDTO.Add(_mapper.Map<Order, DTOOrder>(order));
+
+            return transferDTO;
         }
-        public async Task<Order> GetByIdOrder(int id)
+        public async Task<DTOOrder> GetByIdOrder(int id)
         {
-            return await _unitOfWork.OrderRepository.GetByIdAsyn(id);
+            var info = await _unitOfWork.OrderRepository.GetByIdAsyn(id);
+            return _mapper.Map<Order, DTOOrder>(info);
         }
-        public async Task<Order> InsertOrder(Order order)
+        public async Task InsertOrder(DTOOrder order)
         {
-            return await _unitOfWork.OrderRepository.InsertAsyn(order);
+            var info = _mapper.Map<DTOOrder, Order>(order);
+            await _unitOfWork.OrderRepository.InsertAsyn(info);
         }
-        public async void UpdateOrder(Order order)
+        public async Task UpdateOrder(DTOOrder order)
         {
-              _unitOfWork.OrderRepository.UpdateAsyn(order);
+            var info = _mapper.Map<DTOOrder, Order>(order);
+            await _unitOfWork.OrderRepository.UpdateAsyn(info);
         }
-        public async Task<int> DeleteOrder(Order id)
+        public async Task DeleteOrder(int id)
         {
-            return await _unitOfWork.OrderRepository.DeleteAsyn(id);
+            await _unitOfWork.OrderRepository.DeleteAsyn(id);
         }       
     }
 }

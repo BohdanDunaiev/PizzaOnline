@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using PizzaOnline.DAL.Entities;
+using PizzaOnline.BLL.DTOEntities;
 
 namespace PizzaOnline2.BLL.IServices
 {
     public interface IOrderService
     {
-        Task<IEnumerable<Order>> GetAllOrders();
-        Task<Order> GetByIdOrder(int id);
-        Task<Order> InsertOrder(Order obj);
-        void UpdateOrder(Order obj);
-        Task<int> DeleteOrder(Order id);        
+        Task<IEnumerable<DTOOrder>> GetAllOrders();
+        Task<DTOOrder> GetByIdOrder(int id);
+        Task InsertOrder(DTOOrder obj);
+        Task UpdateOrder(DTOOrder obj);
+        Task DeleteOrder(int id);        
     }
 }

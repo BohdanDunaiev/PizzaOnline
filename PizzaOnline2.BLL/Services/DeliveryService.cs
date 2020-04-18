@@ -3,38 +3,50 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using PizzaOnline2.BLL.IServices;
-using PizzaOnline.DAL.Entities;
 using PizzaOnline.DAL.Interface;
-
+using PizzaOnline.BLL.DTOEntities;
+using AutoMapper;
+using PizzaOnline.DAL.Entities;
 
 namespace PizzaOnline2.BLL.Services
 {
     public class DeliveryService : IDeliveryService
     {
         IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         public DeliveryService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IEnumerable<Delivery>> GetAllDelivery()
+        public async Task<IEnumerable<DTODelivery>> GetAllDelivery()
         {
-            return await _unitOfWork.DeliveryRepository.GetAllAsyn();
+            var info = await _unitOfWork.DeliveryRepository.GetAllAsyn();
+
+            List<DTODelivery> transferDTO = new List<DTODelivery>();
+
+            foreach (var delivery in info)
+                transferDTO.Add(_mapper.Map<Delivery, DTODelivery>(delivery));
+
+            return transferDTO;
         }
-        public async Task<Delivery> GetByIdDelivery(int id)
+        public async Task<DTODelivery> GetByIdDelivery(int id)
         {
-            return await _unitOfWork.DeliveryRepository.GetByIdAsyn(id);
+            var info = await _unitOfWork.DeliveryRepository.GetByIdAsyn(id);
+            return _mapper.Map<Delivery, DTODelivery>(info);
         }
-        public async Task<Delivery> InsertDelivery(Delivery delivery)
+        public async Task InsertDelivery(DTODelivery delivery)
         {
-            return await _unitOfWork.DeliveryRepository.InsertAsyn(delivery);
+            var info = _mapper.Map<DTODelivery, Delivery>(delivery);
+            await _unitOfWork.DeliveryRepository.InsertAsyn(info);
         }
-        public async void UpdateDelivery(Delivery delivery)
+        public async Task UpdateDelivery(DTODelivery delivery)
         {
-              _unitOfWork.DeliveryRepository.UpdateAsyn(delivery);
+            var info = _mapper.Map<DTODelivery, Delivery>(delivery);
+            await _unitOfWork.DeliveryRepository.UpdateAsyn(info);
         }
-        public async Task<int> DeleteDelivery(Delivery id)
+        public async Task DeleteDelivery(int id)
         {
-            return await _unitOfWork.DeliveryRepository.DeleteAsyn(id);
+            await _unitOfWork.DeliveryRepository.DeleteAsyn(id);
         }       
     }
 }

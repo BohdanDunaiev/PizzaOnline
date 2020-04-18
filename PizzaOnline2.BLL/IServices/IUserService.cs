@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using PizzaOnline.DAL.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using PizzaOnline2.BLL.DTOEntities;
 
 namespace PizzaOnline2.BLL.IServices
 {
     public interface IUserService
     {
-        Task<IEnumerable<User>> GetAllUser();
-        Task<User> InsertUser(User obj);
-        void UpdateUser(User obj);
+        Task<IEnumerable<DTOUser>> GetAllUser();
+        Task InsertUser(DTOUser obj);
+        Task UpdateUser(DTOUser obj);
     }
 }

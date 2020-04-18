@@ -1,17 +1,15 @@
-﻿using PizzaOnline.DAL.Entities;
-using System;
+﻿using PizzaOnline.BLL.DTOEntities;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PizzaOnline2.BLL.IServices
 {
     public interface IDeliveryService
     {
-        Task<IEnumerable<Delivery>> GetAllDelivery();
-        Task<Delivery> GetByIdDelivery(int id);
-        Task<Delivery> InsertDelivery(Delivery obj);
-        void UpdateDelivery(Delivery obj);
-        Task<int> DeleteDelivery(Delivery id);
+        Task<IEnumerable<DTODelivery>> GetAllDelivery();
+        Task<DTODelivery> GetByIdDelivery(int id);
+        Task InsertDelivery(DTODelivery obj);
+        Task UpdateDelivery(DTODelivery obj);
+        Task DeleteDelivery(int id);
     }
 }

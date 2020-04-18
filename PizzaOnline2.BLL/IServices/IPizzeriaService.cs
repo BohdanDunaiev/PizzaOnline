@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using PizzaOnline.DAL.Entities;
+using PizzaOnline.BLL.DTOEntities;
 
 namespace PizzaOnline2.BLL.IServices
 {
     public interface IPizzeriaService
     {
-        Task<IEnumerable<Pizzeria>> GetAllPizzeria();
-        Task<Pizzeria> GetByIdPizzeria(int id);
-        Task<Pizzeria> InsertPizzeria(Pizzeria obj);
-        void UpdatePizzeria(Pizzeria obj);
-        Task<int> DeletePizzeria(Pizzeria id);        
+        Task<IEnumerable<DTOPizzeria>> GetAllPizzeria();
+        Task<DTOPizzeria> GetByIdPizzeria(int id);
+        Task InsertPizzeria(DTOPizzeria obj);
+        Task UpdatePizzeria(DTOPizzeria obj);
+        Task DeletePizzeria(int id);        
     }
 }

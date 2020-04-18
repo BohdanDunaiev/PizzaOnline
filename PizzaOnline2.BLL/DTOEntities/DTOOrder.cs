@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using PizzaOnline2.BLL.DTOEntities;
+using System;
 
 namespace PizzaOnline.BLL.DTOEntities
 {
     public class DTOOrder
     {
         public int Id { get; set; }
-        public int CustomerId { get; set; }
-        public DTOCustomer Customer { get; set; }
+        public Guid UserId { get; set; }
+        public DTOUser User { get; set; }
         public int PizzaId { get; set; }
         public DTOPizza Pizza { get; set; }
         public int PizzeriaId { get; set; }

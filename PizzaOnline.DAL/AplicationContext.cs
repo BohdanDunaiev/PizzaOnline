@@ -7,7 +7,6 @@ namespace PizzaOnline.DAL
     {
         //public DbSet<Order> Orders { get; set; }
         public DbSet<User> User { get; set; }
-        public DbSet<Customer> Customers { get; set; }
         public DbSet<Delivery> Deliveries { get; set; }
         public DbSet<Ingredients> Ingredients { get; set; }
         public DbSet<Pizza> Pizza { get; set; }
@@ -24,7 +23,7 @@ namespace PizzaOnline.DAL
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Order>()
-                .HasOne(p => p.Customer)
+                .HasOne(p => p.User)
                 .WithMany(t => t.Orders);
 
             modelBuilder.Entity<Order>()

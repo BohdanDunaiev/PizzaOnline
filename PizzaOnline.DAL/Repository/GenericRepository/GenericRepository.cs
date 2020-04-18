@@ -10,7 +10,7 @@ namespace PizzaOnline.DAL.Repository.GenericRepository
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         protected readonly AplicationContext _context;
-        private Microsoft.EntityFrameworkCore.DbSet<TEntity> _dbSet;
+        private DbSet<TEntity> _dbSet;
         public GenericRepository(AplicationContext context)
         {
             _context = context;
@@ -18,27 +18,30 @@ namespace PizzaOnline.DAL.Repository.GenericRepository
         }
         public async Task<IEnumerable<TEntity>> GetAllAsyn()
         {
-            return await _context.Set<TEntity>().ToListAsync();
+            return await _dbSet.ToListAsync();
         }
-        public async Task<TEntity> GetByIdAsyn(int id)
+        public async Task<TEntity> GetByIdAsyn(int id)  
         {
-            return await _context.Set<TEntity>().FindAsync(id);
+            return await _dbSet.FindAsync(id);
         }
         public  async Task<TEntity> InsertAsyn(TEntity obj)
         {
-            _context.Set<TEntity>().Add(obj);
+            _dbSet.Add(obj);
             await _context.SaveChangesAsync();
             return obj;
         }
-        public async void UpdateAsyn(TEntity obj)
+        public async Task<int> UpdateAsyn(TEntity obj)
         {
-            _dbSet.Attach(obj);
-            _context.Entry(obj).State = EntityState.Modified;                    
+            if (obj == null)
+                return 204; 
+
+            _context.Entry(obj).State = EntityState.Modified;
+
+            return await _context.SaveChangesAsync();                              
         }
-        public async Task<int> DeleteAsyn(TEntity obj)
+        public async Task DeleteAsyn(int id)
         {
-            _context.Set<TEntity>().Remove(obj);
-            return await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
     }
 }

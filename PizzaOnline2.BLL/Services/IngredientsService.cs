@@ -5,35 +5,48 @@ using System.Threading.Tasks;
 using PizzaOnline2.BLL.IServices;
 using PizzaOnline.DAL.Entities;
 using PizzaOnline.DAL.Interface;
+using AutoMapper;
+using PizzaOnline.BLL.DTOEntities;
 
 namespace PizzaOnline2.BLL.Services
 {
     public class IngredientsService : IIngredientsService
     {
         IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         public IngredientsService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IEnumerable<Ingredients>> GetAllIngredients()
+        public async Task<IEnumerable<DTOIngredients>> GetAllIngredients()
         {
-            return await _unitOfWork.IngredientsRepository.GetAllAsyn();
+            var info = await _unitOfWork.IngredientsRepository.GetAllAsyn();
+
+            List<DTOIngredients> transferDTO = new List<DTOIngredients>();
+
+            foreach (var ingredients in info)
+                transferDTO.Add(_mapper.Map<Ingredients, DTOIngredients>(ingredients));
+
+            return transferDTO;
         }
-        public async Task<Ingredients> GetByIdIngredient(int id)
+        public async Task<DTOIngredients> GetByIdIngredient(int id)
         {
-            return await _unitOfWork.IngredientsRepository.GetByIdAsyn(id);
+            var info = await _unitOfWork.IngredientsRepository.GetByIdAsyn(id);
+            return _mapper.Map<Ingredients, DTOIngredients>(info);
         }
-        public async Task<Ingredients> InsertIngredient(Ingredients ingredients)
+        public async Task InsertIngredient(DTOIngredients ingredients)
         {
-            return await _unitOfWork.IngredientsRepository.InsertAsyn(ingredients);
+            var info = _mapper.Map<DTOIngredients, Ingredients>(ingredients);
+            await _unitOfWork.IngredientsRepository.InsertAsyn(info);
         }
-        public async void UpdateIngredient(Ingredients ingredients)
+        public async Task UpdateIngredient(DTOIngredients ingredients)
         {
-              _unitOfWork.IngredientsRepository.UpdateAsyn(ingredients);
+            var info = _mapper.Map<DTOIngredients, Ingredients>(ingredients);
+            await _unitOfWork.IngredientsRepository.UpdateAsyn(info);
         }
-        public async Task<int> DeleteIngredient(Ingredients id)
+        public async Task DeleteIngredient(int id)
         {
-            return await _unitOfWork.IngredientsRepository.DeleteAsyn(id);
+            await _unitOfWork.IngredientsRepository.DeleteAsyn(id);
         } 
     }
 }

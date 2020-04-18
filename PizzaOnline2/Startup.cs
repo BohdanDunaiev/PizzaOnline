@@ -41,8 +41,7 @@ namespace PizzaOnline2
             //(localdb)\\mssqllocaldb
             services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
             services.AddControllers();
-            #region Entities repositories
-            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            #region Entities repositories            
             services.AddTransient<IDeliveryRepository, DeliveryRepository>();
             services.AddTransient<IIngredientsRepository, IngredientsRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
@@ -52,7 +51,6 @@ namespace PizzaOnline2
             #endregion
 
             #region SQL services
-            services.AddTransient<ICustomerService, CustomerService>();
             services.AddTransient<IDeliveryService, DeliveryService>();
             services.AddTransient<IIngredientsService, IngredientsService>();
             services.AddTransient<IOrderService, OrderService>();

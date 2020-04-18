@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using PizzaOnline.DAL.Entities;
+using PizzaOnline.BLL.DTOEntities;
 
 namespace PizzaOnline2.BLL.IServices
 {
     public interface IPizzaService
     {
-        Task<IEnumerable<Pizza>> GetAllPizza();
-        Task<Pizza> GetByIdPizza(int id);
-        Task<Pizza> InsertPizza(Pizza obj);
-        void UpdatePizza(Pizza obj);
-        Task<int> DeletePizza(Pizza id);       
+        Task<IEnumerable<DTOPizza>> GetAllPizza();
+        Task<DTOPizza> GetByIdPizza(int id);
+        Task InsertPizza(DTOPizza obj);
+        Task UpdatePizza(DTOPizza obj);
+        Task DeletePizza(int id);       
     }
 }

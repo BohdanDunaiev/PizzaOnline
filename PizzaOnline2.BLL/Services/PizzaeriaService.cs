@@ -5,35 +5,48 @@ using System.Threading.Tasks;
 using PizzaOnline2.BLL.IServices;
 using PizzaOnline.DAL.Entities;
 using PizzaOnline.DAL.Interface;
+using AutoMapper;
+using PizzaOnline.BLL.DTOEntities;
 
 namespace PizzaOnline2.BLL.Services
 {
     public class PizzaeriaService : IPizzeriaService
     {
         IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
         public PizzaeriaService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IEnumerable<Pizzeria>> GetAllPizzeria()
+        public async Task<IEnumerable<DTOPizzeria>> GetAllPizzeria()
         {
-            return await _unitOfWork.PizzeriaRepository.GetAllAsyn();
+            var info = await _unitOfWork.PizzeriaRepository.GetAllAsyn();
+
+            List<DTOPizzeria> transferDTO = new List<DTOPizzeria>();
+
+            foreach (var pizzeria in info)
+                transferDTO.Add(_mapper.Map<Pizzeria, DTOPizzeria>(pizzeria));
+
+            return transferDTO;
         }
-        public async Task<Pizzeria> GetByIdPizzeria(int id)
+        public async Task<DTOPizzeria> GetByIdPizzeria(int id)
         {
-            return await _unitOfWork.PizzeriaRepository.GetByIdAsyn(id);
+            var info = await _unitOfWork.PizzeriaRepository.GetByIdAsyn(id);
+            return _mapper.Map<Pizzeria, DTOPizzeria>(info);
         }
-        public async Task<Pizzeria> InsertPizzeria(Pizzeria pizzeria)
+        public async Task InsertPizzeria(DTOPizzeria pizzeria)
         {
-            return await _unitOfWork.PizzeriaRepository.InsertAsyn(pizzeria);
+            var info = _mapper.Map<DTOPizzeria, Pizzeria>(pizzeria);
+            await _unitOfWork.PizzeriaRepository.InsertAsyn(info);
         }
-        public async void UpdatePizzeria(Pizzeria pizzeria)
+        public async Task UpdatePizzeria(DTOPizzeria pizzeria)
         {
-              _unitOfWork.PizzeriaRepository.UpdateAsyn(pizzeria);
+            var info = _mapper.Map<DTOPizzeria, Pizzeria>(pizzeria);
+            await _unitOfWork.PizzeriaRepository.UpdateAsyn(info);
         }
-        public async Task<int> DeletePizzeria(Pizzeria id)
+        public async Task DeletePizzeria(int id)
         {
-            return await _unitOfWork.PizzeriaRepository.DeleteAsyn(id);
+            await _unitOfWork.PizzeriaRepository.DeleteAsyn(id);
         }        
     }
 }

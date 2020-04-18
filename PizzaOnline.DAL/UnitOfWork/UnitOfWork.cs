@@ -1,14 +1,11 @@
 ﻿using PizzaOnline.DAL.Interface;
 using PizzaOnline.DAL.Interface.IRepository;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PizzaOnline.DAL.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
-    {
-        private readonly ICustomerRepository _customerRepository;
+    {       
         private readonly IDeliveryRepository _deliveryRepository;
         private readonly IIngredientsRepository _ingredientsRepository;
         private readonly IOrderRepository _orderRepository;
@@ -16,28 +13,19 @@ namespace PizzaOnline.DAL.UnitOfWork
         private readonly IPizzeriaRepository _pizzeriaRepository;
         private readonly IUserRepository _userRepository;
 
-        public UnitOfWork(ICustomerRepository customerRepository,
-             IDeliveryRepository deliveryRepository,
+        public UnitOfWork(IDeliveryRepository deliveryRepository,
              IIngredientsRepository ingredientsRepository,
              IOrderRepository orderRepository,
              IPizzaRepository pizzaRepository,
              IPizzeriaRepository pizzeriaRepository, IUserRepository userRepository )
-        {
-            _customerRepository = customerRepository;
+        {           
             _deliveryRepository = deliveryRepository;
             _ingredientsRepository = ingredientsRepository;
             _orderRepository = orderRepository;
             _pizzaRepository = pizzaRepository;
             _pizzeriaRepository = pizzeriaRepository;
             _userRepository = userRepository;
-        }
-        public ICustomerRepository CustomerRepository 
-        {
-            get
-            {
-                return _customerRepository;
-            }
-        }
+        }        
         public IDeliveryRepository DeliveryRepository
         {
             get
