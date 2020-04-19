@@ -4,7 +4,7 @@ using PizzaOnline.DAL.Repository.GenericRepository;
 
 namespace PizzaOnline.DAL.Repository.EntetiesRepository
 {
-    public class UserRepository : GenericRepository<User>, IUserRepository
+    public class UserRepository : GenericRepository<AspNetUsers>, IUserRepository
     {
         public UserRepository(AplicationContext aplicationContext)
            : base(aplicationContext)

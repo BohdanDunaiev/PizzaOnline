@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using PizzaOnline2.BLL.DTOEntities;
 
 namespace PizzaOnline2.Controllers
 {
@@ -24,30 +24,7 @@ namespace PizzaOnline2.Controllers
         #endregion
 
         #region Api
-        //Get all customer
-        [Route("Users")]
-        [HttpGet]
-        public async Task<IEnumerable<User>> Get()
-        {
-            IEnumerable<User> user = await _userService.GetAllUser();
-            return user;
-        }
-        
-        // POST: Add new customer
-        [Route("User")]
-        [HttpPost]
-        public async Task<User> Insert([FromBody]User user)
-        {
-            return await _userService.InsertUser(user);
-        }
-
-        // PUT: Update existing customer
-        [Route("User/{Id}")]
-        [HttpPut]
-        public async void Put([FromBody]User user)
-        {
-            _userService.UpdateUser(user);
-        }
+       
         #endregion
     }
 }

@@ -4,7 +4,7 @@ using PizzaOnline.DAL.Entities;
 
 namespace PizzaOnline.DAL
 {
-    public class UserApplicationContext : IdentityDbContext<User>
+    public class UserApplicationContext : IdentityDbContext<AspNetUsers>
     {
         public UserApplicationContext(DbContextOptions<UserApplicationContext> options)
             : base(options)

@@ -25,18 +25,18 @@ namespace PizzaOnline2.BLL.Services
             List<DTOUser> transferDTO = new List<DTOUser>();
 
             foreach (var user in info)
-                transferDTO.Add(_mapper.Map<User, DTOUser>(user));
+                transferDTO.Add(_mapper.Map<AspNetUsers, DTOUser>(user));
 
             return transferDTO;
         }
         public async Task InsertUser(DTOUser user)
         {
-            var info = _mapper.Map<DTOUser, User>(user);
+            var info = _mapper.Map<DTOUser, AspNetUsers>(user);
             await _unitOfWork.UserRepository.InsertAsyn(info);
         }
         public async Task UpdateUser(DTOUser user)
         {
-            var data = _mapper.Map<DTOUser, User>(user);
+            var data = _mapper.Map<DTOUser, AspNetUsers>(user);
             await _unitOfWork.UserRepository.UpdateAsyn(data);
         }
     }

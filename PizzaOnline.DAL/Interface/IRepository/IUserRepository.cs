@@ -6,7 +6,7 @@ using System.Text;
 
 namespace PizzaOnline.DAL.Interface.IRepository
 {
-    public interface IUserRepository : IGenericRepository<User>
+    public interface IUserRepository : IGenericRepository<AspNetUsers>
     {
 
     }

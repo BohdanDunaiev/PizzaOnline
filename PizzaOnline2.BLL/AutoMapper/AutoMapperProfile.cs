@@ -9,7 +9,7 @@ namespace PizzaOnline2.BLL.AutoMapper
     {
         public AutoMapperProfile()
         {
-            CreateMap<DTOUser, User>();            
+            CreateMap<DTOUser, AspNetUsers>();            
             CreateMap<DTODelivery, Delivery>();
             CreateMap<DTOIngredients, Ingredients>();
             CreateMap<DTOOrder, Order>();
@@ -18,7 +18,7 @@ namespace PizzaOnline2.BLL.AutoMapper
 
             // мапинг в обратную сторону
 
-            CreateMap<User, DTOUser>();            
+            CreateMap<AspNetUsers, DTOUser>();            
             CreateMap<Delivery, DTODelivery>();
             CreateMap<Delivery, DTOIngredients>();
             CreateMap<Order, DTOOrder>();

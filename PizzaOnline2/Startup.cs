@@ -67,7 +67,7 @@ namespace PizzaOnline2
             });
             services.AddDbContext<UserApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("Server= (localdb)\\mssqllocaldb;Database=PizzaOnline;Trusted_Connection=True;")));
-            services.AddIdentity<User, IdentityRole>()
+            services.AddIdentity<AspNetUsers, IdentityRole>()
                 .AddEntityFrameworkStores<AplicationContext>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }

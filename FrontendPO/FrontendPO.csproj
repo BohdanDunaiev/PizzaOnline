@@ -9,6 +9,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PizzaOnline.DAL\PizzaOnline.DAL.csproj" />
+    <ProjectReference Include="..\PizzaOnline2.BLL\PizzaOnline2.BLL.csproj" />
+  </ItemGroup>
+
 
 
 </Project>
