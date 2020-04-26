@@ -6,6 +6,11 @@ namespace PizzaOnline2.BLL.IServices
 {
     public interface IPizzaService
     {
+        Task<IEnumerable<DTOPizza>> GetPopularIngredients();
+        Task<IEnumerable<DTOPizza>> GetPizzaId(int id);
+        Task<IEnumerable<DTOPizza>> GetPizzaPriceRange(int maxPrice, int minPrice);
+        Task<IEnumerable<DTOPizza>> GetPopular();
+        Task<IEnumerable<DTOPizza>> GetPizzaName(string namepizza);
         Task<IEnumerable<DTOPizza>> GetAllPizza();
         Task<DTOPizza> GetByIdPizza(int id);
         Task InsertPizza(DTOPizza obj);

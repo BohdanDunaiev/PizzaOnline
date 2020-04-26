@@ -172,3 +172,8 @@ C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\bin\Debug\netcoreapp3.1
 C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Users\Create.cshtml.g.cs
 C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Users\Edit.cshtml.g.cs
 C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Users\Index.cshtml.g.cs
+C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Users\ChangePassword.cshtml.g.cs
+C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Create.cshtml.g.cs
+C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Edit.cshtml.g.cs
+C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
+C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Roles\UserList.cshtml.g.cs

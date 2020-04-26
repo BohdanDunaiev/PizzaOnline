@@ -14,6 +14,10 @@
     <ProjectReference Include="..\PizzaOnline2.BLL\PizzaOnline2.BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 
 
 </Project>

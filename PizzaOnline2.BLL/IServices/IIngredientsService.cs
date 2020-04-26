@@ -8,6 +8,7 @@ namespace PizzaOnline2.BLL.IServices
 {
     public interface IIngredientsService 
     {
+        Task<IEnumerable<DTOIngredients>> GetIngredientId(int id);
         Task<IEnumerable<DTOIngredients>> GetAllIngredients();
         Task<DTOIngredients> GetByIdIngredient(int id);
         Task InsertIngredient(DTOIngredients obj);

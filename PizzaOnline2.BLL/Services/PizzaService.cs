@@ -12,12 +12,36 @@ namespace PizzaOnline2.BLL.Services
 {
     public class PizzaService : IPizzaService
     {
-        IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public PizzaService(IUnitOfWork unitOfWork)
+        public PizzaService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
+        public async Task<IEnumerable<DTOPizza>> GetPizzaId(int id)
+        {
+            return _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPizzaId(id)); ;
+        }
+        public async Task<IEnumerable<DTOPizza>> GetPizzaPriceRange(int maxPrice, int minPrice)
+        {
+            return _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPizzaPriceRange(maxPrice, minPrice)); ;
+        }
+        public async Task<IEnumerable<DTOPizza>> GetPizzaName(string namepizza)
+        {
+            return _mapper.Map <IEnumerable <Pizza> ,  IEnumerable < DTOPizza >>(await _unitOfWork.PizzaRepository.GetPizzaName(namepizza)); ;
+        }
+        public async Task<IEnumerable<DTOPizza>> GetPopular()
+        {
+            var res = _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPopular());
+            return res;
+        }
+        public async Task<IEnumerable<DTOPizza>> GetPopularIngredients()
+        {
+            var res = _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPopularIngredients());
+            return res;
+        }
+        //CRUT operation
         public async Task<IEnumerable<DTOPizza>> GetAllPizza()
         {
             var info = await _unitOfWork.PizzaRepository.GetAllAsyn();

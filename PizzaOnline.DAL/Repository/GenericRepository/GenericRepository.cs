@@ -16,6 +16,11 @@ namespace PizzaOnline.DAL.Repository.GenericRepository
             _context = context;
             _dbSet = context.Set<TEntity>();
         }
+        public IQueryable<TEntity> FindAll()
+        {
+            return _context.Set<TEntity>()
+                .AsNoTracking();
+        }
         public async Task<IEnumerable<TEntity>> GetAllAsyn()
         {
             return await _dbSet.ToListAsync();
@@ -42,6 +47,10 @@ namespace PizzaOnline.DAL.Repository.GenericRepository
         public async Task DeleteAsyn(int id)
         {
             await _context.SaveChangesAsync();
+        }
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }

@@ -11,6 +11,7 @@ namespace PizzaOnline.DAL.Repository.GenericRepository
         Task<TEntity> GetByIdAsyn(int id);
         Task<TEntity> InsertAsyn(TEntity obj);
         Task<int> UpdateAsyn(TEntity obj);
-        Task DeleteAsyn(int id);       
+        Task DeleteAsyn(int id);
+        void Save();
     }
 }

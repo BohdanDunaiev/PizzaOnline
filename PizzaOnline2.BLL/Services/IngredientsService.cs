@@ -12,11 +12,16 @@ namespace PizzaOnline2.BLL.Services
 {
     public class IngredientsService : IIngredientsService
     {
-        IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public IngredientsService(IUnitOfWork unitOfWork)
+        public IngredientsService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
+        }
+        public async Task<IEnumerable<DTOIngredients>> GetIngredientId(int id)
+        {
+            return _mapper.Map<IEnumerable<Ingredients>, IEnumerable<DTOIngredients>>(await _unitOfWork.IngredientsRepository.GetIngredientId(id)); ;
         }
         public async Task<IEnumerable<DTOIngredients>> GetAllIngredients()
         {
