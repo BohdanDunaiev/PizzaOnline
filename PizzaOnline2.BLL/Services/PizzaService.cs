@@ -14,10 +14,9 @@ namespace PizzaOnline2.BLL.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public PizzaService(IUnitOfWork unitOfWork, IMapper mapper)
+        public PizzaService(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
-            _mapper = mapper;
         }
         public async Task<IEnumerable<DTOPizza>> GetPizzaId(int id)
         {

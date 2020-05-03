@@ -7,7 +7,7 @@ namespace PizzaOnline.DAL
     {
         //public DbSet<Order> Orders { get; set; }
         public DbSet<AspNetUsers> AspNetUser { get; set; }
-        public DbSet<Delivery> Deliveries { get; set; }
+        public DbSet<Delivery> Delivery { get; set; }
         public DbSet<Ingredients> Ingredients { get; set; }
         public DbSet<Pizza> Pizza { get; set; }
         public DbSet<Pizzeria> Pizzeria { get; set; }

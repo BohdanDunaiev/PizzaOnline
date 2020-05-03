@@ -11,7 +11,7 @@ namespace PizzaOnline.DAL.Interface.IRepository
 {
     public interface IDeliveryRepository : IGenericRepository<Delivery>
     {
-        PagedList<Delivery> GetOwners(DeliveryQueryParameters deliveryquery);
+        PagedList<Delivery> GetDelivery(DeliveryQueryParameters deliveryquery);
         Task<IEnumerable<Delivery>> GetPopular();
         Task<IEnumerable<Delivery>> GetDeliveryName(string namedelivery);
         Task<IEnumerable<Delivery>> GetDeliveryId(int id);

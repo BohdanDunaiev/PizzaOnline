@@ -1,11 +1,9 @@
-﻿using System;
+﻿using AutoMapper;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using PizzaOnline2.BLL.IServices;
 using PizzaOnline.DAL.Interface;
 using PizzaOnline.BLL.DTOEntities;
-using AutoMapper;
 using PizzaOnline.DAL.Entities;
 using PizzaOnline.DAL.Helpers;
 using PizzaOnline.DAL.Models;
@@ -14,16 +12,18 @@ namespace PizzaOnline2.BLL.Services
 {
     public class DeliveryService : IDeliveryService
     {
-        private readonly IUnitOfWork _unitOfWork;
+        IUnitOfWork _unitOfWork;
+
         private readonly IMapper _mapper;
+     
         public DeliveryService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public PagedList<Delivery> GetOwners(DeliveryQueryParameters ownerParameters)
+        public PagedList<Delivery> GetDelivery(DeliveryQueryParameters ownerParameters)
         {
-            return _unitOfWork.DeliveryRepository.GetOwners(ownerParameters);
+            return _unitOfWork.DeliveryRepository.GetDelivery(ownerParameters);
         }
         public async Task<IEnumerable<DTODelivery>> GetDeliveryName(string namedelivery)
         {
@@ -43,16 +43,16 @@ namespace PizzaOnline2.BLL.Services
             return res;
         }
         //CRUT operation
-        public async Task<IEnumerable<DTODelivery>> GetAllDelivery()
+        public async Task<IEnumerable<DTODelivery>> GetAll()
         {
-            var info = await _unitOfWork.DeliveryRepository.GetAllAsyn();
+            var data = await _unitOfWork.DeliveryRepository.GetAllAsyn();
+            List<DTODelivery> transferedtoDTO = new List<DTODelivery>();
 
-            List<DTODelivery> transferDTO = new List<DTODelivery>();
+            foreach (var delivery in data)
+                transferedtoDTO.Add(_mapper.Map<Delivery, DTODelivery>(delivery));
 
-            foreach (var delivery in info)
-                transferDTO.Add(_mapper.Map<Delivery, DTODelivery>(delivery));
-
-            return transferDTO;
+            return transferedtoDTO;
+            //return _mapper.Map<IEnumerable<Delivery>, IEnumerable<DTODelivery>>(await _unitOfWork.DeliveryRepository.GetAllAsyn());            
         }
         public async Task<DTODelivery> GetByIdDelivery(int id)
         {
@@ -61,8 +61,13 @@ namespace PizzaOnline2.BLL.Services
         }
         public async Task InsertDelivery(DTODelivery delivery)
         {
-            var info = _mapper.Map<DTODelivery, Delivery>(delivery);
-            await _unitOfWork.DeliveryRepository.InsertAsyn(info);
+            DTODelivery dDTO = new DTODelivery()
+            {
+                NameDelivery = delivery.NameDelivery,
+                Time = delivery.Time,
+                Price = delivery.Price
+            };
+            var info = _mapper.Map<Delivery, DTODelivery>(await _unitOfWork.DeliveryRepository.InsertAsyn(_mapper.Map<DTODelivery, Delivery>(dDTO)));
         }
         public async Task UpdateDelivery(DTODelivery delivery)
         {

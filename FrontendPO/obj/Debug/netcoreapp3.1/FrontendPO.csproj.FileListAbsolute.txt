@@ -177,3 +177,5 @@ C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1
 C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Edit.cshtml.g.cs
 C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
 C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\obj\Debug\netcoreapp3.1\Razor\Views\Roles\UserList.cshtml.g.cs
+C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\FrontendPO\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll

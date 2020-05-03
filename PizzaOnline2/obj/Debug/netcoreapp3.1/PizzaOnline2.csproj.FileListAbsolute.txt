@@ -454,3 +454,12 @@ C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\dbconnection.json
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\FrontendPO.Views.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\FrontendPO.Views.pdb
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\FrontendPO.exe
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\PizzaOnline2.StaticWebAssets.xml
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\FrontendPO.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\FrontendPO.pdb
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2\bin\Debug\netcoreapp3.1\System.Linq.Dynamic.Core.dll
