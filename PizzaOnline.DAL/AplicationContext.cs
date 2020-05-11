@@ -1,29 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using PizzaOnline.DAL.Entities;
 
 namespace PizzaOnline.DAL
 {
-    public class AplicationContext : DbContext
+    public class AplicationContext : IdentityDbContext<User, Role, int>
     {
-        //public DbSet<Order> Orders { get; set; }
-        public DbSet<AspNetUsers> AspNetUser { get; set; }
-        public DbSet<Delivery> Delivery { get; set; }
-        public DbSet<Ingredients> Ingredients { get; set; }
-        public DbSet<Pizza> Pizza { get; set; }
-        public DbSet<Pizzeria> Pizzeria { get; set; }
         public AplicationContext(DbContextOptions<AplicationContext> options)
             : base(options)
         {
             Database.EnsureCreated();
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=PizzaOnline;Trusted_Connection=True;");
-        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Order>()
-                .HasOne(p => p.AspNetUser)
+                .HasOne(p => p.Customer)
                 .WithMany(t => t.Orders);
 
             modelBuilder.Entity<Order>()
@@ -42,5 +35,12 @@ namespace PizzaOnline.DAL
                 .HasOne(p => p.PizzaIngreedients)
                 .WithMany(t => t.Ingredients);
         }
+
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Delivery> Delivery { get; set; }
+        public DbSet<Ingredients> Ingredients { get; set; }
+        public DbSet<Pizza> Pizza { get; set; }
+        public DbSet<Pizzeria> Pizzeria { get; set; }
+        public DbSet<Order> Order { get; set; }
     }
 }

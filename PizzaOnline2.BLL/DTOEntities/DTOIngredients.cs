@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PizzaOnline.BLL.DTOEntities
+namespace PizzaOnline2.BLL.DTOEntities
 {
     public class DTOIngredients
     {
@@ -13,6 +13,5 @@ namespace PizzaOnline.BLL.DTOEntities
         public string Tomate { get; set; }
         public string Sausege { get; set; }
         public string Sous { get; set; }
-        public DTOPizza PizzaIngreedients { get; set; }
     }
 }

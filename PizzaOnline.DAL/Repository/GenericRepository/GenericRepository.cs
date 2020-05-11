@@ -10,7 +10,7 @@ namespace PizzaOnline.DAL.Repository.GenericRepository
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         protected readonly AplicationContext _context;
-        private DbSet<TEntity> _dbSet;
+        protected DbSet<TEntity> _dbSet;
         public GenericRepository(AplicationContext context)
         {
             _context = context;
@@ -41,17 +41,15 @@ namespace PizzaOnline.DAL.Repository.GenericRepository
             await _context.SaveChangesAsync();
             return obj;
         }
-        public async Task<int> UpdateAsyn(TEntity obj)
+        public async Task UpdateAsyn(TEntity obj)
         {
-            if (obj == null)
-                return 204; 
-
             _context.Entry(obj).State = EntityState.Modified;
-
-            return await _context.SaveChangesAsync();                              
+            await _context.SaveChangesAsync();                              
         }
         public async Task DeleteAsyn(int id)
         {
+            TEntity x = await _dbSet.FindAsync(id);
+            _dbSet.Remove(x);
             await _context.SaveChangesAsync();
         }
         public void Save()

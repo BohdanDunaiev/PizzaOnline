@@ -15,23 +15,23 @@ using PizzaOnline.DAL;
 using PizzaOnline2.BLL.IServices;
 using PizzaOnline2.BLL.Services;
 using Microsoft.AspNetCore.Identity;
+using PizzaOnline2.BLL.AutoMapper;
+using System.Reflection;
+using PizzaOnline.DAL.Helpers;
 
 namespace PizzaOnline2
 {
     public class Startup
     {
-        private IConfigurationRoot _confString;
-        public Startup(IHostEnvironment hostEnvironment)
+        public Startup(IConfiguration configuration)
         {
-            _confString = new ConfigurationBuilder().SetBasePath(hostEnvironment.ContentRootPath).AddJsonFile("dbconnection.json").Build();
+            Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            
+        {            
             string con = "Server= (localdb)\\mssqllocaldb;Database=Pizzeria;Trusted_Connection=True;";
             //(localdb)\\mssqllocaldb
             services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
@@ -44,7 +44,7 @@ namespace PizzaOnline2
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IPizzaRepository, PizzaRepository>();
             services.AddTransient<IPizzeriaRepository, PizzeriaRepository>();
-            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
             #endregion
 
             #region SQL services
@@ -53,23 +53,30 @@ namespace PizzaOnline2
             services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<IPizzaService, PizzaService>();
             services.AddTransient<IPizzeriaService, PizzaeriaService>();
-            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ICustomerService, CustomerService>();
             #endregion
             services.AddDbContext<AplicationContext>(options =>
             {
                 options
-                    .UseSqlServer(_confString.GetConnectionString("DefaultConnection"),
+                    .UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
                         assembly =>
                             assembly.MigrationsAssembly("PizzaOnline.DAL"));
             });
-            services.AddDbContext<UserApplicationContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("Server= (localdb)\\mssqllocaldb;Database=PizzaOnline;Trusted_Connection=True;")));
-            services.AddIdentity<AspNetUsers, IdentityRole>()
-                .AddEntityFrameworkStores<AplicationContext>();
+
+            services.AddIdentity<User, Role>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+            }).AddEntityFrameworkStores<AplicationContext>();
+
+            services.AddAutoMapper(typeof(AutoMapperProfile).GetTypeInfo().Assembly);
+
+            services.AddTransient<ISortHelper<Pizza>, SortHelper<Pizza>>();
+            services.AddTransient<ISortHelper<Customer>, SortHelper<Customer>>();
+
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

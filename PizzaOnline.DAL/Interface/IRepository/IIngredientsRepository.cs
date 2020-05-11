@@ -9,6 +9,6 @@ namespace PizzaOnline.DAL.Interface.IRepository
 {
     public interface IIngredientsRepository : IGenericRepository<Ingredients> 
     {
-        Task<IEnumerable<Ingredients>> GetIngredientId(int id);
+        public Task<Ingredients> GetIngredientId(int id);
     }
 }

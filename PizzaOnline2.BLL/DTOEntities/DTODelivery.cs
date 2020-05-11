@@ -11,6 +11,5 @@ namespace PizzaOnline.BLL.DTOEntities
         public string NameDelivery { get; set; }
         public string Time { get; set; }
         public int Price { get; set; }
-        public ICollection<DTOOrder> Orders { get; set; }
     }
 }

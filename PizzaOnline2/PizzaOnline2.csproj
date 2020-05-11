@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FrontendPO\FrontendPO.csproj" />
     <ProjectReference Include="..\PizzaOnline.DAL\PizzaOnline.DAL.csproj" />
     <ProjectReference Include="..\PizzaOnline2.BLL\PizzaOnline2.BLL.csproj" />
   </ItemGroup>

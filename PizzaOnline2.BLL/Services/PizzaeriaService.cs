@@ -6,7 +6,7 @@ using PizzaOnline2.BLL.IServices;
 using PizzaOnline.DAL.Entities;
 using PizzaOnline.DAL.Interface;
 using AutoMapper;
-using PizzaOnline.BLL.DTOEntities;
+using PizzaOnline2.BLL.DTOEntities;
 
 namespace PizzaOnline2.BLL.Services
 {
@@ -18,23 +18,23 @@ namespace PizzaOnline2.BLL.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IEnumerable<DTOPizzeria>> GetPizzeriaId(int id)
+        public async Task<DTOPizzeria> GetPizzeriaId(int id)
         {
-            return _mapper.Map<IEnumerable<Pizzeria>, IEnumerable<DTOPizzeria>>(await _unitOfWork.PizzeriaRepository.GetPizzeriaId(id)); ;
+            return _mapper.Map<Pizzeria, DTOPizzeria>(await _unitOfWork.PizzeriaRepository.GetPizzeriaId(id)); ;
         }      
-        public async Task<IEnumerable<DTOPizzeria>> GetPizzeriaName(string namepizzeria)
-        {
-            return _mapper.Map<IEnumerable<Pizzeria>, IEnumerable<DTOPizzeria>>(await _unitOfWork.PizzeriaRepository.GetPizzeriaName(namepizzeria)); ;
-        }
-        public async Task<IEnumerable<DTOPizzeria>> GetPizzeriaLocation(string address)
-        {
-            return _mapper.Map<IEnumerable<Pizzeria>, IEnumerable<DTOPizzeria>>(await _unitOfWork.PizzeriaRepository.GetPizzeriaLocation(address)); ;
-        }
-        public async Task<IEnumerable<DTOPizzeria>> GetPopular()
-        {
-            var res = _mapper.Map<IEnumerable<Pizzeria>, IEnumerable<DTOPizzeria>>(await _unitOfWork.PizzeriaRepository.GetPopular());
-            return res;
-        }       
+        //public async Task<IEnumerable<DTOPizzeria>> GetPizzeriaName(string namepizzeria)
+        //{
+        //    return _mapper.Map<IEnumerable<Pizzeria>, IEnumerable<DTOPizzeria>>(await _unitOfWork.PizzeriaRepository.GetPizzeriaName(namepizzeria)); ;
+        //}
+        //public async Task<IEnumerable<DTOPizzeria>> GetPizzeriaLocation(string address)
+        //{
+        //    return _mapper.Map<IEnumerable<Pizzeria>, IEnumerable<DTOPizzeria>>(await _unitOfWork.PizzeriaRepository.GetPizzeriaLocation(address)); ;
+        //}
+        //public async Task<IEnumerable<DTOPizzeria>> GetPopular()
+        //{
+        //    var res = _mapper.Map<IEnumerable<Pizzeria>, IEnumerable<DTOPizzeria>>(await _unitOfWork.PizzeriaRepository.GetPopular());
+        //    return res;
+        //}       
         //CRUT operation
         public async Task<IEnumerable<DTOPizzeria>> GetAllPizzeria()
         {

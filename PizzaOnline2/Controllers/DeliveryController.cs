@@ -24,41 +24,16 @@ namespace PizzaOnline2.Controllers
         #endregion
 
         #region Api
-        [HttpGet]
-        [Route("DeliveryPagin")]
-        [ProducesResponseType(typeof(IEnumerable<DTODelivery>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public async Task<IActionResult> GetDelivery([FromQuery]DeliveryQueryParameters deliveryQuery)
-        {
-            if (!deliveryQuery.ValidYearRange)
-            {
-                return BadRequest("Max price cannot be less than min price");
-            }
-            var owners = _deliveryService.GetDelivery(deliveryQuery);
+        
 
-            var metadata = new
-            {
-                owners.TotalCount,
-                owners.PageSize,
-                owners.CurrentPage,
-                owners.TotalPages,
-                owners.HasNext,
-                owners.HasPrevious
-            };
-
-            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
-
-            return Ok(owners);
-        }
-
-        [HttpGet]
-        [Route("DeliveryPrice")]
-        [ProducesResponseType(typeof(IEnumerable<DTODelivery>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public async Task<IActionResult> GetDeliveryPriceRange(int maxPrice, int minPrice)
-        {
-            return Ok(await _deliveryService.GetDeliveryPriceRange(maxPrice, minPrice));
-        }
+        //[HttpGet]
+        //[Route("DeliveryPrice")]
+        //[ProducesResponseType(typeof(IEnumerable<DTODelivery>), 201)]
+        //[ProducesResponseType(typeof(ErrorResponseDTO), 400)]
+        //public async Task<IActionResult> GetDeliveryPriceRange(int maxPrice, int minPrice)
+        //{
+        //    return Ok(await _deliveryService.GetDeliveryPriceRange(maxPrice, minPrice));
+        //}
 
         [HttpGet]
         [Route("DeliveryId")]
@@ -69,23 +44,23 @@ namespace PizzaOnline2.Controllers
             return Ok(await _deliveryService.GetDeliveryId(id));
         }
 
-        [HttpGet]
-        [Route("DeliveryName")]
-        [ProducesResponseType(typeof(IEnumerable<DTODelivery>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public async Task<IActionResult> GetDeliveryName(string namedelivery)
-        {
-            return Ok(await _deliveryService.GetDeliveryName(namedelivery));
-        }
+        //[HttpGet]
+        //[Route("DeliveryName")]
+        //[ProducesResponseType(typeof(IEnumerable<DTODelivery>), 201)]
+        //[ProducesResponseType(typeof(ErrorResponseDTO), 400)]
+        //public async Task<IActionResult> GetDeliveryName(string namedelivery)
+        //{
+        //    return Ok(await _deliveryService.GetDeliveryName(namedelivery));
+        //}
 
-        [HttpGet]
-        [Route("DeliveryPopular")]
-        [ProducesResponseType(typeof(IEnumerable<DTODelivery>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public async Task<IActionResult> GetPopular()
-        {
-            return Ok(await _deliveryService.GetPopular());
-        }
+        //[HttpGet]
+        //[Route("DeliveryPopular")]
+        //[ProducesResponseType(typeof(IEnumerable<DTODelivery>), 201)]
+        //[ProducesResponseType(typeof(ErrorResponseDTO), 400)]
+        //public async Task<IActionResult> GetPopular()
+        //{
+        //    return Ok(await _deliveryService.GetPopular());
+        //}
 
         //CRUD OP...........................................................
         [HttpGet]
@@ -145,13 +120,13 @@ namespace PizzaOnline2.Controllers
         }
 
 
-        [Route("Delivery/{delivery}")]
+        [Route("Delivery/{id}")]
         [HttpDelete]
-        public async Task<IActionResult> Delete(int delivery)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
-                await _deliveryService.DeleteDelivery(delivery);
+                await _deliveryService.DeleteDelivery(id);
                 return StatusCode(204);
             }
             catch

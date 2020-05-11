@@ -9,9 +9,9 @@ namespace PizzaOnline.DAL.Interface.IRepository
 {
     public interface IPizzeriaRepository : IGenericRepository<Pizzeria>
     {
-        Task<IEnumerable<Pizzeria>> GetPopular();
-        Task<IEnumerable<Pizzeria>> GetPizzeriaName(string namepizzeria);
-        Task<IEnumerable<Pizzeria>> GetPizzeriaLocation(string address);
-        Task<IEnumerable<Pizzeria>> GetPizzeriaId(int id);
+        public Task<Pizzeria> GetPizzeriaId(int id);
+        //Task<IEnumerable<Pizzeria>> GetPopular();
+        //Task<IEnumerable<Pizzeria>> GetPizzeriaName(string namepizzeria);
+        //Task<IEnumerable<Pizzeria>> GetPizzeriaLocation(string address);       
     }
 }

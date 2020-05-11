@@ -1,0 +1,40 @@
+﻿@page "/pizza"
+@inject Service.PizzaService pizzaService
+@using PizzaOnline.BLL.DTOEntities
+{
+<h3>Pizza</h3>
+@if (pizza == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NamePizza</th>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pizza in pizza)
+            {
+                <tr>
+                    <td>@pizza.Id</td>
+                    <td>@pizza.NamePizza</td>
+                    <td>@pizza.Size</td>
+                    <td>@pizza.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@code {
+    List<DTOPizza> pizza;
+    protected override async Task OnInitializedAsync()
+    {
+        pizza = await pizzaService.GetPizzaAsync();
+    }
+}

@@ -7,6 +7,8 @@ using PizzaOnline.DAL.Entities;
 using AutoMapper;
 using PizzaOnline.DAL.Interface;
 using PizzaOnline.BLL.DTOEntities;
+using PizzaOnline.DAL.Helpers;
+using PizzaOnline.DAL.Models;
 
 namespace PizzaOnline2.BLL.Services
 {
@@ -14,10 +16,22 @@ namespace PizzaOnline2.BLL.Services
     {
         IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public OrderService(IUnitOfWork unitOfWork)
+        public OrderService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
+        public  PagedList<DTOOrder> GetOrder(OrderQueryParameters parameters)
+        {
+            var x =  _unitOfWork.OrderRepository.GetOrder(parameters);
+            var result = _mapper.Map<PagedList<DTOOrder>>(x);
+            return result;
+        }
+        public async Task<Order> GetOrderId(int id)
+        {
+            return await _unitOfWork.OrderRepository.GetOrderId(id);
+        }
+        //CRUD
         public async Task<IEnumerable<DTOOrder>> GetAllOrders()
         {
             var info = await _unitOfWork.OrderRepository.GetAllAsyn();

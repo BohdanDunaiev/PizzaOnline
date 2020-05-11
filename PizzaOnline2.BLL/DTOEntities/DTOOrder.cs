@@ -6,8 +6,8 @@ namespace PizzaOnline.BLL.DTOEntities
     public class DTOOrder
     {
         public int Id { get; set; }
-        public Guid UserId { get; set; }
-        public DTOUser User { get; set; }
+        public int CustomerId { get; set; }
+        public DTOCustomer User { get; set; }
         public int PizzaId { get; set; }
         public DTOPizza Pizza { get; set; }
         public int PizzeriaId { get; set; }

@@ -7,6 +7,8 @@ using PizzaOnline.DAL.Entities;
 using PizzaOnline.DAL.Interface;
 using AutoMapper;
 using PizzaOnline.BLL.DTOEntities;
+using PizzaOnline.DAL.Helpers;
+using PizzaOnline.DAL.Models;
 
 namespace PizzaOnline2.BLL.Services
 {
@@ -18,28 +20,34 @@ namespace PizzaOnline2.BLL.Services
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<IEnumerable<DTOPizza>> GetPizzaId(int id)
+        public async Task<Pizza> GetPizzaId(int id)
         {
-            return _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPizzaId(id)); ;
+            return await _unitOfWork.PizzaRepository.GetPizzaId(id); 
         }
-        public async Task<IEnumerable<DTOPizza>> GetPizzaPriceRange(int maxPrice, int minPrice)
+        public PagedList<DTOPizza> GetPizza(PizzaQueryParameters parameters)
         {
-            return _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPizzaPriceRange(maxPrice, minPrice)); ;
+            var x = _unitOfWork.PizzaRepository.GetPizza(parameters);
+            var result = _mapper.Map<PagedList<DTOPizza>>(x);
+            return result;
         }
-        public async Task<IEnumerable<DTOPizza>> GetPizzaName(string namepizza)
-        {
-            return _mapper.Map <IEnumerable <Pizza> ,  IEnumerable < DTOPizza >>(await _unitOfWork.PizzaRepository.GetPizzaName(namepizza)); ;
-        }
-        public async Task<IEnumerable<DTOPizza>> GetPopular()
-        {
-            var res = _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPopular());
-            return res;
-        }
-        public async Task<IEnumerable<DTOPizza>> GetPopularIngredients()
-        {
-            var res = _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPopularIngredients());
-            return res;
-        }
+        //public async Task<IEnumerable<DTOPizza>> GetPizzaPriceRange(int maxPrice, int minPrice)
+        //{
+        //    return _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPizzaPriceRange(maxPrice, minPrice)); ;
+        //}
+        //public async Task<IEnumerable<DTOPizza>> GetPizzaName(string namepizza)
+        //{
+        //    return _mapper.Map <IEnumerable <Pizza> ,  IEnumerable < DTOPizza >>(await _unitOfWork.PizzaRepository.GetPizzaName(namepizza)); ;
+        //}
+        //public async Task<IEnumerable<DTOPizza>> GetPopular()
+        //{
+        //    var res = _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPopular());
+        //    return res;
+        //}
+        //public async Task<IEnumerable<DTOPizza>> GetPopularIngredients()
+        //{
+        //    var res = _mapper.Map<IEnumerable<Pizza>, IEnumerable<DTOPizza>>(await _unitOfWork.PizzaRepository.GetPopularIngredients());
+        //    return res;
+        //}
         //CRUT operation
         public async Task<IEnumerable<DTOPizza>> GetAllPizza()
         {

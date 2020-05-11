@@ -11,10 +11,10 @@ namespace PizzaOnline.DAL.Interface.IRepository
 {
     public interface IDeliveryRepository : IGenericRepository<Delivery>
     {
-        PagedList<Delivery> GetDelivery(DeliveryQueryParameters deliveryquery);
-        Task<IEnumerable<Delivery>> GetPopular();
-        Task<IEnumerable<Delivery>> GetDeliveryName(string namedelivery);
-        Task<IEnumerable<Delivery>> GetDeliveryId(int id);
-        Task<IEnumerable<Delivery>> GetDeliveryPriceRange(int maxPrice, int minPrice);  //ціна в межах от и до 
+        //public PagedList<Delivery> GetDelivery(DeliveryQueryParameters deliveryquery);
+        public Task<Delivery> GetDeliveryId(int id);
+        //Task<IEnumerable<Delivery>> GetDeliveryPriceRange(int maxPrice, int minPrice);  //ціна в межах от и до 
+        //Task<IEnumerable<Delivery>> GetPopular();
+        //Task<IEnumerable<Delivery>> GetDeliveryName(string namedelivery);
     }
 }
