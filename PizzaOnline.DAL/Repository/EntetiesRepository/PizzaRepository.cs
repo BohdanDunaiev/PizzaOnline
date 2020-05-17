@@ -30,15 +30,18 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
             return res;
         }
 
-        public PagedList<Pizza> GetPizza(PizzaQueryParameters parameters)
+        public IEnumerable<Pizza> GetPizza(PizzaQueryParameters parameters)
         {
-            var pizza = FindByCondition(x => x.Price >= parameters.MinPrice && x.Price <= parameters.MaxPrice);
-                
-            SearchByBrand(ref pizza, parameters.NamePizza);
+            return GetAll().Skip((parameters.PageNumber - 1) * parameters.PageSize)
+                .Take(parameters.PageSize)
+                .ToList();
+            //var pizza = FindByCondition(x => x.Price >= parameters.MinPrice && x.Price <= parameters.MaxPrice);
 
-            pizza = _sortHelper.ApplySort(pizza, parameters);
+            //SearchByBrand(ref pizza, parameters.NamePizza);
 
-            return  PagedList<Pizza>.ToPagedList(pizza, parameters.PageNumber, parameters.PageSize);         
+            //pizza = _sortHelper.ApplySort(pizza, parameters);
+
+            //return  PagedList<Pizza>.ToPagedList(pizza, parameters.PageNumber, parameters.PageSize);         
         }
 
         private void SearchByBrand(ref IQueryable<Pizza> pizza, string NamePizza)

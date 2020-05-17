@@ -16,6 +16,10 @@ namespace PizzaOnline.DAL.Repository.GenericRepository
             _context = context;
             _dbSet = _context.Set<TEntity>();
         }
+        public IEnumerable<TEntity> GetAll()
+        {
+            return this._context.Set<TEntity>();
+        }
         public IQueryable<TEntity> FindByCondition(Expression<Func<TEntity, bool>> expression)
         {
             return this._context.Set<TEntity>()

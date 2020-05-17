@@ -24,11 +24,12 @@ namespace PizzaOnline2.BLL.Services
         {
             return await _unitOfWork.PizzaRepository.GetPizzaId(id); 
         }
-        public PagedList<DTOPizza> GetPizza(PizzaQueryParameters parameters)
+        public IEnumerable<Pizza> GetPizza(PizzaQueryParameters parameters)
         {
-            var x = _unitOfWork.PizzaRepository.GetPizza(parameters);
-            var result = _mapper.Map<PagedList<DTOPizza>>(x);
-            return result;
+            return _unitOfWork.PizzaRepository.GetPizza(parameters);
+            //var x = _unitOfWork.PizzaRepository.GetPizza(parameters);
+            //var result = _mapper.Map<PagedList<DTOPizza>>(x);
+            //return result;
         }
         //public async Task<IEnumerable<DTOPizza>> GetPizzaPriceRange(int maxPrice, int minPrice)
         //{

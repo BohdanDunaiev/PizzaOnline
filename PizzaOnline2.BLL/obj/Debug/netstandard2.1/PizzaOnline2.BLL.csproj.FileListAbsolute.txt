@@ -9,3 +9,14 @@ C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2.BLL\obj\Debug\netstan
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2.BLL\obj\Debug\netstandard2.1\PizzaOnline2.BLL.csproj.CopyComplete
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2.BLL\obj\Debug\netstandard2.1\PizzaOnline2.BLL.dll
 C:\Users\Василь\Desktop\PizzaOnline_1.0\PizzaOnline2.BLL\obj\Debug\netstandard2.1\PizzaOnline2.BLL.pdb
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\bin\Debug\netstandard2.1\PizzaOnline2.BLL.deps.json
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\bin\Debug\netstandard2.1\PizzaOnline2.BLL.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\bin\Debug\netstandard2.1\PizzaOnline2.BLL.pdb
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\bin\Debug\netstandard2.1\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\bin\Debug\netstandard2.1\PizzaOnline.DAL.pdb
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\obj\Debug\netstandard2.1\PizzaOnline2.BLL.csprojAssemblyReference.cache
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\obj\Debug\netstandard2.1\PizzaOnline2.BLL.AssemblyInfoInputs.cache
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\obj\Debug\netstandard2.1\PizzaOnline2.BLL.AssemblyInfo.cs
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\obj\Debug\netstandard2.1\PizzaOnline2.BLL.csproj.CopyComplete
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\obj\Debug\netstandard2.1\PizzaOnline2.BLL.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2.BLL\obj\Debug\netstandard2.1\PizzaOnline2.BLL.pdb

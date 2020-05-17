@@ -8343,11 +8343,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj",
+      "projectUniqueName": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj",
       "projectName": "PizzaOnline2.BLL",
-      "projectPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj",
+      "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj",
       "packagesPath": "C:\\Users\\Василь\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline2.BLL\\obj\\",
+      "outputPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2.BLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8367,8 +8367,8 @@
       "frameworks": {
         "netstandard2.1": {
           "projectReferences": {
-            "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
-              "projectPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj"
+            "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
+              "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj"
             }
           }
         }

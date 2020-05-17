@@ -8230,11 +8230,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj",
+      "projectUniqueName": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj",
       "projectName": "PizzaOnline.DAL",
-      "projectPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj",
+      "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj",
       "packagesPath": "C:\\Users\\Василь\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Василь\\Desktop\\PizzaOnline_1.0\\PizzaOnline.DAL\\obj\\",
+      "outputPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

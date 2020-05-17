@@ -1,0 +1,60 @@
+﻿@page "/pizza"
+
+@using PizzaOnline.DAL.Models;
+@using PizzaOnline.DAL.Entities;
+@using PizzaOnline2.BLL.IServices;
+@inject IPizzaService pizzaService
+{
+<h3>Pizza</h3>
+@if (pizza == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NamePizza</th>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pizza in pizza)
+            {
+                <tr>
+                    <td>@pizza.NamePizza</td>
+                    <td>@pizza.Size</td>
+                    <td>@pizza.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <button @onclick="PrevPage">Prev</button>
+    <span>@pageNum</span>
+    <button @onclick="NextPage">Next</button>
+
+}
+@code {
+    IEnumerable<Pizza> pizza;
+    private int pageNum = 1;
+    private int pageSize = 2;
+    protected override void OnInitialized()
+    {
+        pizza = pizzaService.GetPizza(new PizzaQueryParameters() { PageSize = pageSize, PageNumber = pageNum });
+    }
+    public void NextPage()
+    {
+        pageNum++;
+        pizza = pizzaService.GetPizza(new PizzaQueryParameters() { PageSize = pageSize, PageNumber = pageNum });
+    }
+    public void PrevPage()
+    {
+        if (pageNum > 1)
+        {
+            pageNum--;
+            pizza = pizzaService.GetPizza(new PizzaQueryParameters() { PageSize = pageSize, PageNumber = pageNum });
+        }
+    }
+}

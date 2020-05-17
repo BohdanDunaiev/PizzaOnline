@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaOnline2.BLL", "PizzaOn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaOnline.DAL", "PizzaOnline.DAL\PizzaOnline.DAL.csproj", "{FAE8444A-B6A6-4900-B0E6-698E88D01C28}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PizzaOnlineFront", "PizzaOnlineFront\PizzaOnlineFront.csproj", "{21579497-6F93-477F-84EB-7D36282C94C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontPizza", "FrontPizza\FrontPizza.csproj", "{786B965C-8DE0-4D21-8A0A-37F922193712}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontPizza", "FrontPizza\FrontPizza.csproj", "{786B965C-8DE0-4D21-8A0A-37F922193712}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{FAE8444A-B6A6-4900-B0E6-698E88D01C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FAE8444A-B6A6-4900-B0E6-698E88D01C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FAE8444A-B6A6-4900-B0E6-698E88D01C28}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21579497-6F93-477F-84EB-7D36282C94C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21579497-6F93-477F-84EB-7D36282C94C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21579497-6F93-477F-84EB-7D36282C94C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21579497-6F93-477F-84EB-7D36282C94C1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{786B965C-8DE0-4D21-8A0A-37F922193712}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{786B965C-8DE0-4D21-8A0A-37F922193712}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{786B965C-8DE0-4D21-8A0A-37F922193712}.Release|Any CPU.ActiveCfg = Release|Any CPU

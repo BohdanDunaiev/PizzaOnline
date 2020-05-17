@@ -6,20 +6,24 @@ using PizzaOnline.BLL.DTOEntities;
 using PizzaOnline.DAL.Models;
 using PizzaOnline2.BLL.DTOEntities;
 using PizzaOnline2.BLL.IServices;
+using AutoMapper;
+using PizzaOnline.DAL.Entities;
+using System.Linq;
 
 namespace PizzaOnline2.Controllers
 {
-    [ApiController]
-    public class PizzaController : ControllerBase
+    public class PizzaController : Controller
     {
         #region Properties
         IPizzaService _pizzaService;
+        private readonly IMapper _mapper;
         #endregion
 
         #region Constructors      
-        public PizzaController(IPizzaService pizzaService)
+        public PizzaController(IPizzaService pizzaService, IMapper mapper)
         {
             _pizzaService = pizzaService;
+            _mapper = mapper;
         }
         #endregion
 
@@ -34,18 +38,24 @@ namespace PizzaOnline2.Controllers
         }
         [HttpGet]
         [Route("PizzaAll")]
-        [ProducesResponseType(typeof(IEnumerable<DTOPizza>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public IActionResult GetPizza([FromQuery]PizzaQueryParameters parameters)
+        //[ProducesResponseType(typeof(IEnumerable<DTOPizza>), 201)]
+        //[ProducesResponseType(typeof(ErrorResponseDTO), 400)]
+        public IActionResult Get([FromQuery]PizzaQueryParameters parameters)
         {
-            try
-            {
-                return Ok(_pizzaService.GetPizza(parameters));
-            }
-            catch
-            {
-                return NotFound();
-            }
+            var models = _pizzaService.GetPizza(parameters).ToList();
+            var list = _mapper.Map<List<Pizza>, List<DTOPizza>>(models);
+            if (list == null)
+                return NotFound("The list of products is empty");
+            else
+                return View(list);
+            //try
+            //{
+            //    return Ok(_pizzaService.GetPizza(parameters));
+            //}
+            //catch
+            //{
+            //    return NotFound();
+            //}
         }
         //CRUD..............................................
         [HttpGet]
