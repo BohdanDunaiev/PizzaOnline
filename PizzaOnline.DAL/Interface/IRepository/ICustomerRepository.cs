@@ -11,8 +11,7 @@ namespace PizzaOnline.DAL.Interface.IRepository
 {
     public interface ICustomerRepository : IGenericRepository<Customer>
     {
-        public PagedList<Customer> GetCustomer(CustomerQueryParameters customerquery);
-
+        public Task<PagedList<Customer>> GetCustomer(CustomerQueryParameters customerquery);
         public Task<Customer> GetCustomerId(int id);
     }
 }

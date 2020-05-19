@@ -29,9 +29,9 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
                 .FirstOrDefaultAsync();
             return res;
         }
-        public PagedList<Order> GetOrder(OrderQueryParameters parameters)
+        public async Task<PagedList<Order>> GetOrder(OrderQueryParameters parameters)
         {
-            return  PagedList<Order>.ToPagedList(_dbSet, parameters.PageNumber, parameters.PageSize);
+            return await PagedList<Order>.ToPagedListAsync(_dbSet, parameters.PageNumber, parameters.PageSize);
         }
     }
 }

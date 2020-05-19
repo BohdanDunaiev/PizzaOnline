@@ -1,10 +1,8 @@
 ﻿@page "/pizza"
 
-@using PizzaOnline.DAL.Models;
-@using PizzaOnline.DAL.Entities;
-@using PizzaOnline2.BLL.IServices;
-@inject IPizzaService pizzaService
-{
+@using FrontPizza.ViewModels;
+@inject Data.PizzaService pizzaService
+
 <h3>Pizza</h3>
 @if (pizza == null)
 {
@@ -15,6 +13,7 @@ else
     <table class="table">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>NamePizza</th>
                 <th>Size</th>
                 <th>Price</th>
@@ -23,38 +22,38 @@ else
         <tbody>
             @foreach (var pizza in pizza)
             {
-                <tr>
-                    <td>@pizza.NamePizza</td>
-                    <td>@pizza.Size</td>
-                    <td>@pizza.Price</td>
-                </tr>
+            <tr>
+                <td>@pizza.id</td>
+                <td>@pizza.namePizza</td>
+                <td>@pizza.size</td>
+                <td>@pizza.price</td>
+            </tr>
             }
         </tbody>
     </table>
-    <button @onclick="PrevPage">Prev</button>
+    @*<button @onclick="PrevPage">Prev</button>
     <span>@pageNum</span>
-    <button @onclick="NextPage">Next</button>
+    <button @onclick="NextPage">Next</button>*@
 
 }
 @code {
-    IEnumerable<Pizza> pizza;
-    private int pageNum = 1;
-    private int pageSize = 2;
-    protected override void OnInitialized()
+    List<PizzaViewModel> pizza;
+    protected override async Task OnInitializedAsync()
     {
-        pizza = pizzaService.GetPizza(new PizzaQueryParameters() { PageSize = pageSize, PageNumber = pageNum });
+        pizza = await pizzaService.GetPizzaAsync();        
+
     }
-    public void NextPage()
-    {
-        pageNum++;
-        pizza = pizzaService.GetPizza(new PizzaQueryParameters() { PageSize = pageSize, PageNumber = pageNum });
-    }
-    public void PrevPage()
-    {
-        if (pageNum > 1)
-        {
-            pageNum--;
-            pizza = pizzaService.GetPizza(new PizzaQueryParameters() { PageSize = pageSize, PageNumber = pageNum });
-        }
-    }
+    //public void NextPage()
+    //{
+    //    pageNum++;
+    //    pizza = pizzaService.GetPizza(new PizzaQueryParameters() { PageSize = pageSize, PageNumber = pageNum });
+    //}
+    //public void PrevPage()
+    //{
+    //    if (pageNum > 1)
+    //    {
+    //        pageNum--;
+    //        pizza = pizzaService.GetPizza(new PizzaQueryParameters() { PageSize = pageSize, PageNumber = pageNum });
+    //    }
+    //}
 }

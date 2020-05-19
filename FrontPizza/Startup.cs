@@ -1,21 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FrontPizza.Areas.Identity;
 using FrontPizza.Data;
 using PizzaOnline.DAL.Entities;
+using Microsoft.AspNetCore.Components.Server;
+using Microsoft.EntityFrameworkCore;
 using PizzaOnline.DAL;
 using PizzaOnline2.BLL.IServices;
 using PizzaOnline2.BLL.Services;
@@ -43,16 +38,10 @@ namespace FrontPizza
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddDbContext<AplicationContext>(options =>
-            //    options.UseSqlServer(
-            //        Configuration.GetConnectionString("DefaultConnection")));
-            //services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
-
-            //    .AddEntityFrameworkStores<AplicationContext>();
             string con = "Server= (localdb)\\mssqllocaldb;Database=Pizzeria;Trusted_Connection=True;";
             //(localdb)\\mssqllocaldb
             services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
-            services.AddControllers();            
+            services.AddControllers();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             #region Entities repositories            
@@ -68,7 +57,7 @@ namespace FrontPizza
             services.AddTransient<IDeliveryService, DeliveryService>();
             services.AddTransient<IIngredientsService, IngredientsService>();
             services.AddTransient<IOrderService, OrderService>();
-            services.AddTransient<IPizzaService, PizzaService>();
+            services.AddTransient<IPizzaService, PizzaOnline2.BLL.Services.PizzaService>();
             services.AddTransient<IPizzeriaService, PizzaeriaService>();
             services.AddTransient<ICustomerService, CustomerService>();
             #endregion
@@ -91,10 +80,15 @@ namespace FrontPizza
             services.AddTransient<ISortHelper<Customer>, SortHelper<Customer>>();
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<User>>();
+            services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
             services.AddSingleton<WeatherForecastService>();
+            services.AddHttpClient<Data.PizzaService>(client =>
+            {
+                client.BaseAddress = new Uri("https://localhost:44360");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -103,7 +97,6 @@ namespace FrontPizza
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
             }
             else
             {

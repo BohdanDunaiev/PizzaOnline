@@ -25,7 +25,7 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
                 .FirstOrDefaultAsync();
             return res;
         }
-        public  PagedList<Customer> GetCustomer(CustomerQueryParameters parameters)
+        public async Task<PagedList<Customer>> GetCustomer(CustomerQueryParameters parameters)
         {
             var customers = FindByCondition(x => x.Id >0);
 
@@ -33,7 +33,7 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
 
             customers = _sortHelper.ApplySort(customers, parameters);
 
-            return PagedList<Customer>.ToPagedList(customers, parameters.PageNumber, parameters.PageSize);
+            return await PagedList<Customer>.ToPagedListAsync(customers, parameters.PageNumber, parameters.PageSize);
         }
         private void SearchByLastName(ref IQueryable<Customer> customers, string lastName)
         {

@@ -32,7 +32,7 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
 
         public IEnumerable<Pizza> GetPizza(PizzaQueryParameters parameters)
         {
-            return GetAll().Skip((parameters.PageNumber - 1) * parameters.PageSize)
+            return  GetAll().Skip((parameters.PageNumber - 1) * parameters.PageSize)
                 .Take(parameters.PageSize)
                 .ToList();
             //var pizza = FindByCondition(x => x.Price >= parameters.MinPrice && x.Price <= parameters.MaxPrice);
@@ -41,7 +41,7 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
 
             //pizza = _sortHelper.ApplySort(pizza, parameters);
 
-            //return  PagedList<Pizza>.ToPagedList(pizza, parameters.PageNumber, parameters.PageSize);         
+            //return await PagedList<Pizza>.ToPagedListAsync(pizza, parameters.PageNumber, parameters.PageSize);         
         }
 
         private void SearchByBrand(ref IQueryable<Pizza> pizza, string NamePizza)

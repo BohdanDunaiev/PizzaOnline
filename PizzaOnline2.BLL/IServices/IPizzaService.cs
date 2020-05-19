@@ -16,7 +16,7 @@ namespace PizzaOnline2.BLL.IServices
         Task DeletePizza(int id);
         //repository
         Task<Pizza> GetPizzaId(int id);
-        IEnumerable<Pizza> GetPizza(PizzaQueryParameters pizzaquery);
+        IEnumerable<DTOPizza> GetPizza(PizzaQueryParameters pizzaquery);
         //Task<IEnumerable<DTOPizza>> GetPizzaPriceRange(int maxPrice, int minPrice);
         //Task<IEnumerable<DTOPizza>> GetPopular();
         //Task<IEnumerable<DTOPizza>> GetPizzaName(string namepizza);

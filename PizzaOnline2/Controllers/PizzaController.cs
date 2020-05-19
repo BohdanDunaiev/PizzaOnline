@@ -12,6 +12,8 @@ using System.Linq;
 
 namespace PizzaOnline2.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class PizzaController : Controller
     {
         #region Properties
@@ -28,63 +30,56 @@ namespace PizzaOnline2.Controllers
         #endregion
 
         #region Api
-        [HttpGet]
-        [Route("PizzaId")]
-        [ProducesResponseType(typeof(IEnumerable<DTOPizza>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetPizzaId(int id)
         {
             return Ok(await _pizzaService.GetPizzaId(id));
         }
         [HttpGet]
-        [Route("PizzaAll")]
+        //[Route("pizza")]
         //[ProducesResponseType(typeof(IEnumerable<DTOPizza>), 201)]
         //[ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public IActionResult Get([FromQuery]PizzaQueryParameters parameters)
+        public /*async Task<*/ActionResult<List<DTOPizza>> Get([FromQuery]PizzaQueryParameters parameters)
         {
-            var models = _pizzaService.GetPizza(parameters).ToList();
-            var list = _mapper.Map<List<Pizza>, List<DTOPizza>>(models);
-            if (list == null)
+            var models = _pizzaService.GetPizza(parameters).ToList();            
+            if (models == null)
                 return NotFound("The list of products is empty");
             else
-                return View(list);
+                return Ok(models);
             //try
             //{
-            //    return Ok(_pizzaService.GetPizza(parameters));
+            //    var pizza = await _pizzaService.GetPizza(parameters);
+            //    if (pizza != null)
+            //        return Ok(pizza);
+            //    else
+            //        return NotFound();
             //}
             //catch
             //{
             //    return NotFound();
-            //}
+            //}           
         }
         //CRUD..............................................
-        [HttpGet]
-        [Route("Pizza")]
-        public async Task<IActionResult> GetAllPizza()
-        {
-            try
-            {
-                return Ok(await _pizzaService.GetAllPizza());
-            }
-            catch
-            {
-                return StatusCode(404);
-            }
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllPizza()
+        //{
+        //    try
+        //    {
+        //        return Ok(await _pizzaService.GetAllPizza());
+        //    }
+        //    catch
+        //    {
+        //        return StatusCode(404);
+        //    }
+        //}
 
-        [HttpGet]
-        [Route("Pizza/{Id}")]
-        [ProducesResponseType(typeof(IEnumerable<DTOPizza>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public async Task<IActionResult> GetByIdPizza(int id)
-        {
-            return Ok(await _pizzaService.GetByIdPizza(id));
-        }
+        //[HttpGet]
+        //public async Task<IActionResult> GetByIdPizza(int id)
+        //{
+        //    return Ok(await _pizzaService.GetByIdPizza(id));
+        //}
 
         [HttpPost]
-        [Route("Pizza")]
-        [ProducesResponseType(typeof(DTOPizza), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
         public async Task<IActionResult> InsertPizza([FromBody]DTOPizza pizza)
         {
             try
@@ -98,7 +93,6 @@ namespace PizzaOnline2.Controllers
             }
         }
 
-        [Route("Pizza/{pizza}")]
         [HttpPut]
         public async Task<IActionResult> UpdatePizza([FromBody]DTOPizza pizza)
         {
@@ -113,7 +107,6 @@ namespace PizzaOnline2.Controllers
             }
         }
 
-        [Route("Pizza/{id}")]
         [HttpDelete]
         public async Task<IActionResult> DeletePizza(int id)
         {

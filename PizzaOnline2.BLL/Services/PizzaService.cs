@@ -9,6 +9,7 @@ using AutoMapper;
 using PizzaOnline.BLL.DTOEntities;
 using PizzaOnline.DAL.Helpers;
 using PizzaOnline.DAL.Models;
+using System.Linq;
 
 namespace PizzaOnline2.BLL.Services
 {
@@ -16,20 +17,21 @@ namespace PizzaOnline2.BLL.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public PizzaService(IUnitOfWork unitOfWork)
+        public PizzaService(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
-        }
+            _mapper = mapper;
+        }    
         public async Task<Pizza> GetPizzaId(int id)
-        {
+        {       
             return await _unitOfWork.PizzaRepository.GetPizzaId(id); 
         }
-        public IEnumerable<Pizza> GetPizza(PizzaQueryParameters parameters)
+        public IEnumerable<DTOPizza> GetPizza(PizzaQueryParameters parameters)
         {
-            return _unitOfWork.PizzaRepository.GetPizza(parameters);
-            //var x = _unitOfWork.PizzaRepository.GetPizza(parameters);
-            //var result = _mapper.Map<PagedList<DTOPizza>>(x);
-            //return result;
+            //return _unitOfWork.PizzaRepository.GetPizza(parameters);
+            var x =  _unitOfWork.PizzaRepository.GetPizza(parameters).ToList();
+            var result = _mapper.Map<List<Pizza>, List<DTOPizza>>(x);
+            return result;
         }
         //public async Task<IEnumerable<DTOPizza>> GetPizzaPriceRange(int maxPrice, int minPrice)
         //{

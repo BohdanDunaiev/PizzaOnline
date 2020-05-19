@@ -74,9 +74,12 @@ namespace PizzaOnline2
             services.AddTransient<ISortHelper<Customer>, SortHelper<Customer>>();
 
             services.AddTransient<IUnitOfWork, UnitOfWork>();
+
+           
+
         }
 
-        
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -93,7 +96,9 @@ namespace PizzaOnline2
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                   name: "default",
+                   pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -320,3 +320,6 @@ C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\bin\Debug\netcoreapp3
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\bin\Debug\netcoreapp3.1\PizzaOnline2.BLL.pdb
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Pizza\IndexP.razor.g.cs
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3.1\Razor\Pages\Pizza\IndexP.razor.g.cs
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\bin\Debug\netcoreapp3.1\PizzaOnline2.exe
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\bin\Debug\netcoreapp3.1\PizzaOnline2.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\bin\Debug\netcoreapp3.1\PizzaOnline2.pdb
