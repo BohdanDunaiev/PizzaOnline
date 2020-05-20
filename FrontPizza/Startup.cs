@@ -22,6 +22,7 @@ using PizzaOnline.DAL.Helpers;
 using AutoMapper;
 using PizzaOnline2.BLL.AutoMapper;
 using System.Reflection;
+using Microsoft.AspNetCore.Identity;
 
 namespace FrontPizza
 {
@@ -41,49 +42,50 @@ namespace FrontPizza
             string con = "Server= (localdb)\\mssqllocaldb;Database=Pizzeria;Trusted_Connection=True;";
             //(localdb)\\mssqllocaldb
             services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
-            services.AddControllers();
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            #region Entities repositories            
-            services.AddTransient<IDeliveryRepository, DeliveryRepository>();
-            services.AddTransient<IIngredientsRepository, IngredientsRepository>();
-            services.AddTransient<IOrderRepository, OrderRepository>();
-            services.AddTransient<IPizzaRepository, PizzaRepository>();
-            services.AddTransient<IPizzeriaRepository, PizzeriaRepository>();
-            services.AddTransient<ICustomerRepository, CustomerRepository>();
-            #endregion
+            //services.AddControllers();
+            //services.AddTransient<IUnitOfWork, UnitOfWork>();
+            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            //#region Entities repositories            
+            //services.AddTransient<IDeliveryRepository, DeliveryRepository>();
+            //services.AddTransient<IIngredientsRepository, IngredientsRepository>();
+            //services.AddTransient<IOrderRepository, OrderRepository>();
+            //services.AddTransient<IPizzaRepository, PizzaRepository>();
+            //services.AddTransient<IPizzeriaRepository, PizzeriaRepository>();
+            //services.AddTransient<ICustomerRepository, CustomerRepository>();
+            //#endregion
 
-            #region SQL services
-            services.AddTransient<IDeliveryService, DeliveryService>();
-            services.AddTransient<IIngredientsService, IngredientsService>();
-            services.AddTransient<IOrderService, OrderService>();
-            services.AddTransient<IPizzaService, PizzaOnline2.BLL.Services.PizzaService>();
-            services.AddTransient<IPizzeriaService, PizzaeriaService>();
-            services.AddTransient<ICustomerService, CustomerService>();
-            #endregion
-            services.AddDbContext<AplicationContext>(options =>
-            {
-                options
-                    .UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                        assembly =>
-                            assembly.MigrationsAssembly("PizzaOnline.DAL"));
-            });
+            //#region SQL services
+            //services.AddTransient<IDeliveryService, DeliveryService>();
+            //services.AddTransient<IIngredientsService, IngredientsService>();
+            //services.AddTransient<IOrderService, OrderService>();
+            //services.AddTransient<IPizzaService, PizzaOnline2.BLL.Services.PizzaService>();
+            //services.AddTransient<IPizzeriaService, PizzaeriaService>();
+            //services.AddTransient<ICustomerService, CustomerService>();
+            //#endregion
 
-            services.AddIdentity<User, Role>(options =>
-            {
-                options.User.RequireUniqueEmail = true;
-            }).AddEntityFrameworkStores<AplicationContext>();
+            services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<AplicationContext>();
+            //services.AddIdentity<User, Role>(options =>
+            //{
+            //    options.User.RequireUniqueEmail = true;
+            //}).AddEntityFrameworkStores<AplicationContext>();
 
-            services.AddAutoMapper(typeof(AutoMapperProfile).GetTypeInfo().Assembly);
+            //services.AddAutoMapper(typeof(AutoMapperProfile).GetTypeInfo().Assembly);
 
-            services.AddTransient<ISortHelper<Pizza>, SortHelper<Pizza>>();
-            services.AddTransient<ISortHelper<Customer>, SortHelper<Customer>>();
+            //services.AddTransient<ISortHelper<Pizza>, SortHelper<Pizza>>();
+            //services.AddTransient<ISortHelper<Customer>, SortHelper<Customer>>();
 
-            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            //services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
+            //Google authentication................................................
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
+                googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+            });
+            services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
             services.AddSingleton<WeatherForecastService>();
             services.AddHttpClient<Data.PizzaService>(client =>
             {

@@ -31,6 +31,9 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
+                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj"
+              },
               "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj": {
                 "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj"
               }
@@ -46,6 +49,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.3, )"
