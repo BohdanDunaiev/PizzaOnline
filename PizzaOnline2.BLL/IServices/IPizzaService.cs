@@ -11,7 +11,7 @@ namespace PizzaOnline2.BLL.IServices
     {   
         Task<IEnumerable<DTOPizza>> GetAllPizza();
         Task<DTOPizza> GetByIdPizza(int id);
-        Task InsertPizza(DTOPizza obj);
+        Task AddPizza(DTOPizza obj);
         Task UpdatePizza(DTOPizza obj);
         Task DeletePizza(int id);
         //repository

@@ -41,7 +41,7 @@ namespace PizzaOnline.DAL.Repository.GenericRepository
         }
         public  async Task<TEntity> InsertAsyn(TEntity obj)
         {
-            _dbSet.Add(obj);
+            _context.Set<TEntity>().Add(obj);
             await _context.SaveChangesAsync();
             return obj;
         }

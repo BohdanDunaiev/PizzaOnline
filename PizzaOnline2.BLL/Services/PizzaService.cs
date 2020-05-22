@@ -69,10 +69,18 @@ namespace PizzaOnline2.BLL.Services
             return _mapper.Map<Pizza, DTOPizza>(info);
         }
 
-        public async Task InsertPizza(DTOPizza pizza)
+        public async Task AddPizza(DTOPizza pizza)
         {
-            var info = _mapper.Map<DTOPizza, Pizza>(pizza);
-            await _unitOfWork.PizzaRepository.InsertAsyn(info);
+            DTOPizza pDTO = new DTOPizza()
+            {
+                NamePizza = pizza.NamePizza,
+                Size = pizza.Size,
+                Price = pizza.Price
+            };
+            var info = _mapper.Map<Pizza, DTOPizza>(await _unitOfWork.PizzaRepository.InsertAsyn(_mapper.Map<DTOPizza, Pizza>(pDTO)));
+            //Pizza _pizza = _mapper.Map<DTOPizza, Pizza>(pizza);
+            //var res = await _unitOfWork.PizzaRepository.InsertAsyn(_pizza);
+            //return res;           
         }
         public async Task UpdatePizza(DTOPizza pizza )
         {

@@ -64,6 +64,7 @@ namespace FrontPizza
             //#endregion
 
             services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+                //.AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<AplicationContext>();
             //services.AddIdentity<User, Role>(options =>
             //{

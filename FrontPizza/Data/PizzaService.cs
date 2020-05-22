@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Text.Json;
 using FrontPizza.ViewModels;
 using PizzaOnline.DAL.Models;
+using Newtonsoft.Json;
 
 namespace FrontPizza.Data
 {
@@ -25,7 +26,32 @@ namespace FrontPizza.Data
                 return null;
 
             using var responseContent = await response.Content.ReadAsStreamAsync();
-            return await JsonSerializer.DeserializeAsync<List<PizzaViewModel>>(responseContent);
-        }        
+            return await System.Text.Json.JsonSerializer.DeserializeAsync<List<PizzaViewModel>>(responseContent);
+        }
+        public async Task<PizzaViewModel> SavePizza(PizzaViewModel pizza)
+        {
+            if (pizza == null)
+            {
+                return pizza;
+            }
+
+            string serializedPizza = JsonConvert.SerializeObject(pizza);
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "api/pizza/AddPizza");
+            requestMessage.Content = new StringContent(serializedPizza);
+
+            requestMessage.Content.Headers.ContentType
+                = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+
+            var response = await _httpClient.SendAsync(requestMessage);
+
+            var responseStatusCode = response.StatusCode;
+            var responseBody = await response.Content.ReadAsStringAsync();
+
+            var returnedCategory = JsonConvert.DeserializeObject<PizzaViewModel>(responseBody);
+
+            var res = await Task.FromResult(returnedCategory);
+            return pizza;//$"Category {returnedCategory.ToString()} added";
+        }
     }
 }

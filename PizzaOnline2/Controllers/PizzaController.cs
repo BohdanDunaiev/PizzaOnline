@@ -13,19 +13,16 @@ using System.Linq;
 namespace PizzaOnline2.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     public class PizzaController : Controller
     {
         #region Properties
         IPizzaService _pizzaService;
-        private readonly IMapper _mapper;
         #endregion
 
         #region Constructors      
-        public PizzaController(IPizzaService pizzaService, IMapper mapper)
+        public PizzaController(IPizzaService pizzaService)
         {
             _pizzaService = pizzaService;
-            _mapper = mapper;
         }
         #endregion
 
@@ -39,7 +36,7 @@ namespace PizzaOnline2.Controllers
         //[Route("pizza")]
         //[ProducesResponseType(typeof(IEnumerable<DTOPizza>), 201)]
         //[ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public /*async Task<*/ActionResult<List<DTOPizza>> Get([FromQuery]PizzaQueryParameters parameters)
+        public ActionResult<List<DTOPizza>> Get([FromQuery]PizzaQueryParameters parameters)
         {
             var models = _pizzaService.GetPizza(parameters).ToList();            
             if (models == null)
@@ -80,17 +77,20 @@ namespace PizzaOnline2.Controllers
         //}
 
         [HttpPost]
+        [Route("AddPizza")]
+        [ProducesResponseType(typeof(DTOPizza), 201)]
+        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
         public async Task<IActionResult> InsertPizza([FromBody]DTOPizza pizza)
         {
             try
             {
-                await _pizzaService.InsertPizza(pizza);
+                await _pizzaService.AddPizza(pizza);
                 return StatusCode(200);
             }
             catch
             {
                 return StatusCode(404);
-            }
+            }              
         }
 
         [HttpPut]

@@ -311,6 +311,7 @@ C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\bin\Debug\netcoreapp3
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\bin\Debug\netcoreapp3.1\PizzaOnline2.dll
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\bin\Debug\netcoreapp3.1\PizzaOnline2.pdb
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\bin\Debug\netcoreapp3.1\FluentValidation.dll
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3.1\FrontPizza.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3.1\FrontPizza.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3.1\RazorDeclaration\FrontPizza.dll
@@ -324,3 +325,5 @@ C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3.1\Razor\Shared\NavMenu.razor.g.cs
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3.1\Razor\_Imports.razor.g.cs
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Administration.razor.g.cs
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\obj\Debug\netcoreapp3.1\Razor\Pages\Administration.razor.g.cs
