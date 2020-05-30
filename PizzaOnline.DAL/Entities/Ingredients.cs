@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PizzaOnline.DAL.Interface;
 
 namespace PizzaOnline.DAL.Entities
 {
-    public class Ingredients
+    public class Ingredients : IEntity<int>
     {
         public int Id { get; set; }
         public int PizzaId { get; set; }

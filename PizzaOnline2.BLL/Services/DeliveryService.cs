@@ -56,15 +56,17 @@ namespace PizzaOnline2.BLL.Services
             var info = await _unitOfWork.DeliveryRepository.GetByIdAsyn(id);
             return _mapper.Map<Delivery, DTODelivery>(info);
         }
-        public async Task InsertDelivery(DTODelivery delivery)
+        public async Task<int> InsertDelivery(DTODelivery delivery)
         {
-            DTODelivery dDTO = new DTODelivery()
-            {
-                NameDelivery = delivery.NameDelivery,
-                Time = delivery.Time,
-                Price = delivery.Price
-            };
-            var info = _mapper.Map<Delivery, DTODelivery>(await _unitOfWork.DeliveryRepository.InsertAsyn(_mapper.Map<DTODelivery, Delivery>(dDTO)));
+            var x = _mapper.Map<DTODelivery, Delivery>(delivery);
+            return await _unitOfWork.DeliveryRepository.InsertAsyn(x);
+            //DTODelivery dDTO = new DTODelivery()
+            //{
+            //    NameDelivery = delivery.NameDelivery,
+            //    Time = delivery.Time,
+            //    Price = delivery.Price
+            //};
+            //var info = _mapper.Map<Delivery, DTODelivery>(await _unitOfWork.DeliveryRepository.InsertAsyn(_mapper.Map<DTODelivery, Delivery>(dDTO)));
         }
         public async Task UpdateDelivery(DTODelivery delivery)
         {

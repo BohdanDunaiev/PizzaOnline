@@ -11,12 +11,12 @@ namespace PizzaOnline2.BLL.IServices
     {   
         Task<IEnumerable<DTOPizza>> GetAllPizza();
         Task<DTOPizza> GetByIdPizza(int id);
-        Task AddPizza(DTOPizza obj);
+        Task<int> AddPizza(DTOPizza obj);
         Task UpdatePizza(DTOPizza obj);
         Task DeletePizza(int id);
         //repository
         Task<Pizza> GetPizzaId(int id);
-        IEnumerable<DTOPizza> GetPizza(PizzaQueryParameters pizzaquery);
+        Task<PagedList<DTOPizza>> GetPizza(PizzaQueryParameters pizzaquery);
         //Task<IEnumerable<DTOPizza>> GetPizzaPriceRange(int maxPrice, int minPrice);
         //Task<IEnumerable<DTOPizza>> GetPopular();
         //Task<IEnumerable<DTOPizza>> GetPizzaName(string namepizza);

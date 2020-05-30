@@ -4,10 +4,11 @@ using PizzaOnline.DAL.Interface.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PizzaOnline.DAL.Interface
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {        
         IDeliveryRepository DeliveryRepository { get; }
         IIngredientsRepository IngredientsRepository { get; }
@@ -19,6 +20,6 @@ namespace PizzaOnline.DAL.Interface
         UserManager<User> userManager { get; }
         RoleManager<Role> roleManager { get; }
         SignInManager<User> signInManager { get; }
-        void Complete();
+        Task<int> Complete();
     }
 }

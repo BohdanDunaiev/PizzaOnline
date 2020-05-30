@@ -4,6 +4,7 @@ using PizzaOnline.DAL.Helpers;
 using PizzaOnline.DAL.Interface;
 using PizzaOnline.DAL.Interface.IRepository;
 using System;
+using System.Threading.Tasks;
 
 namespace PizzaOnline.DAL.UnitOfWork
 {
@@ -107,9 +108,23 @@ namespace PizzaOnline.DAL.UnitOfWork
                 return _userRepository;
             }
         }
-        public void Complete()
+        public Task<int> Complete() => _context.SaveChangesAsync();
+        private bool disposed = false;
+        public virtual void Dispose(bool disposing)
         {
-            throw new NotImplementedException();
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    _context.Dispose();
+                }
+                this.disposed = true;
+            }
+        }
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

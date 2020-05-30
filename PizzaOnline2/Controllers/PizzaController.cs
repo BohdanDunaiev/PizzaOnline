@@ -6,12 +6,12 @@ using PizzaOnline.BLL.DTOEntities;
 using PizzaOnline.DAL.Models;
 using PizzaOnline2.BLL.DTOEntities;
 using PizzaOnline2.BLL.IServices;
-using AutoMapper;
-using PizzaOnline.DAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using System.Linq;
 
 namespace PizzaOnline2.Controllers
 {
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = "admin")]
     [Route("api/[controller]")]
     public class PizzaController : Controller
     {
@@ -27,59 +27,25 @@ namespace PizzaOnline2.Controllers
         #endregion
 
         #region Api
+        [AllowAnonymous]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPizzaId(int id)
         {
             return Ok(await _pizzaService.GetPizzaId(id));
         }
-        [HttpGet]
-        //[Route("pizza")]
-        //[ProducesResponseType(typeof(IEnumerable<DTOPizza>), 201)]
-        //[ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public ActionResult<List<DTOPizza>> Get([FromQuery]PizzaQueryParameters parameters)
+        [HttpGet]        
+        [AllowAnonymous]
+        public async Task<IActionResult> Get([FromQuery]PizzaQueryParameters parameters)
         {
-            var models = _pizzaService.GetPizza(parameters).ToList();            
+            var models = await _pizzaService.GetPizza(parameters);            
             if (models == null)
                 return NotFound("The list of products is empty");
             else
-                return Ok(models);
-            //try
-            //{
-            //    var pizza = await _pizzaService.GetPizza(parameters);
-            //    if (pizza != null)
-            //        return Ok(pizza);
-            //    else
-            //        return NotFound();
-            //}
-            //catch
-            //{
-            //    return NotFound();
-            //}           
-        }
-        //CRUD..............................................
-        //[HttpGet]
-        //public async Task<IActionResult> GetAllPizza()
-        //{
-        //    try
-        //    {
-        //        return Ok(await _pizzaService.GetAllPizza());
-        //    }
-        //    catch
-        //    {
-        //        return StatusCode(404);
-        //    }
-        //}
-
-        //[HttpGet]
-        //public async Task<IActionResult> GetByIdPizza(int id)
-        //{
-        //    return Ok(await _pizzaService.GetByIdPizza(id));
-        //}
+                return Ok(models);                 
+        }        
 
         [HttpPost]
         [Route("AddPizza")]
-        [ProducesResponseType(typeof(DTOPizza), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
         public async Task<IActionResult> InsertPizza([FromBody]DTOPizza pizza)
         {
             try

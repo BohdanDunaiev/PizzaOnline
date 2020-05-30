@@ -26,11 +26,11 @@ namespace PizzaOnline2.BLL.Services
         {       
             return await _unitOfWork.PizzaRepository.GetPizzaId(id); 
         }
-        public IEnumerable<DTOPizza> GetPizza(PizzaQueryParameters parameters)
+        public async Task<PagedList<DTOPizza>> GetPizza(PizzaQueryParameters parameters)
         {
             //return _unitOfWork.PizzaRepository.GetPizza(parameters);
-            var x =  _unitOfWork.PizzaRepository.GetPizza(parameters).ToList();
-            var result = _mapper.Map<List<Pizza>, List<DTOPizza>>(x);
+            var x = await _unitOfWork.PizzaRepository.GetPizza(parameters);
+            var result = _mapper.Map<PagedList<DTOPizza>>(x);
             return result;
         }
         //public async Task<IEnumerable<DTOPizza>> GetPizzaPriceRange(int maxPrice, int minPrice)
@@ -69,18 +69,17 @@ namespace PizzaOnline2.BLL.Services
             return _mapper.Map<Pizza, DTOPizza>(info);
         }
 
-        public async Task AddPizza(DTOPizza pizza)
+        public async Task<int> AddPizza(DTOPizza pizza)
         {
-            DTOPizza pDTO = new DTOPizza()
-            {
-                NamePizza = pizza.NamePizza,
-                Size = pizza.Size,
-                Price = pizza.Price
-            };
-            var info = _mapper.Map<Pizza, DTOPizza>(await _unitOfWork.PizzaRepository.InsertAsyn(_mapper.Map<DTOPizza, Pizza>(pDTO)));
-            //Pizza _pizza = _mapper.Map<DTOPizza, Pizza>(pizza);
-            //var res = await _unitOfWork.PizzaRepository.InsertAsyn(_pizza);
-            //return res;           
+            //DTOPizza pDTO = new DTOPizza()
+            //{
+            //    NamePizza = pizza.NamePizza,
+            //    Size = pizza.Size,
+            //    Price = pizza.Price
+            //};
+            //var info = _mapper.Map<Pizza, DTOPizza>(await _unitOfWork.PizzaRepository.InsertAsyn(_mapper.Map<DTOPizza, Pizza>(pDTO)));
+            var r = _mapper.Map<DTOPizza, Pizza>(pizza);
+            return await _unitOfWork.PizzaRepository.InsertAsyn(r);
         }
         public async Task UpdatePizza(DTOPizza pizza )
         {

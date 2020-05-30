@@ -9,7 +9,7 @@ using PizzaOnline.DAL.Repository.GenericRepository;
 
 namespace PizzaOnline.DAL.Interface.IRepository
 {
-    public interface IOrderRepository : IGenericRepository<Order>
+    public interface IOrderRepository : IGenericRepository<Order, int>
     {
         public Task<PagedList<Order>> GetOrder(OrderQueryParameters orderquery);
         public Task<Order> GetOrderId(int id);

@@ -70,6 +70,13 @@ using FrontPizza.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 10 "C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\_Imports.razor"
+using FrontPizza.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\Pages\Administration.razor"
 using Microsoft.AspNetCore.Authorization;
 

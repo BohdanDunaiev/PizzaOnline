@@ -12,7 +12,7 @@ using PizzaOnline.DAL.Repository.GenericRepository;
 
 namespace PizzaOnline.DAL.Repository.EntetiesRepository
 {
-    public class OrderRepository : GenericRepository<Order>, IOrderRepository
+    public class OrderRepository : GenericRepository<Order, int>, IOrderRepository
     {
         public OrderRepository(AplicationContext aplicationContext)
             : base(aplicationContext)

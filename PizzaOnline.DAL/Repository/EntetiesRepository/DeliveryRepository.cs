@@ -12,7 +12,7 @@ using PizzaOnline.DAL.Repository.GenericRepository;
 
 namespace PizzaOnline.DAL.Repository.EntetiesRepository
 {
-    public class DeliveryRepository : GenericRepository<Delivery>, IDeliveryRepository
+    public class DeliveryRepository : GenericRepository<Delivery, int>, IDeliveryRepository
     {
         public DeliveryRepository(AplicationContext _context)
             : base(_context)

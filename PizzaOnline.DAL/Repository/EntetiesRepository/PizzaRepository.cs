@@ -12,7 +12,7 @@ using PizzaOnline.DAL.Repository.GenericRepository;
 
 namespace PizzaOnline.DAL.Repository.EntetiesRepository
 {
-    public class PizzaRepository : GenericRepository<Pizza>, IPizzaRepository
+    public class PizzaRepository : GenericRepository<Pizza, int>, IPizzaRepository
     {
         private readonly ISortHelper<Pizza> _sortHelper;
         public PizzaRepository(AplicationContext _context, ISortHelper<Pizza> sortHelper)
@@ -30,18 +30,18 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
             return res;
         }
 
-        public IEnumerable<Pizza> GetPizza(PizzaQueryParameters parameters)
+        public async Task<PagedList<Pizza>> GetPizza(PizzaQueryParameters parameters)
         {
-            return  GetAll().Skip((parameters.PageNumber - 1) * parameters.PageSize)
-                .Take(parameters.PageSize)
-                .ToList();
-            //var pizza = FindByCondition(x => x.Price >= parameters.MinPrice && x.Price <= parameters.MaxPrice);
+            //return FindByConditionAsync().Skip((parameters.PageNumber - 1) * parameters.PageSize)
+            //    .Take(parameters.PageSize)
+            //    .ToList();
+            var pizza = FindByCondition(x => x.Price >= parameters.MinPrice && x.Price <= parameters.MaxPrice);
 
-            //SearchByBrand(ref pizza, parameters.NamePizza);
+            SearchByBrand(ref pizza, parameters.NamePizza);
 
-            //pizza = _sortHelper.ApplySort(pizza, parameters);
+            pizza = _sortHelper.ApplySort(pizza, parameters);
 
-            //return await PagedList<Pizza>.ToPagedListAsync(pizza, parameters.PageNumber, parameters.PageSize);         
+            return await PagedList<Pizza>.ToPagedListAsync(pizza, parameters.PageNumber, parameters.PageSize);         
         }
 
         private void SearchByBrand(ref IQueryable<Pizza> pizza, string NamePizza)

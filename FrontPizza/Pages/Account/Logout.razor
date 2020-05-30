@@ -1,0 +1,10 @@
+﻿@page "/logout"
+@inject FrontPizza.Data.AccountService accountService
+@inject NavigationManager NavigationManager
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await accountService.Logout();
+        NavigationManager.NavigateTo("/");
+    }
+}

@@ -610,8 +610,15 @@ C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\bin\Debug\netcoreap
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\bin\Debug\netcoreapp3.1\PizzaOnline2.BLL.pdb
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\obj\Debug\netcoreapp3.1\staticwebassets\PizzaOnline2.StaticWebAssets.Manifest.cache
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\obj\Debug\netcoreapp3.1\staticwebassets\PizzaOnline2.StaticWebAssets.xml
-C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.AssemblyInfoInputs.cache
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.AssemblyInfo.cs
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.RazorTargetAssemblyInfo.cache
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.csproj.CopyComplete
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline2\obj\Debug\netcoreapp3.1\PizzaOnline2.MvcApplicationPartsAssemblyInfo.cache

@@ -8,10 +8,10 @@ using PizzaOnline.DAL.Repository.GenericRepository;
 
 namespace PizzaOnline.DAL.Interface.IRepository
 {
-    public interface IPizzaRepository : IGenericRepository<Pizza>
+    public interface IPizzaRepository : IGenericRepository<Pizza, int>
     {
         public Task<Pizza> GetPizzaId(int id);
-        public IEnumerable<Pizza> GetPizza(PizzaQueryParameters pizzaquery);
+        public Task<PagedList<Pizza>> GetPizza(PizzaQueryParameters pizzaquery);
         //Task<IEnumerable<Pizza>> GetPizzaName(string namepizza);
         //Task<IEnumerable<Pizza>> GetPizzaPriceRange(int maxPrice, int minPrice);
         //Task<IEnumerable<Pizza>> GetPopular();

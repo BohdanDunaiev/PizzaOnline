@@ -77,6 +77,13 @@ using FrontPizza.Shared;
 #line hidden
 #nullable disable
 #nullable restore
+#line 10 "C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\_Imports.razor"
+using FrontPizza.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "C:\Users\Василь\Desktop\Pizza\PizzaOnline\FrontPizza\Pages\FetchData.razor"
 using FrontPizza.Data;
 

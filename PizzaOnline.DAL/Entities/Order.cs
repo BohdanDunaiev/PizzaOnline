@@ -1,8 +1,9 @@
 ﻿using System;
+using PizzaOnline.DAL.Interface;
 
 namespace PizzaOnline.DAL.Entities
 {
-    public class Order
+    public class Order : IEntity<int>
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }

@@ -9,9 +9,9 @@ using PizzaOnline2.BLL.IServices;
 
 namespace PizzaOnline2.Controllers
 {
-    [ApiController]
+    [Route("api/[controller]")]
     [Authorize(AuthenticationSchemes = "Bearer")]
-    public class CustomerController : ControllerBase
+    public class CustomerController : Controller
     {
         #region Properties
         ICustomerService _customerService;
@@ -25,18 +25,8 @@ namespace PizzaOnline2.Controllers
         #endregion
 
         #region Api
-        [HttpGet]
-        [Route("CustomerId")]
-        [ProducesResponseType(typeof(IEnumerable<DTOCustomer>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public async Task<IActionResult> GetCustomerId(int id)
-        {
-            return Ok(await _customerService.GetCustomerId(id));
-        }
-        [HttpGet]
-        [Route("CustomerAll")]
-        [ProducesResponseType(typeof(IEnumerable<DTOCustomer>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
+        [Authorize(Roles = "admin")]
+        [HttpGet]       
         public IActionResult GetCustomer([FromQuery]CustomerQueryParameters parameters)
         {
             try
@@ -47,26 +37,10 @@ namespace PizzaOnline2.Controllers
             {
                 return NotFound();
             }
-        }
-        //CRUD..............................................
-        [HttpGet]
-        [Route("Customers")]
-        public async Task<IActionResult> GetAll()
-        {
-            try
-            {
-                return Ok(await _customerService.GetAllCustomer());
-            }
-            catch
-            {
-                return StatusCode(404);
-            }
-        }
+        } 
 
-        [HttpGet]
-        [Route("Customer/{Id}")]
-        [ProducesResponseType(typeof(IEnumerable<DTOCustomer>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
+        [Authorize]
+        [HttpGet("{id}")]      
         public async Task<IActionResult> GetByIdCustomer(int id)
         {
             return Ok(await _customerService.GetByIdCustomer(id));

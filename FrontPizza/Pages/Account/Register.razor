@@ -1,0 +1,46 @@
+﻿@inject FrontPizza.Data.AccountService accountService
+@inject NavigationManager NavigationManager
+@using FrontPizza.Validation
+@page "/register"
+<h3>Register</h3>
+<hr />
+<EditForm Model="@User" OnValidSubmit="@SaveUser">
+    <FluentValidator TValidator="UserRegisterViewModelValidator" />
+    <p>@Error</p>
+    <div class="col-12 row">
+        <label class="col-2 font-weight-bold">Name User :</label>
+        <InputText placeholder="Name User" class="form-control col-3" @bind-Value="User.userName" />
+    </div>
+    <div class="col-12 row">
+        <label class="col-2 font-weight-bold">Email :</label>
+        <InputText placeholder="Email" class="form-control col-3" @bind-Value="User.email" />
+    </div>
+    <div class="col-12 row">
+        <label class="col-2 font-weight-bold">Password :</label>
+        <InputText placeholder="Password" class="form-control col-3" @bind-Value="User.password" />
+    </div>
+    <div class="col-12 row">
+        <label class="col-2 font-weight-bold">PasswordConfirm :</label>
+        <InputText placeholder="PasswordConfirm" class="form-control col-3" @bind-Value="User.passwordConfirm" />
+    </div>
+    <button type="submit" class="btn btn-sm btn-primary">Register button</button>
+</EditForm>
+
+@code {
+    UserRegisterViewModel User { get; set; } = new UserRegisterViewModel();
+
+    public string Error;
+
+    private async Task SaveUser()
+    {
+        Error = "";
+        var result = await accountService.CreateUserAsync(User);
+        if (result.IsSuccessStatusCode)
+            NavigationManager.NavigateTo("/");
+        else
+        {
+            Error = await result.Content.ReadAsStringAsync();
+        }
+
+    }
+}

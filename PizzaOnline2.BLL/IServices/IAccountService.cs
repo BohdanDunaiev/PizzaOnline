@@ -1,4 +1,5 @@
-﻿using PizzaOnline.DAL.Entities;
+﻿using Microsoft.AspNetCore.Identity;
+using PizzaOnline.DAL.Entities;
 using PizzaOnline2.BLL.DTOEntities;
 using System;
 using System.Collections.Generic;
@@ -9,11 +10,10 @@ namespace PizzaOnline2.BLL.IServices
 {
     public interface IAccountService
     {
-        public Task<string> Register(UserRegisterDTO User);
-        public Task<string> Create(CrUserDTO User);
-        public Task<object> Login(UserLoginDTO User);
+        public Task<IdentityResult> Register(UserRegisterDTO myUser);
+        public Task<LoginResult> Login(UserLoginDTO myUser);
+        public Task<string> Logout();
         public Task<string> Delete(int Id);
         public Task<List<User>> UserList();
-        public Task<string> Logout();
     }
 }

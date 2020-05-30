@@ -4,10 +4,11 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using PizzaOnline.DAL.Interface;
 
 namespace PizzaOnline.DAL.Repository.GenericRepository
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepository<TEntity,TId> : IGenericRepository<TEntity, TId> where TEntity : class,IEntity<TId>
     {
         protected readonly AplicationContext _context;
         protected DbSet<TEntity> _dbSet;
@@ -15,50 +16,51 @@ namespace PizzaOnline.DAL.Repository.GenericRepository
         {
             _context = context;
             _dbSet = _context.Set<TEntity>();
-        }
-        public IEnumerable<TEntity> GetAll()
-        {
-            return this._context.Set<TEntity>();
-        }
+        }        
         public IQueryable<TEntity> FindByCondition(Expression<Func<TEntity, bool>> expression)
         {
             return this._context.Set<TEntity>()
                 .Where(expression)
                 .AsNoTracking();
         }
-        public IQueryable<TEntity> FindAll()
-        {
-            return _context.Set<TEntity>()
-                .AsNoTracking();
-        }
         public async Task<IEnumerable<TEntity>> GetAllAsyn()
         {
             return await _dbSet.ToListAsync();
         }
-        public async Task<TEntity> GetByIdAsyn(int id)  
+        public async Task<TEntity> GetByIdAsyn(TId id)  
         {
             return await _dbSet.FindAsync(id);
         }
-        public  async Task<TEntity> InsertAsyn(TEntity obj)
+        public  async Task<int> InsertAsyn(TEntity obj)
         {
-            _context.Set<TEntity>().Add(obj);
+            //_dbSet.Add(obj);
+            //await _context.SaveChangesAsync();
+            //return obj; 
+            _dbSet.Add(obj);
             await _context.SaveChangesAsync();
-            return obj;
+            try
+            {
+                return Int32.Parse(obj.Id.ToString());
+            }
+            catch
+            {
+                return 0;
+            }
         }
         public async Task UpdateAsyn(TEntity obj)
         {
             _context.Entry(obj).State = EntityState.Modified;
             await _context.SaveChangesAsync();                              
         }
-        public async Task DeleteAsyn(int id)
+        public async Task DeleteAsyn(TId id)
         {
             TEntity x = await _dbSet.FindAsync(id);
             _dbSet.Remove(x);
             await _context.SaveChangesAsync();
         }
-        public void Save()
+        public IQueryable<TEntity> FindByConditionAsync(Expression<Func<TEntity, bool>> expression)
         {
-            _context.SaveChanges();
+            return _dbSet.Where(expression);
         }
     }
 }

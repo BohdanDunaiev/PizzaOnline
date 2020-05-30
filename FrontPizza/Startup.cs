@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using FrontPizza.Areas.Identity;
 using FrontPizza.Data;
 using PizzaOnline.DAL.Entities;
 using Microsoft.AspNetCore.Components.Server;
@@ -23,6 +22,9 @@ using AutoMapper;
 using PizzaOnline2.BLL.AutoMapper;
 using System.Reflection;
 using Microsoft.AspNetCore.Identity;
+using FrontPizza.JWT;
+using Blazored.LocalStorage;
+using System.Net.Http;
 
 namespace FrontPizza
 {
@@ -39,58 +41,30 @@ namespace FrontPizza
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            string con = "Server= (localdb)\\mssqllocaldb;Database=Pizzeria;Trusted_Connection=True;";
-            //(localdb)\\mssqllocaldb
-            services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
-            //services.AddControllers();
-            //services.AddTransient<IUnitOfWork, UnitOfWork>();
-            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            //#region Entities repositories            
-            //services.AddTransient<IDeliveryRepository, DeliveryRepository>();
-            //services.AddTransient<IIngredientsRepository, IngredientsRepository>();
-            //services.AddTransient<IOrderRepository, OrderRepository>();
-            //services.AddTransient<IPizzaRepository, PizzaRepository>();
-            //services.AddTransient<IPizzeriaRepository, PizzeriaRepository>();
-            //services.AddTransient<ICustomerRepository, CustomerRepository>();
-            //#endregion
-
-            //#region SQL services
-            //services.AddTransient<IDeliveryService, DeliveryService>();
-            //services.AddTransient<IIngredientsService, IngredientsService>();
-            //services.AddTransient<IOrderService, OrderService>();
-            //services.AddTransient<IPizzaService, PizzaOnline2.BLL.Services.PizzaService>();
-            //services.AddTransient<IPizzeriaService, PizzaeriaService>();
-            //services.AddTransient<ICustomerService, CustomerService>();
-            //#endregion
-
-            services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
-                //.AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<AplicationContext>();
-            //services.AddIdentity<User, Role>(options =>
-            //{
-            //    options.User.RequireUniqueEmail = true;
-            //}).AddEntityFrameworkStores<AplicationContext>();
-
-            //services.AddAutoMapper(typeof(AutoMapperProfile).GetTypeInfo().Assembly);
-
-            //services.AddTransient<ISortHelper<Pizza>, SortHelper<Pizza>>();
-            //services.AddTransient<ISortHelper<Customer>, SortHelper<Customer>>();
-
-            //services.AddTransient<IUnitOfWork, UnitOfWork>();
-
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            //string con = "Server= (localdb)\\mssqllocaldb;Database=Pizzeria;Trusted_Connection=True;";    
+            //services.AddDbContext<AplicationContext>(options => options.UseSqlServer(con));
+            services.AddScoped<AuthenticationStateProvider, ApiAuthenticationStateProvider>();
+            services.AddBlazoredLocalStorage();
+            //services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+            //    //.AddRoles<IdentityRole>()
+            //    .AddEntityFrameworkStores<AplicationContext>();    
             //Google authentication................................................
             services.AddAuthentication().AddGoogle(googleOptions =>
             {
                 googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
                 googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
             });
-            services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuthenticationStateProvider<IdentityUser>>();
+            services.AddSingleton<HttpClient>();
             services.AddSingleton<WeatherForecastService>();
-            services.AddHttpClient<Data.PizzaService>(client =>
+            services.AddHttpClient<Data.PizzaService>(customer =>
             {
-                client.BaseAddress = new Uri("https://localhost:44360");
+                customer.BaseAddress = new Uri("https://localhost:44360");
+            });
+            services.AddHttpClient<Data.AccountService>(customer =>
+            {
+                customer.BaseAddress = new Uri("https://localhost:44360");
             });
         }
 

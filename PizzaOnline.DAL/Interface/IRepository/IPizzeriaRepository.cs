@@ -7,7 +7,7 @@ using PizzaOnline.DAL.Repository.GenericRepository;
 
 namespace PizzaOnline.DAL.Interface.IRepository
 {
-    public interface IPizzeriaRepository : IGenericRepository<Pizzeria>
+    public interface IPizzeriaRepository : IGenericRepository<Pizzeria, int>
     {
         public Task<Pizzeria> GetPizzeriaId(int id);
         //Task<IEnumerable<Pizzeria>> GetPopular();

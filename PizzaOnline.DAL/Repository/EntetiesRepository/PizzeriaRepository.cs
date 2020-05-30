@@ -10,7 +10,7 @@ using PizzaOnline.DAL.Repository.GenericRepository;
 
 namespace PizzaOnline.DAL.Repository.EntetiesRepository
 {
-    public class PizzeriaRepository : GenericRepository<Pizzeria>, IPizzeriaRepository
+    public class PizzeriaRepository : GenericRepository<Pizzeria,int>, IPizzeriaRepository
     {
         public PizzeriaRepository(AplicationContext _context)
             : base(_context)

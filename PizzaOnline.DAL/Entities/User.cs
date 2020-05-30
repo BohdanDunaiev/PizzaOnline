@@ -7,5 +7,7 @@ namespace PizzaOnline.DAL.Entities
 {
     public class User : IdentityUser<int>
     {
+        public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
     }
 }

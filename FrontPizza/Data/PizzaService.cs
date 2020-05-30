@@ -7,15 +7,19 @@ using System.Text.Json;
 using FrontPizza.ViewModels;
 using PizzaOnline.DAL.Models;
 using Newtonsoft.Json;
+using Blazored.LocalStorage;
+using System.Text;
 
 namespace FrontPizza.Data
 {
     public class PizzaService
     {
         public HttpClient _httpClient;
-        public PizzaService(HttpClient client)
+        private readonly ILocalStorageService _localStorage;
+        public PizzaService(HttpClient client, ILocalStorageService localStorage)
         {
             _httpClient = client;
+            _localStorage = localStorage;
         }
         public async Task<List<PizzaViewModel>> GetPizzaAsync(PizzaQueryParameters parameters)
         {
@@ -28,30 +32,44 @@ namespace FrontPizza.Data
             using var responseContent = await response.Content.ReadAsStreamAsync();
             return await System.Text.Json.JsonSerializer.DeserializeAsync<List<PizzaViewModel>>(responseContent);
         }
-        public async Task<PizzaViewModel> SavePizza(PizzaViewModel pizza)
+
+
+
+        public async Task<HttpResponseMessage> SavePizza(PizzaViewModel pizza)
         {
-            if (pizza == null)
-            {
-                return pizza;
-            }
+            string token = await _localStorage.GetItemAsync<string>("authToken");
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-            string serializedPizza = JsonConvert.SerializeObject(pizza);
+            return await _httpClient.PostAsync("api/pizza/AddPizza", GetStringContentFromObject(pizza));
+            //if (pizza == null)
+            //{
+            //    return pizza;
+            //}
 
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, "api/pizza/AddPizza");
-            requestMessage.Content = new StringContent(serializedPizza);
+            //string serializedPizza = JsonConvert.SerializeObject(pizza);
 
-            requestMessage.Content.Headers.ContentType
-                = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+            //var requestMessage = new HttpRequestMessage(HttpMethod.Post, "api/pizza/AddPizza");
+            //requestMessage.Content = new StringContent(serializedPizza);
 
-            var response = await _httpClient.SendAsync(requestMessage);
+            //requestMessage.Content.Headers.ContentType
+            //    = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
 
-            var responseStatusCode = response.StatusCode;
-            var responseBody = await response.Content.ReadAsStringAsync();
+            //var response = await _httpClient.SendAsync(requestMessage);
 
-            var returnedCategory = JsonConvert.DeserializeObject<PizzaViewModel>(responseBody);
+            //var responseStatusCode = response.StatusCode;
+            //var responseBody = await response.Content.ReadAsStringAsync();
 
-            var res = await Task.FromResult(returnedCategory);
-            return pizza;//$"Category {returnedCategory.ToString()} added";
+            //var returnedCategory = JsonConvert.DeserializeObject<PizzaViewModel>(responseBody);
+
+            //var res = await Task.FromResult(returnedCategory);
+            //return pizza;//$"Category {returnedCategory.ToString()} added";
+        }
+        private StringContent GetStringContentFromObject(object obj)
+        {
+            var serialized = System.Text.Json.JsonSerializer.Serialize(obj);
+            var stringContent = new StringContent(serialized, Encoding.UTF8, "application/json");
+
+            return stringContent;
         }
     }
 }

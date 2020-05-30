@@ -7,7 +7,7 @@ using PizzaOnline.DAL.Repository.GenericRepository;
 
 namespace PizzaOnline.DAL.Interface.IRepository
 {
-    public interface IIngredientsRepository : IGenericRepository<Ingredients> 
+    public interface IIngredientsRepository : IGenericRepository<Ingredients, int> 
     {
         public Task<Ingredients> GetIngredientId(int id);
     }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PizzaOnline.DAL.Repository.EntetiesRepository
 {
-    public class CustomerRepository : GenericRepository<Customer>, ICustomerRepository
+    public class CustomerRepository : GenericRepository<Customer, int>, ICustomerRepository
     {
         private readonly ISortHelper<Customer> _sortHelper;
         public CustomerRepository(AplicationContext aplicationContext, ISortHelper<Customer> sortHelper)

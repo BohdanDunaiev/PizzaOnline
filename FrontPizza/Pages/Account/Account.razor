@@ -1,0 +1,87 @@
+﻿@inject FrontPizza.Data.CustomerService customerService
+@inject AuthenticationStateProvider authentificationStateProvider
+@page "/account"
+@attribute [Authorize]
+@if (customer != null)
+{
+    <h3>["Account"]</h3>
+    <hr />
+    <style>
+        img {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        .headBlock {
+            display: flex;
+            align-items: center;
+            width: auto;
+        }
+
+            .headBlock > h3 {
+                margin: 20px;
+                width: auto;
+            }
+
+        .dataBlock {
+            background-color: rgb(248,248,248);
+            padding: 10px;
+            border-radius: 20px;
+            width: auto;
+        }
+    </style>
+    <div class="dataBlock">
+        <div class="headBlock">
+            @if (base64string == null || string.IsNullOrEmpty(base64string) || customer.photo == null)
+            {
+                <img src="/default_images/defaultUser.jpg">
+            }
+            else
+            {
+                <img src="data:image/jpeg;base64,@base64string" />
+            }
+
+            <h3>@Username</h3>
+        </div>
+        <br />
+        <a href="/myaccount/photo" class="btn btn-sm btn-primary">["Change photo"]</a>
+        <br />
+        <br />
+        <hr />
+
+        <h4>["Personal information"] :</h4>
+        <p><b>["Last name"]: </b>@customer.lastName</p>
+        <p><b>["First name"]: </b>@customer.firstName</p>
+        <p><b>["Second name"]: </b>@customer.secondName</p>
+        <p><b>["Address"]: </b>@customer.adress</p>
+        <p><b>["Phone number"]: </b>@customer.phoneNumber</p>
+        <a class="btn btn-primary" href="/myaccount/modify">["Modify"]</a>
+        <br />
+        <br />
+        <hr />
+
+        <h4>["Account information"]:</h4>
+        <p><b>["Username"]: </b>@Username</p>
+        <p><b>["Email"]: </b>@Email</p>
+        <a class="btn btn-primary" href="/myaccount/changePassword">["Change password"]</a>
+        <br />
+        <br />
+
+    </div>
+}
+@code {
+    CustomerViewModel customer { get; set; } = new CustomerViewModel();
+    string Username { get; set; }
+    string Email { get; set; }
+    string base64string = null;
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authentificationStateProvider.GetAuthenticationStateAsync();
+        var clientId = authState.User.Claims.First(x => x.Type == "customerId").Value;
+        Username = authState.User.Identity.Name;
+        Email = authState.User.Claims.First(x => x.Type == "email").Value;
+        customer = await customerService.GetClientsByIdAsync(Int32.Parse(clientId));
+        base64string = Convert.ToBase64String(customer.photo);
+    }
+}
