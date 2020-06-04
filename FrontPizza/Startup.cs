@@ -7,21 +7,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FrontPizza.Data;
-using PizzaOnline.DAL.Entities;
-using Microsoft.AspNetCore.Components.Server;
-using Microsoft.EntityFrameworkCore;
-using PizzaOnline.DAL;
-using PizzaOnline2.BLL.IServices;
-using PizzaOnline2.BLL.Services;
-using PizzaOnline.DAL.Interface;
-using PizzaOnline.DAL.UnitOfWork;
-using PizzaOnline.DAL.Interface.IRepository;
-using PizzaOnline.DAL.Repository.EntetiesRepository;
-using PizzaOnline.DAL.Helpers;
-using AutoMapper;
-using PizzaOnline2.BLL.AutoMapper;
-using System.Reflection;
-using Microsoft.AspNetCore.Identity;
 using FrontPizza.JWT;
 using Blazored.LocalStorage;
 using System.Net.Http;
@@ -50,12 +35,6 @@ namespace FrontPizza
             //services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
             //    //.AddRoles<IdentityRole>()
             //    .AddEntityFrameworkStores<AplicationContext>();    
-            //Google authentication................................................
-            services.AddAuthentication().AddGoogle(googleOptions =>
-            {
-                googleOptions.ClientId = Configuration["Authentication:Google:ClientId"];
-                googleOptions.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
-            });
             services.AddSingleton<HttpClient>();
             services.AddSingleton<WeatherForecastService>();
             services.AddHttpClient<Data.PizzaService>(customer =>
@@ -63,6 +42,10 @@ namespace FrontPizza
                 customer.BaseAddress = new Uri("https://localhost:44360");
             });
             services.AddHttpClient<Data.AccountService>(customer =>
+            {
+                customer.BaseAddress = new Uri("https://localhost:44360");
+            });
+            services.AddHttpClient<Data.IngrefientsService>(customer =>
             {
                 customer.BaseAddress = new Uri("https://localhost:44360");
             });

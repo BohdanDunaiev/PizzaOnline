@@ -14,3 +14,12 @@ C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline.DAL\obj\Debug\netsta
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline.DAL\obj\Debug\netstandard2.1\PizzaOnline.DAL.AssemblyInfo.cs
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline.DAL\obj\Debug\netstandard2.1\PizzaOnline.DAL.dll
 C:\Users\Василь\Desktop\Pizza\PizzaOnline\PizzaOnline.DAL\obj\Debug\netstandard2.1\PizzaOnline.DAL.pdb
+C:\Users\Василь\Desktop\aaaa\PizzaOnline\PizzaOnline.DAL\obj\Debug\netstandard2.1\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\aaaa\PizzaOnline\PizzaOnline.DAL\obj\Debug\netstandard2.1\PizzaOnline.DAL.pdb
+C:\Users\Василь\Desktop\aaaa\PizzaOnline\PizzaOnline.DAL\bin\Debug\netstandard2.1\PizzaOnline.DAL.deps.json
+C:\Users\Василь\Desktop\aaaa\PizzaOnline\PizzaOnline.DAL\bin\Debug\netstandard2.1\PizzaOnline.DAL.dll
+C:\Users\Василь\Desktop\aaaa\PizzaOnline\PizzaOnline.DAL\bin\Debug\netstandard2.1\PizzaOnline.DAL.pdb
+C:\Users\Василь\Desktop\aaaa\PizzaOnline\PizzaOnline.DAL\obj\Debug\netstandard2.1\PizzaOnline.DAL.csprojAssemblyReference.cache
+C:\Users\Василь\Desktop\aaaa\PizzaOnline\PizzaOnline.DAL\obj\Debug\netstandard2.1\PizzaOnline.DAL.AssemblyInfoInputs.cache
+C:\Users\Василь\Desktop\aaaa\PizzaOnline\PizzaOnline.DAL\obj\Debug\netstandard2.1\PizzaOnline.DAL.AssemblyInfo.cs
+C:\Users\Василь\Desktop\aaaa\PizzaOnline\PizzaOnline.DAL\obj\Debug\netstandard2.1\PizzaOnline.DAL.csproj.CoreCompileInputs.cache

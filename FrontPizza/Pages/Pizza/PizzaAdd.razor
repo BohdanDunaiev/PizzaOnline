@@ -1,0 +1,115 @@
+﻿@page "/pizza/add"
+@using System.IO;
+@using FrontPizza.ViewModels;
+@using PizzaOnline.DAL.Models;
+@using Microsoft.AspNetCore.Hosting;
+@inject IWebHostEnvironment _appEnvironment
+@using Microsoft.AspNetCore.Authorization
+@using FrontPizza.Validation
+@inject Data.PizzaService pizzaService
+@attribute [Authorize(Roles = "admin")]
+    <h3><b>Pizza Add</b></h3>
+    <br />
+    <br />
+    <EditForm Model="@pizzaViewModels" OnValidSubmit="@SavePizza">
+        <FluentValidator TValidator="PizzaValidator" />
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Name Pizza :</label>
+            <InputText placeholder="Name Pizza" class="form-control col-3" @bind-Value="pizzaViewModels.namePizza" />
+            <ValidationMessage For="() => pizzaViewModels.namePizza" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Size :</label>
+            <InputNumber class="form-control col-3" @bind-Value="pizzaViewModels.size" />
+            <ValidationMessage For="() => pizzaViewModels.size" />
+        </div>
+        <br />
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">Price :</label>
+            <InputNumber class="form-control col-3" @bind-Value="pizzaViewModels.price" />
+            <ValidationMessage For="() => pizzaViewModels.price" />
+        </div>
+        <div class="col-12 row">
+            <label class="col-2 font-weight-bold">IngredientsId :</label>
+            <InputNumber class="form-control col-3" @bind-Value="pizzaViewModels.ingredientsId" />
+            <ValidationMessage For="() => pizzaViewModels.ingredientsId" />
+        </div>
+        <br />
+        <InputFile OnChange="HandleFileSelected" />
+        @if (file != null)
+        {
+            <p>Загружен файл : @file.Name</p>
+        }
+        <br />
+        <br />
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a class="btn btn-primary" href="/pizza">Переглянути піци</a>
+    </EditForm>
+
+    @code {
+        public PizzaViewModel pizzaViewModels { get; set; } = new PizzaViewModel();
+        IFileListEntry file;
+
+        public string Error { get; set; }
+
+        void HandleFileSelected(IFileListEntry[] files)
+        {
+            file = files.FirstOrDefault();
+        }
+
+        protected async Task SavePizza()
+        {
+            Error = "";
+            try
+            {
+                string Image;
+                if (file == null)
+                    throw new Exception("File not found");
+                if (file.Type != "image/jpeg")
+                    throw new Exception("File in the wrong format! Please use .jpg");
+
+                Image = await AddFile(file);
+                pizzaViewModels.image = Image;
+
+                var result = await pizzaService.SavePizza(pizzaViewModels);
+                if (!result.IsSuccessStatusCode)
+                    throw new Exception(result.StatusCode.ToString());
+                ClearFields();
+            }
+            catch (Exception e)
+            {
+                Error = e.Message;
+            }
+        }
+        protected void ClearFields()
+        {
+            pizzaViewModels.namePizza = "";
+            pizzaViewModels.ingredientsId = 0;
+            pizzaViewModels.size = 0;
+            pizzaViewModels.price = 0;
+            file = null;
+        }
+        protected async Task<string> AddFile(IFileListEntry uploadedFile)
+        {
+            if (uploadedFile != null)
+            {
+                var newFile = await uploadedFile.ToImageFileAsync("image/jpeg", 1280, 720); ;
+
+                var date = DateTime.Now;
+                string path = "/pizza_images/"
+                    + $"{date.Year}_{date.Month}_{date.Day}_{date.Hour}_{date.Minute}_{date.Second}_"
+                    + newFile.Name;
+
+                using (var filestream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await newFile.Data.CopyToAsync(filestream);
+                }
+
+                return path;
+            }
+            else
+                return null;
+        }
+    }

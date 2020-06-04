@@ -24,7 +24,7 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
         {
             var res = await _context.Pizza
                .Include(i => i.Orders)
-               .Include(i => i.Ingredients)               
+               .Include(i => i.Ingredient)               
                .Where(j => j.Id == id)
                .FirstOrDefaultAsync();
             return res;

@@ -28,10 +28,17 @@ namespace PizzaOnline2.Controllers
 
         #region Api
         [AllowAnonymous]
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetPizzaId(int id)
+        [HttpGet("{Id}")]
+        public async Task<IActionResult> GetPizzaId(int Id)
         {
-            return Ok(await _pizzaService.GetPizzaId(id));
+            try
+            {
+                return Ok(await _pizzaService.GetByIdPizza(Id));
+            }
+            catch
+            {
+                return StatusCode(404);
+            }            
         }
         [HttpGet]        
         [AllowAnonymous]
@@ -45,7 +52,6 @@ namespace PizzaOnline2.Controllers
         }        
 
         [HttpPost]
-        [Route("AddPizza")]
         public async Task<IActionResult> InsertPizza([FromBody]DTOPizza pizza)
         {
             try

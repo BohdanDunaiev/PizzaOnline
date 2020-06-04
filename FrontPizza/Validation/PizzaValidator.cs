@@ -16,6 +16,7 @@ namespace FrontPizza.Validation
 
             RuleFor(c => c.price)
                 .GreaterThanOrEqualTo(0).WithMessage("Price cann`t be empty");
+            //RuleFor(c => c.image).NotEmpty().MaximumLength(40);
         }       
     }
 }

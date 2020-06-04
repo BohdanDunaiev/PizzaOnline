@@ -11,7 +11,7 @@ namespace PizzaOnline2.BLL.AutoMapper
         {
             CreateMap<Customer, DTOCustomer>();
             CreateMap<Delivery, DTODelivery>();
-            CreateMap<Delivery, DTOIngredients>();
+            CreateMap<Ingredients, DTOIngredients>();
             CreateMap<Order, DTOOrder>();
             CreateMap<Pizza, DTOPizza>();
             CreateMap<Pizzeria, DTOPizzeria>();

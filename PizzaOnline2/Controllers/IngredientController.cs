@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PizzaOnline2.Controllers
 {
-    [ApiController]
-    public class IngredientController : ControllerBase
+    [Route("api/[controller]")]
+    public class IngredientController : Controller
     {
         #region Properties
         IIngredientsService _ingredientsService;
@@ -20,18 +20,9 @@ namespace PizzaOnline2.Controllers
         }
         #endregion
 
-        #region Api
-        [HttpGet]
-        [Route("IngredientId")]
-        [ProducesResponseType(typeof(IEnumerable<DTOIngredients>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
-        public async Task<IActionResult> GetIngredientId(int id)
-        {
-            return Ok(await _ingredientsService.GetIngredientId(id));
-        }
-        //CRUD OP...........................................................
-        [HttpGet]
+        #region Api  
         [Route("IngredientAll")]
+        [HttpGet]
         public async Task<IActionResult> GetAllPizzeria()
         {
             try
@@ -41,16 +32,20 @@ namespace PizzaOnline2.Controllers
             catch
             {
                 return StatusCode(404);
-            }
+            }   
         }
 
-        [HttpGet]
-        [Route("Ingredient/{Id}")]
-        [ProducesResponseType(typeof(IEnumerable<DTOIngredients>), 201)]
-        [ProducesResponseType(typeof(ErrorResponseDTO), 400)]
+        [HttpGet("{Id}")]
         public async Task<IActionResult> GetByIdIngredient(int id)
         {
-            return Ok(await _ingredientsService.GetByIdIngredient(id));
+            try
+            {
+                return Ok(await _ingredientsService.GetByIdIngredient(id));
+            }
+            catch
+            {
+                return StatusCode(404);
+            }                   
         }
 
         [HttpPost]

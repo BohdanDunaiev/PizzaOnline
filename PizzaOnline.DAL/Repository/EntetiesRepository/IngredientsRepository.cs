@@ -16,13 +16,9 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
             : base(_context)
         {
         }
-        public async Task<Ingredients> GetIngredientId(int id)
+        public async Task<Ingredients> GetIngredById(int Id)
         {
-            var res = await _context.Ingredients
-                .Include(i => i.PizzaIngreedients)
-                .Where(j => j.Id == id)
-                .FirstOrDefaultAsync();
-            return res;
+            return await _dbSet.FindAsync(Id);
         }
     }
 }

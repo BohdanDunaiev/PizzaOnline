@@ -19,11 +19,11 @@ namespace PizzaOnline2.BLL.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<DTOIngredients> GetIngredientId(int id)
+        public async Task<DTOIngredients> GetIngredientsById(int Id)
         {
-            return _mapper.Map<Ingredients, DTOIngredients>(await _unitOfWork.IngredientsRepository.GetIngredientId(id)); ;
+            var info = await _unitOfWork.IngredientsRepository.GetByIdAsyn(Id);
+            return _mapper.Map<Ingredients, DTOIngredients>(info);            
         }
-        //CRUD
         public async Task<IEnumerable<DTOIngredients>> GetAllIngredients()
         {
             var info = await _unitOfWork.IngredientsRepository.GetAllAsyn();

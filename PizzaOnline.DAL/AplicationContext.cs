@@ -34,12 +34,9 @@ namespace PizzaOnline.DAL
 
             #region Ingredients
             modelBuilder.Entity<Ingredients>()
-               .HasOne(p => p.PizzaIngreedients)
-               .WithMany(t => t.Ingredients);
-
-            modelBuilder.Entity<Ingredients>()
-               .Property(p => p.PizzaId)
-               .IsRequired();
+              .HasMany(p => p.Pizza)
+                .WithOne(e => e.Ingredient)
+                .OnDelete(DeleteBehavior.ClientCascade);           
 
             modelBuilder.Entity<Ingredients>()
                .Property(p => p.Id)

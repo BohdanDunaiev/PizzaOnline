@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\FrontPizza\\FrontPizza.csproj": {}
+    "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\FrontPizza\\FrontPizza.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\FrontPizza\\FrontPizza.csproj": {
+    "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\FrontPizza\\FrontPizza.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\FrontPizza\\FrontPizza.csproj",
+        "projectUniqueName": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\FrontPizza\\FrontPizza.csproj",
         "projectName": "FrontPizza",
-        "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\FrontPizza\\FrontPizza.csproj",
+        "projectPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\FrontPizza\\FrontPizza.csproj",
         "packagesPath": "C:\\Users\\Василь\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\FrontPizza\\obj\\",
+        "outputPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\FrontPizza\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,11 +31,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
-                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj"
+              "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
+                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj"
               },
-              "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj": {
-                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj"
+              "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj": {
+                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj"
               }
             }
           }
@@ -49,6 +49,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "BlazorInputFile": {
+              "target": "Package",
+              "version": "[0.2.0, )"
+            },
             "Blazored.LocalStorage": {
               "target": "Package",
               "version": "[2.1.5, )"
@@ -63,7 +67,7 @@
             },
             "MatBlazor": {
               "target": "Package",
-              "version": "[2.3.0, )"
+              "version": "[2.4.3, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
@@ -98,6 +102,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -106,18 +116,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
+    "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj",
         "projectName": "PizzaOnline.DAL",
-        "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj",
+        "projectPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj",
         "packagesPath": "C:\\Users\\Василь\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\obj\\",
+        "outputPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -208,18 +218,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj": {
+    "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj",
         "projectName": "PizzaOnline2.BLL",
-        "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj",
+        "projectPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj",
         "packagesPath": "C:\\Users\\Василь\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2.BLL\\obj\\",
+        "outputPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2.BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -239,8 +249,8 @@
         "frameworks": {
           "netstandard2.1": {
             "projectReferences": {
-              "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
-                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj"
+              "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
+                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj"
               }
             }
           }
@@ -293,10 +303,6 @@
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[6.6.0, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[3.1.2, )"
             }
           },
           "imports": [
@@ -314,18 +320,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj": {
+    "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj",
+        "projectUniqueName": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj",
         "projectName": "PizzaOnline2",
-        "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj",
+        "projectPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2\\PizzaOnline2.csproj",
         "packagesPath": "C:\\Users\\Василь\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2\\obj\\",
+        "outputPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -345,11 +351,11 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
-                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj"
+              "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj": {
+                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline.DAL\\PizzaOnline.DAL.csproj"
               },
-              "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj": {
-                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj"
+              "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj": {
+                "projectPath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\PizzaOnline2.BLL\\PizzaOnline2.BLL.csproj"
               }
             }
           }
@@ -398,10 +404,6 @@
             "Microsoft.IdentityModel.Logging": {
               "target": "Package",
               "version": "[6.6.0, )"
-            },
-            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
-              "target": "Package",
-              "version": "[3.1.2, )"
             }
           },
           "imports": [
@@ -414,6 +416,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -422,7 +430,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -5,8 +5,14 @@
     <UserSecretsId>aspnet-FrontPizza-2C76CDDE-CFCB-47A5-AB28-33A43EC3F86F</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
   <ItemGroup>
+	<PackageReference Include="MatBlazor" Version="2.4.3" />
     <PackageReference Include="Blazored.LocalStorage" Version="2.1.5" />
+    <PackageReference Include="BlazorInputFile" Version="0.2.0" />
     <PackageReference Include="FluentValidation" Version="8.6.2" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="8.6.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.4" />
@@ -22,6 +28,10 @@
   <ItemGroup>
     <ProjectReference Include="..\PizzaOnline.DAL\PizzaOnline.DAL.csproj" />
     <ProjectReference Include="..\PizzaOnline2\PizzaOnline2.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\pizza_images\" />
   </ItemGroup>
 
 </Project>

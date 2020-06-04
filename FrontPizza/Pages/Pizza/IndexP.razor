@@ -6,70 +6,60 @@
 
 @attribute [Authorize]
 @inject Data.PizzaService pizzaService
-<div class="bloc-addPizza">
-    <h3><b>Enter Pizza Information</b></h3>
-    <hr />
-    <EditForm Model="@pizzaViewModels" OnValidSubmit="SavePizza"> 
-        <FluentValidator TValidator="PizzaValidator" />
-        <br />
-        <div class="col-12 row">
-            <label class="col-2 font-weight-bold">Name Pizza :</label>
-            <InputText placeholder="Name Pizza" class="form-control col-3" @bind-Value="pizzaViewModels.namePizza"  />
-            <ValidationMessage For="@(() => pizzaViewModels.namePizza)" />
-        </div>
-        <br />
-        <div class="col-12 row">
-            <label class="col-2 font-weight-bold">Size :</label>
-            <InputNumber class="form-control col-3" @bind-Value="pizzaViewModels.size" />
-            <ValidationMessage For="() => pizzaViewModels.size" />
-        </div>
-        <br />
-        <div class="col-12 row">
-            <label class="col-2 font-weight-bold">Price :</label>
-            <InputNumber class="form-control col-3" @bind-Value="pizzaViewModels.price" />
-            <ValidationMessage For="() => pizzaViewModels.price" />
-        </div>
-        <br />
-        <button class="btn btn-success btn-block-addPizza" type="submit">Save</button>
-        <br />
-    </EditForm>
+
+<h3>Pizza</h3>
+<div class="button2" style="display:block;">
+    <a class="btn btn-primary" href="/">Home</a>
+    <AuthorizeView Roles="admin">
+        <Authorized>
+            <a class="btn btn-primary" href="pizza/add">Додати піцу</a>
+        </Authorized>
+        <NotAuthorized>
+        </NotAuthorized>
+    </AuthorizeView>   
 </div>
 
-<div class="col-10">
-    <h3>Pizza</h3>
-    @if (pizza == null)
-    {
-        <p><em>Loading...</em></p>
-    }
-    else
-    {
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>NamePizza</th>
-                    <th>Size</th>
-                    <th>Price</th>
+<br />
+
+@if (pizza == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>NamePizza</th>
+                <th>Size</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pizz in pizza)
+            {
+                <tr onclick='location.href="pizza/@pizz.id"' class="black">
+                    <td>@pizz.namePizza</td>
+                    <td>@pizz.size см</td>
+                    <td>@pizz.price $</td>
+                    <td><img src="@pizz.image"></td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var pizza in pizza)
-                {
-                    <tr>
-                        <td>@pizza.id</td>
-                        <td>@pizza.namePizza</td>
-                        <td>@pizza.size см</td>
-                        <td>@pizza.price $</td>
-                    </tr>
                 }
             </tbody>
-        </table>
-        <button @onclick="PrevPage">Prev</button>
-        <span>@pageNum</span>
-        <button @onclick="NextPage">Next</button>
+    </table>
+    <button @onclick="PrevPage">Prev</button>
+    <span>@pageNum</span>
+    <button @onclick="NextPage">Next</button>
 
+}
+
+<style>
+    .black {
+        color: black;
+        text-decoration: none;
     }
-</div>
+</style>
+
 @code {
     public PizzaViewModel pizzaViewModels = new PizzaViewModel();
     public List<PizzaViewModel> pizza;
@@ -92,11 +82,5 @@
             pageNum--;
             pizza = await pizzaService.GetPizzaAsync(new PizzaQueryParameters { PageNumber = pageNum, PageSize = pageSize });
         }
-    }
-    private async Task<bool> SavePizza()
-    {
-        var returnedPizza = await pizzaService.SavePizza(pizzaViewModels);
-        pizza = await pizzaService.GetPizzaAsync(new PizzaQueryParameters { PageSize = pageSize, PageNumber = pageNum });
-        return await Task.FromResult(true);
     }
 }

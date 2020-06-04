@@ -13,7 +13,7 @@ namespace PizzaOnline2.BLL.IServices
         Task InsertIngredient(DTOIngredients obj);
         Task UpdateIngredient(DTOIngredients obj);
         Task DeleteIngredient(int id);
-        //repository
-        Task<DTOIngredients> GetIngredientId(int id);        
+        Task<DTOIngredients> GetIngredientsById(int Id);
+
     }
 }
