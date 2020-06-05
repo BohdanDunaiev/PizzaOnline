@@ -23,7 +23,7 @@ namespace FrontPizza.Data
         }
         public async Task<List<PizzaViewModel>> GetPizzaAsync(PizzaQueryParameters parameters)
         {
-            var response = await _httpClient.GetAsync($"api/pizza?pageNumber={parameters.PageNumber}&pageSize={parameters.PageSize}");
+            var response = await _httpClient.GetAsync($"api/pizza?PageSize={parameters.PageSize}&PageNumber={parameters.PageNumber}&MinPrice={parameters.MinPrice}&NamePizza={parameters.NamePizza}&MaxPrice={parameters.MaxPrice}&OrderBy={parameters.OrderBy}");
             response.EnsureSuccessStatusCode();
 
             if (!response.IsSuccessStatusCode)
@@ -53,6 +53,14 @@ namespace FrontPizza.Data
             var stringContent = new StringContent(serialized, Encoding.UTF8, "application/json");
 
             return stringContent;
+        }
+        public async Task<int> GetCarCountAsync(PizzaQueryParameters parameters)
+        {
+            var respone = await _httpClient.GetAsync($"api/pizza/count?minprice={parameters.MinPrice}&NamePizza={parameters.NamePizza}&MaxPrice={parameters.MaxPrice}");
+            if (!respone.IsSuccessStatusCode)
+                return 0;
+            else
+                return Int32.Parse(await respone.Content.ReadAsStringAsync());
         }
     }
 }

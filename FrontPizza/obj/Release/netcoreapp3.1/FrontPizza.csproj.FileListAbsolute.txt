@@ -165,9 +165,7 @@ C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcorea
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Account\Login.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Account\Logout.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Account\Register.razor.g.cs
-C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Counter.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Error.razor.g.cs
-C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\FetchData.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Pizza\IndexP.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Pizza\PizzaAdd.razor.g.cs
@@ -302,9 +300,7 @@ C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcorea
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Account\Login.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Account\Logout.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Account\Register.razor.g.cs
-C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Counter.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Error.razor.g.cs
-C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\FetchData.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Pizza\IndexP.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Pizza\PizzaAdd.razor.g.cs
@@ -316,3 +312,8 @@ C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcorea
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Pizza\PizzaId.razor.g.cs
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\MatBlazor.dll
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Blazor.HttpClient.dll
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.shared.LoginDisplay.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.shared.LoginDisplay.ua.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.shared.NavMenu.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.shared.NavMenu.ua.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.csproj.GenerateResource.cache

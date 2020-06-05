@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Resources\pages\" />
     <Folder Include="wwwroot\pizza_images\" />
   </ItemGroup>
 

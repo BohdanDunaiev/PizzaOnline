@@ -13,5 +13,6 @@ namespace PizzaOnline2.BLL.DTOEntities
         public string Tomate { get; set; }
         public string Meet { get; set; }
         public string Sous { get; set; }
+        public string Additionally { get; set; }
     }
 }

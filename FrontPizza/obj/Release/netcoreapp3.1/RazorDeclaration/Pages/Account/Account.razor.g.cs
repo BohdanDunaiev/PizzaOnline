@@ -98,6 +98,13 @@ using MatBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 13 "C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\_Imports.razor"
+using Microsoft.Extensions.Localization;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 4 "C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\Pages\Account\Account.razor"
            [Authorize]
 

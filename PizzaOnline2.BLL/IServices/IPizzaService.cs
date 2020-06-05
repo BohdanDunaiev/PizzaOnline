@@ -17,6 +17,7 @@ namespace PizzaOnline2.BLL.IServices
         //repository
         Task<Pizza> GetPizzaId(int id);
         Task<PagedList<DTOPizza>> GetPizza(PizzaQueryParameters pizzaquery);
+        Task<int> GetPizzaCountAsync(PizzaQueryParameters parameters);
         //Task<IEnumerable<DTOPizza>> GetPizzaPriceRange(int maxPrice, int minPrice);
         //Task<IEnumerable<DTOPizza>> GetPopular();
         //Task<IEnumerable<DTOPizza>> GetPizzaName(string namepizza);

@@ -21,7 +21,7 @@ namespace PizzaOnline.DAL.Models
         //    }
         //}
         public decimal MinPrice { get; set; } = 0;
-        public decimal MaxPrice { get; set; } = decimal.MaxValue;
+        public decimal MaxPrice { get; set; } = 1000;
         public bool ValidPriceRange => MaxPrice >= MinPrice && MinPrice >= 0;
         public string NamePizza { get; set; }
     }

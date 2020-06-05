@@ -1,12 +1,13 @@
 ﻿@using Microsoft.AspNetCore.Authorization
+@inject IStringLocalizer<LoginDisplay> L
 <AuthorizeView>
     <Authorized>
-        Hello, @context.User.Identity.Name!
-        <a href="/account">account</a>
-        <a href="/logout">Log out</a>
+        @L["Hello"], @context.User.Identity.Name!
+        <a href="/account">@L["Account"]</a>
+        <a href="/logout">@L["Log out"]</a>
     </Authorized>
     <NotAuthorized>
-        <a href="/register">Register</a>
-        <a href="/login">Login</a>
+        <a href="/register">@L["Register"]</a>
+        <a href="/login">@L["Login"]</a>
     </NotAuthorized>
 </AuthorizeView>

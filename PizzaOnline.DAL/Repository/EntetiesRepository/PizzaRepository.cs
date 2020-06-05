@@ -15,7 +15,7 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
     public class PizzaRepository : GenericRepository<Pizza, int>, IPizzaRepository
     {
         private readonly ISortHelper<Pizza> _sortHelper;
-        public PizzaRepository(AplicationContext _context, ISortHelper<Pizza> sortHelper)
+        public PizzaRepository(AplicationContext _context, ISortHelper<Pizza> sortHelper) 
             : base(_context)
         {
             _sortHelper = sortHelper;
@@ -29,7 +29,13 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
                .FirstOrDefaultAsync();
             return res;
         }
-
+        public async Task<int> GetPizzaCountAsync(PizzaQueryParameters parameters)
+        {
+            return await _context.Pizza.CountAsync(x =>
+                (x.NamePizza.ToLower().Contains(parameters.NamePizza) || string.IsNullOrWhiteSpace(parameters.NamePizza))
+                && x.Price <= parameters.MaxPrice
+                && x.Price >= parameters.MinPrice);
+        }
         public async Task<PagedList<Pizza>> GetPizza(PizzaQueryParameters parameters)
         {
             //return FindByConditionAsync().Skip((parameters.PageNumber - 1) * parameters.PageSize)

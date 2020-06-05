@@ -28,6 +28,12 @@ namespace PizzaOnline2.Controllers
 
         #region Api
         [AllowAnonymous]
+        [HttpGet("count")]
+        public async Task<IActionResult> Count([FromQuery] PizzaQueryParameters parameters)
+        {
+            return Ok(await _pizzaService.GetPizzaCountAsync(parameters));
+        }
+        [AllowAnonymous]
         [HttpGet("{Id}")]
         public async Task<IActionResult> GetPizzaId(int Id)
         {

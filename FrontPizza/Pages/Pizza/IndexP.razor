@@ -12,14 +12,40 @@
     <a class="btn btn-primary" href="/">Home</a>
     <AuthorizeView Roles="admin">
         <Authorized>
-            <a class="btn btn-primary" href="pizza/add">Додати піцу</a>
+            <a class="btn btn-primary" href="pizza/add">Add pizza</a>
         </Authorized>
         <NotAuthorized>
         </NotAuthorized>
-    </AuthorizeView>   
+    </AuthorizeView>
 </div>
-
 <br />
+<div>
+    <MatPaginator Length="@elementCount" PageSize="@pageSize" Page="@OnPage"></MatPaginator>
+</div>
+<br />
+
+<div style="display:flex; justify-content: flex-end;">
+    <MatSelectItem @bind-Value="@orderBy" Items="@orderByArray"></MatSelectItem>
+</div>
+<br />
+
+<div style="display: flex; flex-direction: column; align-items: flex-end; width: 100%; padding: 0;">
+
+    <div style="width: auto;  padding: 0">
+        <p style="margin: 0">Price :</p>
+        <input type="number" min="0" max="@Decimal.MaxValue" step="0.01" @bind="minPrice" placeholder="Min price" />
+        -
+        <input type="number" min="0" max="@Decimal.MaxValue" step="0.01" @bind="maxPrice" placeholder="Max price" />
+    </div>
+    <br />
+
+    <div style="width: auto; padding: 0">
+        <p style="margin: 0">Search :</p>
+        <input type="text" @bind="inpNamePizza" placeholder="Search..." />
+        <button @onclick="Search" class="btn btn-sm btn-primary">Search</button>
+    </div>
+
+</div>
 
 @if (pizza == null)
 {
@@ -41,15 +67,15 @@ else
                 <tr onclick='location.href="pizza/@pizz.id"' class="black">
                     <td>@pizz.namePizza</td>
                     <td>@pizz.size см</td>
-                    <td>@pizz.price $</td>
+                    <td>@pizz.price.ToString() $</td>
                     <td><img src="@pizz.image"></td>
                 </tr>
-                }
-            </tbody>
+            }
+        </tbody>
     </table>
-    <button @onclick="PrevPage">Prev</button>
+    @*<button @onclick="PrevPage">Prev</button>
     <span>@pageNum</span>
-    <button @onclick="NextPage">Next</button>
+    <button @onclick="NextPage">Next</button>*@
 
 }
 
@@ -61,26 +87,100 @@ else
 </style>
 
 @code {
-    public PizzaViewModel pizzaViewModels = new PizzaViewModel();
-    public List<PizzaViewModel> pizza;
-    private int pageNum = 1;
-    private int pageSize = 2;
+    //public PizzaViewModel pizzaViewModels = new PizzaViewModel();
+    //public List<PizzaViewModel> pizza;
+    //string orderBy;
+    //int elementCount = 0;
+
+    //string[] orderByArray = new[]
+    //       {
+    //            "Price",
+    //            "Price desc",
+    //            "Brand",
+    //            "Brand desc"
+    //        };
+
+    //private int pageNum = 1;
+    //private int pageSize = 2;
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    pizzaViewModels = new PizzaViewModel();
+    //    pizza = await pizzaService.GetPizzaAsync(new PizzaQueryParameters { PageSize = pageSize, PageNumber = pageNum });
+    //}
+    //public async Task NextPage()
+    //{
+    //    pageNum++;
+    //    pizza = await pizzaService.GetPizzaAsync(new PizzaQueryParameters { PageNumber = pageNum, PageSize = pageSize });
+    //}
+    //public async Task PrevPage()
+    //{
+    //    if (pageNum > 1)
+    //    {
+    //        pageNum--;
+    //        pizza = await pizzaService.GetPizzaAsync(new PizzaQueryParameters { PageNumber = pageNum, PageSize = pageSize });
+    //    }
+    //}
+    int pageSize = 25;
+    int pageIndex = 0;
+
+    int elementCount = 0;
+
+    string orderBy;
+    string inpNamePizza;
+
+    string[] orderByArray = new[]
+        {
+                "Price",
+                "NamePizza"
+        };
+
+    decimal minPrice = 0;
+    decimal maxPrice = 1000;
+
+
+
+    List<PizzaViewModel> pizza;
+
     protected override async Task OnInitializedAsync()
     {
-        pizzaViewModels = new PizzaViewModel();
-        pizza = await pizzaService.GetPizzaAsync(new PizzaQueryParameters { PageSize = pageSize, PageNumber = pageNum });
-    }
-    public async Task NextPage()
-    {
-        pageNum++;
-        pizza = await pizzaService.GetPizzaAsync(new PizzaQueryParameters { PageNumber = pageNum, PageSize = pageSize });
-    }
-    public async Task PrevPage()
-    {
-        if (pageNum > 1)
+        PizzaQueryParameters parameters = new PizzaQueryParameters
         {
-            pageNum--;
-            pizza = await pizzaService.GetPizzaAsync(new PizzaQueryParameters { PageNumber = pageNum, PageSize = pageSize });
-        }
+            PageNumber = pageIndex + 1,
+            PageSize = pageSize,
+            MaxPrice = 1000,
+            MinPrice = 0
+        };
+        pizza = await pizzaService.GetPizzaAsync(parameters);
+        elementCount = await pizzaService.GetCarCountAsync(parameters);
+    }
+
+    protected async Task OnPage(MatPaginatorPageEvent e)
+    {
+        pizza = await pizzaService.GetPizzaAsync(new PizzaQueryParameters
+        {
+            PageNumber = e.PageIndex + 1,
+            PageSize = e.PageSize,
+            NamePizza = inpNamePizza,
+            MinPrice = minPrice,
+            MaxPrice = maxPrice,
+            OrderBy = orderBy
+        });
+        pageSize = e.PageSize;
+        pageIndex = e.PageIndex;
+    }
+
+    protected async Task Search()
+    {
+        PizzaQueryParameters parameters = new PizzaQueryParameters
+        {
+            PageNumber = pageIndex + 1,
+            PageSize = pageSize,
+            NamePizza = inpNamePizza,
+            MinPrice = minPrice,
+            MaxPrice = maxPrice,
+            OrderBy = orderBy
+        };
+        pizza = await pizzaService.GetPizzaAsync(parameters);
+        elementCount = await pizzaService.GetCarCountAsync(parameters);
     }
 }

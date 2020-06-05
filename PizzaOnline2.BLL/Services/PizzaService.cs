@@ -26,6 +26,12 @@ namespace PizzaOnline2.BLL.Services
         {       
             return await _unitOfWork.PizzaRepository.GetPizzaId(id); 
         }
+        public async Task<int> GetPizzaCountAsync(PizzaQueryParameters parameters)
+        {
+            if (parameters.NamePizza != null)
+                parameters.NamePizza = parameters.NamePizza.Trim().ToLower();
+            return await _unitOfWork.PizzaRepository.GetPizzaCountAsync(parameters);
+        }
         public async Task<PagedList<DTOPizza>> GetPizza(PizzaQueryParameters parameters)
         {
             //return _unitOfWork.PizzaRepository.GetPizza(parameters);

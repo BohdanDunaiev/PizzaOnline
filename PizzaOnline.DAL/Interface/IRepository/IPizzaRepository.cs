@@ -12,6 +12,7 @@ namespace PizzaOnline.DAL.Interface.IRepository
     {
         public Task<Pizza> GetPizzaId(int id);
         public Task<PagedList<Pizza>> GetPizza(PizzaQueryParameters pizzaquery);
+        public Task<int> GetPizzaCountAsync(PizzaQueryParameters parameters);
         //Task<IEnumerable<Pizza>> GetPizzaName(string namepizza);
         //Task<IEnumerable<Pizza>> GetPizzaPriceRange(int maxPrice, int minPrice);
         //Task<IEnumerable<Pizza>> GetPopular();

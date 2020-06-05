@@ -10,6 +10,8 @@ using FrontPizza.Data;
 using FrontPizza.JWT;
 using Blazored.LocalStorage;
 using System.Net.Http;
+using System.Globalization;
+using System.Collections.Generic;
 
 namespace FrontPizza
 {
@@ -37,6 +39,13 @@ namespace FrontPizza
             //    .AddEntityFrameworkStores<AplicationContext>();    
             services.AddSingleton<HttpClient>();
             services.AddSingleton<WeatherForecastService>();
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            var supportedCultures = new List<CultureInfo> { new CultureInfo("en"), new CultureInfo("ua") };
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
+                options.SupportedUICultures = supportedCultures;
+            });
             services.AddHttpClient<Data.PizzaService>(customer =>
             {
                 customer.BaseAddress = new Uri("https://localhost:44360");
