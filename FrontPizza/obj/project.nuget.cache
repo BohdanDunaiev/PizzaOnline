@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KNakRhI1Kg/vzD5I3J6d8EKp6I0UrGITenQvd4D+tTAoCPQe+cT99Vm34WG2UqkrqXhOcFciMV0LWKrPp/zF7A==",
+  "dgSpecHash": "+UJSQuIXIKhy93rGqQ3mle9Q5RLw5hNTlNobXQec02llHC3TPDvd6+Rok5AhEmThcQdKq/5XyEj0UxaLQ9BvPA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Василь\\Desktop\\Pizzza\\PizzaOnline\\FrontPizza\\FrontPizza.csproj",
   "expectedPackageFiles": [
@@ -15,7 +15,6 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
-    "C:\\Users\\Василь\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\3.1.4\\microsoft.aspnetcore.authentication.google.3.1.4.nupkg.sha512",
     "C:\\Users\\Василь\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.4\\microsoft.aspnetcore.authentication.jwtbearer.3.1.4.nupkg.sha512",
     "C:\\Users\\Василь\\.nuget\\packages\\microsoft.aspnetcore.authorization\\3.1.3\\microsoft.aspnetcore.authorization.3.1.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",

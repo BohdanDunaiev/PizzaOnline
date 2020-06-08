@@ -4,11 +4,11 @@
 @inject Data.IngrefientsService ingredientService
 @using FrontPizza.ViewModels;
 @page "/pizza/{id}"
-
+@inject IStringLocalizer<PizzaId> L
 
 @if (pizza == null)
 {
-    <p>"Downloads..."</p>
+    <p>"@L["Downloads"]..."</p>
 }
 else
 {
@@ -19,30 +19,24 @@ else
 
 
             <div class="column">
-                <div class="info2" style="font-size: 15pt;	">Price:</div>
+                <div class="info2" style="font-size: 15pt;	">@L["Price"]:</div>
                 <div class="cina">@pizza.price $</div>
                 <br><br>
                     <div class="info2">
-                        Ingradients:
+                        @L["Ingradients"]:
                         <br />
-                        Dough: @ingradients.dough<br />
-                        Tomate: @ingradients.tomate<br />
-                        Meet: @ingradients.meet<br />
-                        Cheese: @ingradients.cheese<br />
-                        Sous: @ingradients.sous<br />
-                        Additionally: @ingradients.additionally<br> 
-                        Size: @pizza.size
+                        @L["Dough"]: @ingradients.dough<br />
+                        @L["Tomate"]: @ingradients.tomate<br />
+                        @L["Meet"]: @ingradients.meet<br />
+                        @L["Cheese"]: @ingradients.cheese<br />
+                        @L["Sous"]: @ingradients.sous<br />
+                        @L["Additionally"]: @ingradients.additionally<br>
+                        @L["Size"]: @pizza.size
                     </div>
                 <br><br>
-                <a class="buy"><div>Order</div></a>
+                <a class="buy"><div>@L["Order"]</div></a>
                 <br>
-            </div>
-            <div class="column1">
-                <div class="info1">Our address:</div>
-                <div class="map"><iframe width="400" height="320" src="https://maps.google.com/maps?width=600&amp;height=320&amp;hl=en&amp;q=%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B2%D1%86%D1%96%2C%20%D0%A3%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D0%B0%2C%205%20%D0%B3%D1%83%D1%80%D1%82%D0%BE%D0%B6%D0%B8%D1%82%D0%BE%D0%BA%20%D0%A7%D0%9D%D0%A3+(%D0%9D%D0%B0%D0%B7%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
-                <div class="info2">м. Чернівці, вул. Небесної Сотні 4Б Гуртожиток #5 ЧНУ ім. Ю. Федьковича</div>
-
-            </div>
+            </div>           
         </div>
     </body>
 
@@ -74,8 +68,6 @@ else
             display: flex;
             flex-direction: column;
         }
-
-
 
         .map {
             margin-top: 3%;

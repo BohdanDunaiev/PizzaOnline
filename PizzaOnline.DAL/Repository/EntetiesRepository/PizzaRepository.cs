@@ -43,14 +43,14 @@ namespace PizzaOnline.DAL.Repository.EntetiesRepository
             //    .ToList();
             var pizza = FindByCondition(x => x.Price >= parameters.MinPrice && x.Price <= parameters.MaxPrice);
 
-            SearchByBrand(ref pizza, parameters.NamePizza);
+            SearchByName(ref pizza, parameters.NamePizza);
 
             pizza = _sortHelper.ApplySort(pizza, parameters);
 
             return await PagedList<Pizza>.ToPagedListAsync(pizza, parameters.PageNumber, parameters.PageSize);         
         }
 
-        private void SearchByBrand(ref IQueryable<Pizza> pizza, string NamePizza)
+        private void SearchByName(ref IQueryable<Pizza> pizza, string NamePizza)
         {
             if (!pizza.Any() || string.IsNullOrWhiteSpace(NamePizza))
                 return;

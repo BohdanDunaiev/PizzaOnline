@@ -38,9 +38,8 @@ namespace FrontPizza
             //    //.AddRoles<IdentityRole>()
             //    .AddEntityFrameworkStores<AplicationContext>();    
             services.AddSingleton<HttpClient>();
-            services.AddSingleton<WeatherForecastService>();
             services.AddLocalization(options => options.ResourcesPath = "Resources");
-            var supportedCultures = new List<CultureInfo> { new CultureInfo("en"), new CultureInfo("ua") };
+            var supportedCultures = new List<CultureInfo> { new CultureInfo("en"), new CultureInfo("uk") };
             services.Configure<RequestLocalizationOptions>(options =>
             {
                 options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");

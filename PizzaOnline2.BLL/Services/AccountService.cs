@@ -30,7 +30,7 @@ namespace PizzaOnline2.BLL.Services
         }
         public async Task<IdentityResult> Register(UserRegisterDTO User)
         {
-            var customerId = await _unitOfWork.CustomerRepository.InsertAsyn(new Customer {});
+            var customerId = await _unitOfWork.CustomerRepository.InsertAsyn(new Customer {FirstName = User.UserName});
 
             User user = new User { Email = User.Email, UserName = User.UserName, CustomerId = customerId };
 

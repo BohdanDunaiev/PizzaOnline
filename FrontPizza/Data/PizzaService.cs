@@ -54,7 +54,7 @@ namespace FrontPizza.Data
 
             return stringContent;
         }
-        public async Task<int> GetCarCountAsync(PizzaQueryParameters parameters)
+        public async Task<int> GetPizzaCountAsync(PizzaQueryParameters parameters)
         {
             var respone = await _httpClient.GetAsync($"api/pizza/count?minprice={parameters.MinPrice}&NamePizza={parameters.NamePizza}&MaxPrice={parameters.MaxPrice}");
             if (!respone.IsSuccessStatusCode)

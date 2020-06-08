@@ -3,62 +3,61 @@
 @using PizzaOnline.DAL.Models;
 @using Microsoft.AspNetCore.Authorization
 @using FrontPizza.Validation
-
+@inject IStringLocalizer<IndexP> L
 @attribute [Authorize]
 @inject Data.PizzaService pizzaService
 
-<h3>Pizza</h3>
+<h3>@L["Pizza"]</h3>
 <div class="button2" style="display:block;">
-    <a class="btn btn-primary" href="/">Home</a>
+    <a class="btn btn-primary" href="/">@L["Home"]</a>
     <AuthorizeView Roles="admin">
         <Authorized>
-            <a class="btn btn-primary" href="pizza/add">Add pizza</a>
+            <a class="btn btn-primary" href="pizza/add">@L["Add pizza"]</a>
         </Authorized>
         <NotAuthorized>
         </NotAuthorized>
     </AuthorizeView>
 </div>
+
+<div class="search">
+    <p style="margin: 0">Search :</p>
+    <input type="text" @bind="inpNamePizza" placeholder="@L["Search"]..." />
+    <button @onclick="Search" class="btn btn-sm btn-primary">@L["Search"]</button>
+</div>
 <br />
-<div>
+<div class="page">
     <MatPaginator Length="@elementCount" PageSize="@pageSize" Page="@OnPage"></MatPaginator>
 </div>
 <br />
 
-<div style="display:flex; justify-content: flex-end;">
+<div class="orderby">
     <MatSelectItem @bind-Value="@orderBy" Items="@orderByArray"></MatSelectItem>
 </div>
 <br />
 
-<div style="display: flex; flex-direction: column; align-items: flex-end; width: 100%; padding: 0;">
+<div class="price">
 
     <div style="width: auto;  padding: 0">
-        <p style="margin: 0">Price :</p>
+        <p style="margin: 0">@L["Price"] :</p>
         <input type="number" min="0" max="@Decimal.MaxValue" step="0.01" @bind="minPrice" placeholder="Min price" />
         -
         <input type="number" min="0" max="@Decimal.MaxValue" step="0.01" @bind="maxPrice" placeholder="Max price" />
     </div>
     <br />
-
-    <div style="width: auto; padding: 0">
-        <p style="margin: 0">Search :</p>
-        <input type="text" @bind="inpNamePizza" placeholder="Search..." />
-        <button @onclick="Search" class="btn btn-sm btn-primary">Search</button>
-    </div>
-
 </div>
 
 @if (pizza == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>@L["Loading"]...</em></p>
 }
 else
 {
     <table class="table">
         <thead>
             <tr>
-                <th>NamePizza</th>
-                <th>Size</th>
-                <th>Price</th>
+                <th>@L["NamePizza"]</th>
+                <th>@L["Size"]</th>
+                <th>@L["Price"]</th>
             </tr>
         </thead>
         <tbody>
@@ -74,8 +73,8 @@ else
         </tbody>
     </table>
     @*<button @onclick="PrevPage">Prev</button>
-    <span>@pageNum</span>
-    <button @onclick="NextPage">Next</button>*@
+        <span>@pageNum</span>
+        <button @onclick="NextPage">Next</button>*@
 
 }
 
@@ -83,6 +82,28 @@ else
     .black {
         color: black;
         text-decoration: none;
+    }
+    .search {
+        margin-top: -7%;
+        margin-left: 81%;
+        width: auto;
+        padding: 0
+    }
+    .page {
+        margin-right: 71%;
+        margin-top: 6%;
+        margin-bottom: -16%
+    }
+    .price {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        width: 100%;
+        padding: 0;
+    }
+    .orderby {
+        display: flex;
+        justify-content: flex-end;
     }
 </style>
 
@@ -151,7 +172,7 @@ else
             MinPrice = 0
         };
         pizza = await pizzaService.GetPizzaAsync(parameters);
-        elementCount = await pizzaService.GetCarCountAsync(parameters);
+        elementCount = await pizzaService.GetPizzaCountAsync(parameters);
     }
 
     protected async Task OnPage(MatPaginatorPageEvent e)
@@ -181,6 +202,6 @@ else
             OrderBy = orderBy
         };
         pizza = await pizzaService.GetPizzaAsync(parameters);
-        elementCount = await pizzaService.GetCarCountAsync(parameters);
+        elementCount = await pizzaService.GetPizzaCountAsync(parameters);
     }
 }

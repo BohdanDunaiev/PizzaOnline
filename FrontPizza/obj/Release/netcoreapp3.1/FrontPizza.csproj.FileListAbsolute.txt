@@ -197,7 +197,6 @@ C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcorea
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\BlazorInputFile.dll
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\FluentValidation.dll
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
-C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Authorization.dll
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Components.dll
@@ -313,7 +312,15 @@ C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcorea
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\MatBlazor.dll
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Blazor.HttpClient.dll
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.shared.LoginDisplay.resources
-C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.shared.LoginDisplay.ua.resources
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.shared.NavMenu.resources
-C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.shared.NavMenu.ua.resources
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.csproj.GenerateResource.cache
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\bin\Release\netcoreapp3.1\uk\FrontPizza.resources.dll
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.shared.LoginDisplay.uk.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.shared.NavMenu.uk.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\uk\FrontPizza.resources.dll
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.pizza.IndexP.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.pizza.PizzaAdd.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.pizza.PizzaId.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.pizza.IndexP.uk.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.pizza.PizzaAdd.uk.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.pizza.PizzaId.uk.resources
