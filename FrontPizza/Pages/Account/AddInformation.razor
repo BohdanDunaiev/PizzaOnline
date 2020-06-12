@@ -1,0 +1,51 @@
+﻿@inject FrontPizza.Data.CustomerService customerService
+@inject AuthenticationStateProvider authentificationStateProvider
+@inject NavigationManager nagivationManager
+@using FrontPizza.Validation
+@inject IStringLocalizer<AddInformation> L
+@page "/account/inputData"
+@attribute [Authorize]
+<h3>@L["AddInformation"]</h3>
+<hr />
+<EditForm Model="@customer" OnValidSubmit="@Update">
+    <FluentValidator TValidator="CustomerViewModelValidator" />
+    <p>@Error</p>
+    <p>
+        <MatTextField @bind-Value="customer.lastName" Label="@L["Last name"]"></MatTextField>
+    </p>
+    <p>
+        <MatTextField @bind-Value="customer.firstName" Label="@L["First name"]"></MatTextField>
+    </p>
+    <p>
+        <MatTextField @bind-Value="customer.secondName" Label="@L["Second name"]"></MatTextField>
+    </p>
+    <p>
+        <MatTextField @bind-Value="customer.adress" Label="@L["Address"]"></MatTextField>
+    </p>
+    <p>
+        <MatTextField @bind-Value="customer.phoneNumber" Label="@L["Phone number"]"></MatTextField>
+    </p>
+    <button type="submit" class="btn btn-sm btn-primary">@L["Update"]</button>
+</EditForm>
+@code {
+    CustomerViewModel customer { get; set; } = new CustomerViewModel();
+
+    public string Error { get; set; } = "";
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authentificationStateProvider.GetAuthenticationStateAsync();
+        var customerId = authState.User.Claims.First(x => x.Type == "customerId").Value;
+        customer = await customerService.GetCustomerByIdAsync(Int32.Parse(customerId));
+    }
+    public async Task Update()
+    {
+        Error = "";
+        var result = await customerService.UpdateCustomerAsync(customer);
+        if (!result.IsSuccessStatusCode)
+            Error = result.StatusCode.ToString();
+        else
+            nagivationManager.NavigateTo("/account");
+    }
+
+}
+

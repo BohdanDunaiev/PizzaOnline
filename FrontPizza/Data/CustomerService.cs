@@ -16,7 +16,7 @@ namespace FrontPizza.Data
             _httpClient = client;
             _localStorage = localStorage;
         }
-        public async Task<CustomerViewModel> GetClientsByIdAsync(int id)
+        public async Task<CustomerViewModel> GetCustomerByIdAsync(int id)
         {
             string token = await _localStorage.GetItemAsync<string>("authToken");
             _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
@@ -28,12 +28,12 @@ namespace FrontPizza.Data
             using var responseContent = await response.Content.ReadAsStreamAsync();
             return await JsonSerializer.DeserializeAsync<CustomerViewModel>(responseContent);
         }
-        public async Task<HttpResponseMessage> UpdateClientAsync(CustomerViewModel client)
+        public async Task<HttpResponseMessage> UpdateCustomerAsync(CustomerViewModel customer)
         {
             string token = await _localStorage.GetItemAsync<string>("authToken");
             _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-            return await _httpClient.PutAsync($"api/client", GetStringContentFromObject(client));
+            return await _httpClient.PutAsync($"api/customer", GetStringContentFromObject(customer));
         }
         private StringContent GetStringContentFromObject(object obj)
         {

@@ -1,0 +1,62 @@
+﻿@using System.IO
+@inject FrontPizza.Data.CustomerService customerService
+@inject AuthenticationStateProvider authentificationStateProvider
+@inject NavigationManager navigationManager
+@page "/account/photo"
+@inject IStringLocalizer<ChangePhoto> L
+@attribute [Authorize]
+<h3>@L["Change photo"]</h3>
+<hr />
+
+<p>@Error</p>
+<InputFile OnChange="HandleFileSelected" />
+@if (file != null)
+{
+    <p>@L["File downloand"] : @file.Name</p>
+    <p></p>    
+    <button @onclick="Insert">@L["Insert"]</button>
+}
+@code {
+    public CustomerViewModel customer { get; set; } = new CustomerViewModel();
+
+    IFileListEntry file;
+    public string Error { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await authentificationStateProvider.GetAuthenticationStateAsync();
+        var customerId = authState.User.Claims.First(x => x.Type == "customerId").Value;
+        customer = await customerService.GetCustomerByIdAsync(Int32.Parse(customerId));
+    }
+    void HandleFileSelected(IFileListEntry[] files)
+    {
+        file = files.FirstOrDefault();
+    }
+    public async Task Insert()
+    {
+        try
+        {
+            if (file == null)
+                throw new Exception("File not found");
+            if (file.Type != "image/jpeg")
+                throw new Exception("File in the wrong format! Please use .jpg");
+
+            var newFile = await file.ToImageFileAsync("image/jpeg", 150, 150);
+
+            var ms = new MemoryStream();
+            await newFile.Data.CopyToAsync(ms);
+            byte[] bytefile = ms.GetBuffer(); 
+            customer.photo = bytefile;
+
+            var result = await customerService.UpdateCustomerAsync(customer);
+            if (!result.IsSuccessStatusCode)
+                throw new Exception(result.StatusCode.ToString());
+            navigationManager.NavigateTo("/account");
+        }
+        catch (Exception e)
+        {
+            Error = e.Message;
+        }
+    }
+
+}

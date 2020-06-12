@@ -1,10 +1,12 @@
 ﻿@inject FrontPizza.Data.CustomerService customerService
 @inject AuthenticationStateProvider authentificationStateProvider
+@inject IStringLocalizer<Account> L
 @page "/account"
 @attribute [Authorize]
 @if (customer != null)
 {
-    <h3>["Account"]</h3>
+    <h3>@L["Account: "] @Username</h3> 
+    <p><b>@L["Email"]: </b>@Email</p>
     <hr />
     <style>
         img {
@@ -45,29 +47,20 @@
             <h3>@Username</h3>
         </div>
         <br />
-        <a href="/myaccount/photo" class="btn btn-sm btn-primary">["Change photo"]</a>
+        <a href="/account/photo" class="btn btn-sm btn-primary">@L["Change photo"]</a>
         <br />
         <br />
         <hr />
 
-        <h4>["Personal information"] :</h4>
-        <p><b>["Last name"]: </b>@customer.lastName</p>
-        <p><b>["First name"]: </b>@customer.firstName</p>
-        <p><b>["Second name"]: </b>@customer.secondName</p>
-        <p><b>["Address"]: </b>@customer.adress</p>
-        <p><b>["Phone number"]: </b>@customer.phoneNumber</p>
-        <a class="btn btn-primary" href="/myaccount/modify">["Modify"]</a>
+        <h4>@L["Personal information"] :</h4>
+        <p><b>@L["Last name"]: </b>@customer.lastName</p>
+        <p><b>@L["First name"]: </b>@customer.firstName</p>
+        <p><b>@L["Second name"]: </b>@customer.secondName</p>
+        <p><b>@L["Address"]: </b>@customer.adress</p>
+        <p><b>@L["Phone number"]: </b>@customer.phoneNumber</p>
+        <a class="btn btn-primary" href="/account/inputData">@L["Enter information about yourself"]</a>
         <br />
         <br />
-        <hr />
-
-        <h4>["Account information"]:</h4>
-        <p><b>["Username"]: </b>@Username</p>
-        <p><b>["Email"]: </b>@Email</p>
-        <a class="btn btn-primary" href="/myaccount/changePassword">["Change password"]</a>
-        <br />
-        <br />
-
     </div>
 }
 @code {
@@ -81,7 +74,7 @@
         var clientId = authState.User.Claims.First(x => x.Type == "customerId").Value;
         Username = authState.User.Identity.Name;
         Email = authState.User.Claims.First(x => x.Type == "email").Value;
-        customer = await customerService.GetClientsByIdAsync(Int32.Parse(clientId));
+        customer = await customerService.GetCustomerByIdAsync(Int32.Parse(clientId));
         base64string = Convert.ToBase64String(customer.photo);
     }
 }

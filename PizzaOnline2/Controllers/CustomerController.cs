@@ -9,8 +9,8 @@ using PizzaOnline2.BLL.IServices;
 
 namespace PizzaOnline2.Controllers
 {
-    [Route("api/[controller]")]
     [Authorize(AuthenticationSchemes = "Bearer")]
+    [Route("api/[controller]")]  
     public class CustomerController : Controller
     {
         #region Properties
@@ -43,7 +43,14 @@ namespace PizzaOnline2.Controllers
         [HttpGet("{id}")]      
         public async Task<IActionResult> GetByIdCustomer(int id)
         {
-            return Ok(await _customerService.GetByIdCustomer(id));
+            try
+            {
+                return Ok(await _customerService.GetByIdCustomer(id));
+            }
+            catch
+            {
+                return StatusCode(404);
+            }            
         }
 
         [HttpPost]
@@ -63,14 +70,14 @@ namespace PizzaOnline2.Controllers
             }
         }
 
-        [Route("Customer/{customers}")]
+        [Authorize]
         [HttpPut]
         public async Task<IActionResult> Put([FromBody]DTOCustomer customer)
         {
             try
             {
                 await _customerService.UpdateCustomer(customer);
-                return StatusCode(200);
+                return Ok(204);
             }
             catch
             {

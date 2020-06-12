@@ -45,6 +45,10 @@ namespace FrontPizza
                 options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
                 options.SupportedUICultures = supportedCultures;
             });
+            services.AddHttpClient<Data.CustomerService>(customer =>
+            {
+                customer.BaseAddress = new Uri("https://localhost:44360");
+            });
             services.AddHttpClient<Data.PizzaService>(customer =>
             {
                 customer.BaseAddress = new Uri("https://localhost:44360");

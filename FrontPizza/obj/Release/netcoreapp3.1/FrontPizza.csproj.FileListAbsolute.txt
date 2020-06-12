@@ -324,3 +324,13 @@ C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcorea
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.pizza.IndexP.uk.resources
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.pizza.PizzaAdd.uk.resources
 C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.pizza.PizzaId.uk.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.Account.Account.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.Account.Account.uk.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.Account.ChangePhoto.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.Account.ChangePhoto.uk.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Account\ChangePhoto.razor.g.cs
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Account\ChangePhoto.razor.g.cs
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\RazorDeclaration\Pages\Account\AddInformation.razor.g.cs
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\Razor\Pages\Account\AddInformation.razor.g.cs
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.Account.AddInformation.resources
+C:\Users\Василь\Desktop\Pizzza\PizzaOnline\FrontPizza\obj\Release\netcoreapp3.1\FrontPizza.Resources.pages.Account.AddInformation.uk.resources

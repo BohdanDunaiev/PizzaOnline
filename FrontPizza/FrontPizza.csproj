@@ -30,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\default_images\" />
     <Folder Include="wwwroot\pizza_images\" />
   </ItemGroup>
 

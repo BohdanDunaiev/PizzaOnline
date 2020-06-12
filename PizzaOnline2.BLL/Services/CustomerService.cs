@@ -48,10 +48,10 @@ namespace PizzaOnline2.BLL.Services
             var info = await _unitOfWork.CustomerRepository.GetByIdAsyn(id);
             return _mapper.Map<Customer, DTOCustomer>(info);
         }
-        public async Task InsertCustomer(DTOCustomer customer)
+        public async Task<int> InsertCustomer(DTOCustomer customer)
         {
             var info = _mapper.Map<DTOCustomer, Customer>(customer);
-            await _unitOfWork.CustomerRepository.InsertAsyn(info);
+            return await _unitOfWork.CustomerRepository.InsertAsyn(info);
         }
         public async Task UpdateCustomer(DTOCustomer customer)
         {
