@@ -13,16 +13,16 @@
 else
 {
     <body>
-        <div class="info1">@pizza.namePizza</div>
+        <div class="name">@pizza.namePizza</div>
         <div class="tools">
-            <div class="imga"><img src="@pizza.image"></div>
+            <div class="imgP"><img src="@pizza.image"></div>
 
 
             <div class="column">
-                <div class="info2" style="font-size: 15pt;	">@L["Price"]:</div>
+                <div class="data" style="font-size: 15pt;	">@L["Price"]:</div>
                 <div class="cina">@pizza.price $</div>
                 <br><br>
-                    <div class="info2">
+                    <div class="data">
                         @L["Ingradients"]:
                         <br />
                         @L["Dough"]: @ingradients.dough<br />
@@ -34,7 +34,7 @@ else
                         @L["Size"]: @pizza.size
                     </div>
                 <br><br>
-                <a class="buy"><div>@L["Order"]</div></a>
+                <a class="order"><div>@L["Order"]</div></a>
                 <br>
             </div>           
         </div>
@@ -45,7 +45,7 @@ else
             background: url(pizza_images/background.png) no-repeat fixed;
         }
 
-        .info1 {
+        .name {
             font-family: URW Chancery L, cursive;
             font-size: 18pt;
             text-shadow: 2px 2px 10px #757575;
@@ -55,7 +55,7 @@ else
             clear: both;
         }
 
-        .info2 {
+        .data {
             font-family: URW Chancery L, cursive;
             margin-top: 3%;
             width: 250px;
@@ -76,7 +76,7 @@ else
             margin-left: 3%;
         }
 
-        .imga img {
+        .imgP img {
             float: left;
             margin-top: 20px;
             margin-left: 2%;
@@ -84,7 +84,7 @@ else
             transition: 0.3s linear;
         }
 
-            .imga img:hover {
+            .imgP img:hover {
                 -webkit-transform: scale(1.1);
                 transform: scale(1.1);
             }
@@ -100,7 +100,7 @@ else
             font-family: URW Chancery L, cursive;
         }
 
-        .buy {
+        .order {
             background-color: #ffd800;
             width: 30%;
             height: 30px;
@@ -113,7 +113,7 @@ else
             transition: 0.2s linear;
         }
 
-            .buy :hover {
+            .order :hover {
                 color: black;
                 transition: 0.4s linear;
             }
