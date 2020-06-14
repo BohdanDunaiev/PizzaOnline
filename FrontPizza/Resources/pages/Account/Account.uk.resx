@@ -126,6 +126,9 @@
   <data name="Change photo" xml:space="preserve">
     <value>Змінити фото</value>
   </data>
+  <data name="Downloads" xml:space="preserve">
+    <value>Загрузка</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Емайл</value>
   </data>

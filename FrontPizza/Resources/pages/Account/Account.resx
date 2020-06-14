@@ -126,6 +126,9 @@
   <data name="Change photo" xml:space="preserve">
     <value>Change photo</value>
   </data>
+  <data name="Downloads" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>

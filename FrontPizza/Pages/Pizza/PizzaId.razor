@@ -15,34 +15,39 @@ else
     <body>
         <div class="name">@pizza.namePizza</div>
         <div class="tools">
-            <div class="imgP"><img src="@pizza.image"></div>
-
-
-            <div class="column">
+            <div class="imgP"><img src="@pizza.image"></div>        
+            <div class="dataP">
                 <div class="data" style="font-size: 15pt;	">@L["Price"]:</div>
-                <div class="cina">@pizza.price $</div>
+                <div class="price">@pizza.price $</div>
                 <br><br>
-                    <div class="data">
-                        @L["Ingradients"]:
-                        <br />
-                        @L["Dough"]: @ingradients.dough<br />
-                        @L["Tomate"]: @ingradients.tomate<br />
-                        @L["Meet"]: @ingradients.meet<br />
-                        @L["Cheese"]: @ingradients.cheese<br />
-                        @L["Sous"]: @ingradients.sous<br />
-                        @L["Additionally"]: @ingradients.additionally<br>
-                        @L["Size"]: @pizza.size
-                    </div>
+                <div class="data">
+                    @L["Ingradients"]:
+                    <br />
+                    @L["Dough"]: @ingradients.dough<br />
+                    @L["Tomate"]: @ingradients.tomate<br />
+                    @L["Meet"]: @ingradients.meet<br />
+                    @L["Cheese"]: @ingradients.cheese<br />
+                    @L["Sous"]: @ingradients.sous<br />
+                    @L["Additionally"]: @ingradients.additionally<br>
+                    @L["Size"]: @pizza.size
+                </div>
                 <br><br>
-                <a class="order"><div>@L["Order"]</div></a>
-                <br>
-            </div>           
+            </div>
+            <div class="button">
+                <button class="btn btn-primary">@L["Order"]</button>
+            </div>
+            <br>
         </div>
     </body>
 
     <style>
         body {
             background: url(pizza_images/background.png) no-repeat fixed;
+        }
+
+        .button {
+            margin-top: -15%;
+            margin-left: 3%;
         }
 
         .name {
@@ -64,7 +69,7 @@ else
             clear: both;
         }
 
-        .column {
+        .dataP {
             display: flex;
             flex-direction: column;
         }
@@ -89,7 +94,7 @@ else
                 transform: scale(1.1);
             }
 
-        .cina {
+        .price {
             background-color: #0094ff;
             width: 135px;
             height: 6%;
@@ -99,37 +104,11 @@ else
             text-align: center;
             font-family: URW Chancery L, cursive;
         }
-
-        .order {
-            background-color: #ffd800;
-            width: 30%;
-            height: 30px;
-            margin-left: 6%;
-            padding: 5px;
-            font-family: URW Chancery L, cursive;
-            text-align: center;
-            color: white;
-            cursor: pointer;
-            transition: 0.2s linear;
-        }
-
-            .order :hover {
-                color: black;
-                transition: 0.4s linear;
-            }
-
-        .column1 {
-            background-color: white;
-            border-radius: 25px;
-            border: 1px solid black;
-            width: 425px;
-            display: flex;
-            flex-direction: column;
-        }
     </style>
 }
 
 @code {
+    public string СustomerId { get; set; } = "";
     PizzaViewModel pizza;
     IngradientsViewModel ingradients;
     string image;
@@ -137,9 +116,9 @@ else
     public string Id { get; set; }
 
     protected override async Task OnInitializedAsync()
-    {
+    {        
         pizza = await pizzaService.GetPizzaById(Convert.ToInt32(Id));
         image = pizza.image;
         ingradients = await ingredientService.GetByIdIngredients(pizza.ingredientsId);
-    }
+    }    
 }
